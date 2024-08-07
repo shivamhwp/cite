@@ -3,19 +3,13 @@ import Layout from "../layouts/layout.astro";
 import {socials} from "../data";
 ---
 
-<Layout	title="home">
+<Layout	title="shivam.ing">
 
 	<div class="px-4 ">
-		<div class="xl:text-6xl 2xl:text-7xl lg:text-5xl text-5xl font-black  py-16 flex items-center justify-center ">
+		<div class="xl:text-6xl 2xl:text-7xl lg:text-5xl text-5xl font-black  flex  ">
 	   <span> shivam.</span>  
 		</div>
 		<div class=" flex justify-center flex-col w-full  items-start lg:pt-6 xl:pt-2 2xl:pt-2 pt-8 pb-2">
-		  <div class="text-lg xl:text-xl p-1 2xl:text-xl lg:text-xl   ">
-			adaptable full-stack web developer. i like to code and read. while not coding, i am either reading science articles, watching movies or anime.
-		  </div>
-		</div>
-		<div class="text-white 2xl:text-4xl xl:text-3xl lg:text-2xl text-xl font-black pt-4">
-		  links
 		</div>
 		<div class="flex  p-1 lg:pt-6 xl:pt-2 2xl:pt-2 gap-3">
 		  {socials?.map((x) => (
@@ -23,7 +17,7 @@ import {socials} from "../data";
 			  <a
 				href={x?.link}
 				target="_blank"
-				class={`p-1 hover:bg-white hover:text-black 2xl:text-2xl xl:text-xl lg:text-lg text-lg`}
+				class={` hover:underline decoration-white 2xl:text-2xl xl:text-xl lg:text-lg text-lg`}
 			  >
 				<span>{x.title}</span>
 			  </a>

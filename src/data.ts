@@ -1,11 +1,3 @@
-import {
-  RiLinkedinFill,
-  RiTwitterXFill,
-  RiGithubFill,
-  RiYoutubeFill,
-  type RemixiconComponentType,
-} from "@remixicon/react";
-
 export type project = {
   id: number;
   title: string;
@@ -18,7 +10,6 @@ export type social = {
   id: number;
   title: string;
   link: string;
-  icon: RemixiconComponentType | null;
   color?: string;
 };
 export type skill = {
@@ -67,37 +58,28 @@ export const socials: social[] = [
     id: 1,
     title: "x.com",
     link: "https://twitter.com/shivamhwp",
-    icon: RiTwitterXFill,
-    color: "text-blue-500",
   },
   {
     id: 2,
     title: "github",
     link: "https://github.com/shivamhwp",
-    icon: RiGithubFill,
-    color: "text-gray-200",
   },
 
   {
     id: 3,
     title: "linkedin",
     link: "https://linkedin.com/in/shivamhwp",
-    icon: RiLinkedinFill,
-    color: "text-blue-600",
   },
 
   {
     id: 4,
     title: "youtube",
     link: "https://www.youtube.com/@shivamhwp_",
-    icon: RiYoutubeFill,
-    color: "text-red-600",
   },
   {
     id: 5,
     title: "resume",
     link: "https://github.com/shivamhwp/shivamhwp/blob/main/about/resume.md",
-    icon: null,
   },
 ];
 
