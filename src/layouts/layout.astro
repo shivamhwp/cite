@@ -1,0 +1,18 @@
+---
+import Topnav from "../topnav";
+const { title } = Astro.props;
+
+const path = Astro.url.pathname
+
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{title}</title>
+  </head>
+  <body class="8fixed bg-black  selection:bg-white md:px-24 lg:px-48 xl:px-64 2xl:px-96 min-h-screen w-screen flex-col text-white text-opacity-70 ">
+    <Topnav path={path} client:load/>
+<slot />
+  </body>
+</html>
