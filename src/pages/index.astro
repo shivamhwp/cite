@@ -3,25 +3,20 @@ import Layout from "../layouts/layout.astro";
 import {socials} from "../data";
 ---
 
-<Layout	title="shivam.ing">
+<Layout	title="main">
 
 	<div class="px-4 ">
-		<div class="xl:text-6xl 2xl:text-7xl lg:text-5xl text-5xl font-black  flex  ">
-	   <span> shivam.</span>  
-		</div>
-		<div class=" flex justify-center flex-col w-full  items-start lg:pt-6 xl:pt-2 2xl:pt-2 pt-8 pb-2">
-		</div>
-		<div class="flex  p-1 lg:pt-6 xl:pt-2 2xl:pt-2 gap-3">
+	<div class="xl:text-6xl 2xl:text-7xl lg:text-5xl text-5xl font-bold  flex justify-between pt-16 ">
+		shivam
+	</div>
+	<a  href="/cinema" class="flex flex-col text-5xl text-black font-semibold text-opacity-60 hover:text-opacity-100 fixed bottom-8 left-8 max-sm:text-4xl   lg:pt-6 xl:pt-2 2xl:pt-2  ">🎥</a>
+		<div class="flex flex-col fixed bottom-8 right-8 max-sm:text-3xl  h-auto w-auto  p-1 lg:pt-6 xl:pt-2 2xl:pt-2 gap-2">
 		  {socials?.map((x) => (
-			<div>
 			  <a
 				href={x?.link}
 				target="_blank"
-				class={` hover:underline decoration-white 2xl:text-2xl xl:text-xl lg:text-lg text-lg`}
-			  >
-				<span>{x.title}</span>
-			  </a>
-			</div>
+				class=" hover:text-opacity-60 max-sm:underline font-semibold text-black  2xl:text-5xl xl:text-5xl lg:text-lg text-3xl"
+			  >{x.title}</a>
 		  ))}
 		</div>
 	  </div>
