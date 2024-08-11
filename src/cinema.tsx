@@ -67,7 +67,7 @@ const songs = [
 export default function CinemaComponent() {
   return (
     <div
-      className={`bg-white selection:text-black  max-sm:pl-4 lg:pl-56 xl:pl-56 pt-8 h-screen w-screen text-black  `}
+      className={`bg-black selection:text-black  max-sm:pl-4 lg:pl-56 xl:pl-56 pt-8 h-screen w-screen text-white  `}
     >
       <div className="flex justify-between h-full w-full ">
         <div className="gap-8 text-xl">
@@ -76,7 +76,7 @@ export default function CinemaComponent() {
               return (
                 <div
                   key={movie.title}
-                  className={`font-semibold text-8xl text-black hover:text-opacity-70  max-sm:text-4xl `}
+                  className={`font-semibold text-8xl text-white hover:text-opacity-70  max-sm:text-4xl `}
                 >
                   {movie.title}
                 </div>
@@ -84,7 +84,7 @@ export default function CinemaComponent() {
             })}
           </div>
 
-          <ul className="pt-8 pb-16">
+          <ul className="pt-8 pb-16 ">
             {songs.map((song) => {
               return (
                 <li className=" hover:underline " key={song.title}>
