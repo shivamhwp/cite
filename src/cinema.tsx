@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const movies = [
   {
     title: "Attack On Titan",
@@ -8,7 +6,7 @@ const movies = [
     title: "Fullmetal Alchemist:Brotherhood",
   },
   {
-    title: "Kengen Ashura",
+    title: "Jujutsu Kaisen",
   },
   {
     title: "Demon Slayer",
@@ -69,7 +67,7 @@ export default function CinemaComponent() {
     <div
       className={`bg-black selection:text-black  max-sm:pl-4 lg:pl-56 xl:pl-56 pt-8 h-screen w-screen text-white  `}
     >
-      <div className="flex justify-between h-full w-full ">
+      <div className="flex justify-between h-full w-full  bg-no-repeat ">
         <div className="gap-8 text-xl">
           <div className="flex flex-col">
             {movies.map((movie) => {
@@ -83,8 +81,8 @@ export default function CinemaComponent() {
               );
             })}
           </div>
-
-          <ul className="pt-8 pb-16 ">
+          <hr className="border-white my-12" />
+          <ul className=" pb-16 ">
             {songs.map((song) => {
               return (
                 <li className=" hover:underline " key={song.title}>
