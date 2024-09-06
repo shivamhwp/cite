@@ -7,20 +7,20 @@ import Layout from "../layouts/layout.astro";
     <div class=" h-full w-full flex flex-col items-center justify-center gap-4 ">
       <a
       href="/cinema"
-      class="rounded-full px-3 py-1 text-black border hover:bg-black hover:text-[#eeeee7]  border-black fixed top-4 right-4 transition duration-300 lg:text-2xl xl:text-2xl"
+      class="rounded-full px-2 py-1 text-black border hover:bg-black hover:text-[#eeeee7]  border-black fixed top-4 right-4 transition duration-300 lg:text-2xl xl:text-2xl"
     >
       cinema
     </a>
-<div class=" flex flex-col gap-3 w-auto items-start">
+<div class=" flex flex-col gap-2 w-auto items-start">
     <div class="font-black text-5xl">shivam</div>
-      <div class="gap-3 flex ">
+      <div class="gap-2 flex ">
         {socials?.map((x) => (
           <a
             href={x?.link}
             target="_blank"
             class="rounded-full px-3 py-1 text-black border hover:bg-black hover:text-[#eeeee7] transition duration-300   border-black  lg:text-2xl xl:text-2xl "
           >
-           ↗ {x.title}
+           {x.title}
           </a>
         ))}
       </div>
