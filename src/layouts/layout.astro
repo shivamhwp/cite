@@ -15,9 +15,9 @@ const path = Astro.url.pathname;
         <title>{title}</title>
     </head>
     <body
-        class="bg-black pt-6 md:pt-12 text-opacity-80 lg:pt-12 xl:pt-12 2xl:pt-12 md:px-48  lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col px-4 text-white"
+        class="bg-black pt-6 md:pt-12 text-opacity-80 lg:pt-12 xl:pt-12 2xl:pt-12 md:px-40    lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col px-4 text-white"
     >
-    <TopNav client:only/>    
+    <TopNav pathname={path} />
     <slot />
     </body>
 </html>

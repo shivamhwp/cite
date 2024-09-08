@@ -122,7 +122,7 @@ export const projects: project[] = [
 export const socials: social[] = [
   {
     id: 1,
-    title: "x.com",
+    title: "x",
     link: "https://twitter.com/shivamhwp",
   },
   {
@@ -139,7 +139,7 @@ export const socials: social[] = [
 
   {
     id: 4,
-    title: "youtube",
+    title: "yt",
     link: "https://www.youtube.com/@shivamhwp_",
   },
 ];

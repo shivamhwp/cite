@@ -7,13 +7,13 @@ import Layout from "../layouts/layout.astro";
     <div class="h-full w-full flex flex-col gap-4 pt-12">
         <div class="flex flex-col gap-2 w-auto items-start">
             <div class=" text-4xl font-bold">shivam.</div>
-            <div class="gap-4 text-xl flex pt-4">
+            <div class="gap-4 max-sm:gap-3  md:text-xl lg:text-xl xl:text-xl flex pt-4">
                 {
                     socials?.map((x) => (
                         <a
                             href={x?.link}
                             target="_blank"
-                            class="rounded-full  border hover:underline  border-black md:texl-xl  lg:text-2xl xl:text-2xl "
+                            class="rounded-full flex  border hover:underline  border-black md:texl-xl  lg:text-2xl xl:text-2xl "
                         >
                             {x.title} ↗
                         </a>

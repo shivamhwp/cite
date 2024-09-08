@@ -3,7 +3,7 @@ import { movies, songs } from "./data";
 export default function CinemaComponent() {
   return (
     <div
-      className={`bg-black text-opacity-80 max-sm:pl-4 lg:pl-48 xl:pl-48 pt-8 h-screen w-screen  text-white   `}
+      className={`bg-black text-opacity-80 max-sm:pl-4 md:pl-24 lg:pl-48 xl:pl-48 pt-8 h-screen w-screen  text-white   `}
     >
       <div className="flex justify-between h-full w-full bg-no-repeat ">
         <div className="gap-8 text-xl">
@@ -12,7 +12,7 @@ export default function CinemaComponent() {
               return (
                 <div
                   key={movie.title}
-                  className={`font-semibold text-8xl  hover:text-opacity-70  max-sm:text-4xl `}
+                  className={`font-semibold text-8xl md:text-6xl hover:text-opacity-70  max-sm:text-3xl `}
                 >
                   {movie.title}
                 </div>
