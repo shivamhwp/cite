@@ -3,9 +3,9 @@ import { movies, songs } from "./data";
 export default function CinemaComponent() {
   return (
     <div
-      className={`bg-[#EEEEE7] selection:text-black  max-sm:pl-4 lg:pl-48 xl:pl-48 pt-8 h-screen w-screen text-opacity-95 text-black  `}
+      className={`bg-black text-opacity-80 max-sm:pl-4 lg:pl-48 xl:pl-48 pt-8 h-screen w-screen  text-white   `}
     >
-      <div className="flex justify-between h-full w-full  bg-no-repeat ">
+      <div className="flex justify-between h-full w-full bg-no-repeat ">
         <div className="gap-8 text-xl">
           <div className="flex flex-col">
             {movies.map((movie) => {

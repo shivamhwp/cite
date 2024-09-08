@@ -1,4 +1,6 @@
 ---
+import { TopNav } from "../topnav";
+
 const { title } = Astro.props;
 
 const path = Astro.url.pathname;
@@ -13,8 +15,9 @@ const path = Astro.url.pathname;
         <title>{title}</title>
     </head>
     <body
-        class="bg-[#EEEEE7] selection:text-[#eeeee7] selection:bg-black md:px-24 lg:px-36 xl:px-36 2xl:px-36 h-screen w-screen flex-col px-2 text-black"
+        class="bg-black pt-6 md:pt-12 text-opacity-80 lg:pt-12 xl:pt-12 2xl:pt-12 md:px-48  lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col px-4 text-white"
     >
-        <slot />
+    <TopNav client:only/>    
+    <slot />
     </body>
 </html>
