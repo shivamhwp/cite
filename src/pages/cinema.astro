@@ -1,16 +1,9 @@
 ---
+import Layout from "../layouts/layout.astro";
 import CinemaComponent from "../cinema";
+
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="description" content="shivam.ing" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>cinema</title>
-    </head>
-    <body class="bg-black text-white text-opacity-80">
-        <CinemaComponent client:load />
-    </body>
-</html>
+<Layout>
+    <CinemaComponent client:load />
+</Layout>

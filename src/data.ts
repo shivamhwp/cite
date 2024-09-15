@@ -10,7 +10,6 @@ export type social = {
   id: number;
   title: string;
   link: string;
-  color?: string;
 };
 export type skill = {
   id: number;
@@ -122,7 +121,7 @@ export const projects: project[] = [
 export const socials: social[] = [
   {
     id: 1,
-    title: "x",
+    title: "x.com",
     link: "https://twitter.com/shivamhwp",
   },
   {
