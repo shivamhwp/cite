@@ -12,29 +12,3 @@ export function TopNav(props: { pathname: string }) {
     </div>
   );
 }
-
-// export function TopNav(props: { pathname: string }) {
-//   return (
-//     <div className="flex gap-4 text-xl  justify-between">
-//       <div></div>
-//       <div className="gap-4 flex">
-//         <a
-//           href="/"
-//           className={`hover:underline ${
-//             props.pathname === "/" ? "underline" : ""
-//           }`}
-//         >
-//           home
-//         </a>
-//         <a
-//           href="/cinema"
-//           className={` hover:underline  hover:pointer${
-//             props.pathname === "cinema" ? "underline" : ""
-//           }`}
-//         >
-//           cinema
-//         </a>
-//       </div>
-//     </div>
-//   );
-// }
