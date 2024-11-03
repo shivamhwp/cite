@@ -63,9 +63,6 @@ export const movies = [
     title: "Se7en",
   },
   {
-    title: "Fight Club",
-  },
-  {
     title: "Hunter x Hunter(2011)",
   },
   {
@@ -140,6 +137,11 @@ export const socials: social[] = [
     id: 4,
     title: "yt",
     link: "https://www.youtube.com/@shivamhwp_",
+  },
+  {
+    id: 5,
+    title: "bsky",
+    link: "https://bsky.app/profile/shivamhwp.bsky.social",
   },
 ];
 

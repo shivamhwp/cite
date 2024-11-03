@@ -1,24 +1,33 @@
 ---
 import { TopNav } from "../topnav";
 
-const { title } = Astro.props;
-
 const path = Astro.url.pathname;
+
+const siteTitle = "shivam"
+const description = "developer,shivamhwp on socials."
+
 ---
 
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="description" content="shivam.ing" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{title}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="/favicon.svg" />
+        <meta name="description" content={description} />
+        <meta name="twitter:image" content="https://utfs.io/f/38t7p527clgqIjzbNkaMNspr61keuaXCISjAEZnKvgWcqFUx" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@shivamhwp" />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="https://utfs.io/f/38t7p527clgqIjzbNkaMNspr61keuaXCISjAEZnKvgWcqFUx" />
+        <title>{siteTitle}</title>
     </head>
 
     <body
-        class="bg-[#090909] pt-6 md:pt-12 lg:pt-12 text-opacity-80 xl:pt-12 2xl:pt-12 max-sm:px-4 md:px-24 lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col  text-white"
+        class="bg-[#1C1C1C] pt-6 md:pt-12 lg:pt-12 text-opacity-80 xl:pt-12 2xl:pt-12 max-sm:px-4 md:px-24 lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col  text-white"
     >
-        <TopNav pathname={path} />
-        <slot />
+        <TopNav pathname={path}  />
+        <slot  />
     </body>
 </html>
+

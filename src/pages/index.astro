@@ -1,21 +1,41 @@
 ---
 import { socials } from "../data";
 import Layout from "../layouts/layout.astro";       
+
+const siteTitle = "shivam"
+const description = "shivamhwp on socials."
+
 ---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta name="twitter:image" content="https://utfs.io/f/38t7p527clgqIjzbNkaMNspr61keuaXCISjAEZnKvgWcqFUx" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@shivamhwp" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://utfs.io/f/38t7p527clgqIjzbNkaMNspr61keuaXCISjAEZnKvgWcqFUx" />
+    <title>{siteTitle}</title>
+    <meta name="theme-color" content="##1C1C1C" />
+</head>
+
 
 <Layout title="shivam">
     <div class="h-full w-full flex flex-col gap-4 pt-12 max-sm:pt-16 ">
         <div class="flex flex-col gap-2 w-auto items-start">
-            <div class="text-4xl font-bold">shivam.</div>
+
             <div
-                class="gap-4 max-sm:gap-3 md:text-xl lg:text-xl xl:text-xl flex pt-4"
+                class="gap-4 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex pt-4"
             >
                 {
                     socials?.map((x) => (
                         <a
                             href={x?.link}
                             target="_blank"
-                             class={`flex text-xl md:text-xl lg:text-xl xl:text-xl  hover:underline`}
+                             class={`flex text-xl   transition duration-300 hover:bg-zinc-700 p-1`}
                         >
                             {x.title}
                         </a>

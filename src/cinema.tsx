@@ -16,11 +16,11 @@ export default function CinemaComponent() {
             );
           })}
         </div>
-        <hr className="border-black my-12" />
+        <hr className="border-white my-12" />
         <ul className="pb-16 ">
           {songs.map((song) => {
             return (
-              <li className=" hover:underline " key={song.title}>
+              <li className=" hover:bg-zinc-700 " key={song.title}>
                 <a href={song.link} target="_blank">
                   {song.title}
                 </a>
@@ -31,7 +31,7 @@ export default function CinemaComponent() {
       </div>
       <a
         href="/"
-        className=" font-medium fixed bottom-4 right-4   text-5xl max-sm:text-3xl p-2 rounded-full  hover:underline transition duration-300"
+        className=" font-medium fixed bottom-4 right-4   text-5xl max-sm:text-3xl p-2 hover:cursor-pointer  hover:bg-zinc-700 transition duration-300"
       >
         back
       </a>

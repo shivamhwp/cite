@@ -1,14 +1,13 @@
 ---
-import Layout from "../layouts/layout.astro";
-import CinemaComponent from "../cinema";
+import Layout from "../../layouts/layout.astro"
 
-const siteTitle = "cinema"
-const description = "i love it. if you love it we should talk. link : https://cal.com/shivamhwp/cinema"
+const siteTitle = "shivam's blog"
+const description = "serious dumps."
+
 ---
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" />
     <meta name="description" content={description} />
     <meta name="twitter:image" content="https://utfs.io/f/38t7p527clgqIjzbNkaMNspr61keuaXCISjAEZnKvgWcqFUx" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -20,6 +19,9 @@ const description = "i love it. if you love it we should talk. link : https://ca
     <meta name="theme-color" content="##1C1C1C" />
 </head>
 
+
+
 <Layout>
-    <CinemaComponent client:load />
+<div class="pt-14 p-1 flex text-xl">soon</div>
+
 </Layout>
