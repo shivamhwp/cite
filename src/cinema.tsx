@@ -20,8 +20,12 @@ export default function CinemaComponent() {
         <ul className="pb-16 ">
           {songs.map((song) => {
             return (
-              <li className=" hover:bg-zinc-700 " key={song.title}>
-                <a href={song.link} target="_blank">
+              <li className="" key={song.title}>
+                <a
+                  href={song.link}
+                  target="_blank"
+                  className="hover:bg-zinc-700 px-1"
+                >
                   {song.title}
                 </a>
               </li>

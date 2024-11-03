@@ -6,14 +6,12 @@ export function TopNav(props: { pathname: string }) {
           <a href="/" className="hover:bg-zinc-700 font-semibold p-1">
             shivam
           </a>
-          <div className="flex gap-4 font-semibold ">
-            <a href="/cinema" className="p-1 ">
-              .
-            </a>
-            <a href="/blog" className="p-1 hover:bg-zinc-700 ">
-              blog
-            </a>
-          </div>
+          <a
+            href="/blog"
+            className="flex gap-4 font-semibold p-1 hover:bg-zinc-700 "
+          >
+            blog
+          </a>
         </div>
       </div>
     </div>
