@@ -1,5 +1,6 @@
 ---
 import { TopNav } from "../topnav";
+import { Umami } from "astro-umami-analytics";
 
 
 const siteTitle = "shivam"
@@ -9,7 +10,7 @@ const description = ""
 
 <html lang="en">
     <head>
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="e044ab8d-b361-4d7d-a4f5-7f7e550aa3ef"></script>
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" href="/favicon.svg" />
@@ -24,6 +25,8 @@ const description = ""
         <meta property="og:url" content="https://www.shivam.ing">
         <meta property="og:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
         <title>{siteTitle}</title>
+
+        <Umami id=""e044ab8d-b361-4d7d-a4f5-7f7e550aa3ef/>
     </head>
 
     <body
