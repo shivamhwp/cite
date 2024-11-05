@@ -41,6 +41,10 @@ export const songs = [
     title: "1.4_1-squ4rewiththeuniverse.wma",
     link: "https://www.youtube.com/watch?v=n3x0GylBOM0",
   },
+  {
+    title: "night of the end",
+    link: "https://youtu.be/AVgrV4clLTc",
+  },
 ];
 
 export const movies = [

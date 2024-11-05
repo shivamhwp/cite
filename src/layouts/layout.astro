@@ -1,15 +1,15 @@
 ---
 import { TopNav } from "../topnav";
 
-const path = Astro.url.pathname;
 
 const siteTitle = "shivam"
-const description = "developer,shivamhwp on socials."
+const description = ""
 
 ---
 
 <html lang="en">
     <head>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="e044ab8d-b361-4d7d-a4f5-7f7e550aa3ef"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" href="/favicon.svg" />
@@ -21,7 +21,7 @@ const description = "developer,shivamhwp on socials."
         <meta property="og:title" content={siteTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:site_name" content="shivam.ing">
-        <meta property="og:url" content="shivam.ing">
+        <meta property="og:url" content="https://www.shivam.ing">
         <meta property="og:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
         <title>{siteTitle}</title>
     </head>
@@ -29,7 +29,7 @@ const description = "developer,shivamhwp on socials."
     <body
         class="bg-[#1C1C1C] pt-6 md:pt-12 lg:pt-12 text-opacity-80 xl:pt-12 2xl:pt-12 max-sm:px-4  md:px-24 lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen flex-col  text-white"
     >
-        <TopNav pathname={path}  />
+        <TopNav   />
         <slot  />
     </body>
 </html>
