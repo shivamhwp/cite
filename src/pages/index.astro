@@ -25,18 +25,18 @@ const description = "";
 
 
 <Layout title="shivam">
-    <div class="h-full w-full flex flex-col gap-4 pt-12 max-sm:pt-16 ">
+    <div class="h-full w-full flex flex-col gap-4 pt-10 max-sm:pt-16 ">
         <div class="flex flex-col gap-2 w-auto items-start">
 
             <div
-                class="gap-3 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex pt-4"
+                class="gap-3 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex "
             >
                 {
                     socials?.map((x) => (
                         <a
                             href={x?.link}
                             target="_blank"
-                             class={`flex text-xl   transition duration-300 hover:bg-zinc-700 p-1`}
+                             class={`flex text-xl transition duration-300 hover:underline p-1`}
                         >
                             {x.title}
                         </a>
@@ -46,7 +46,7 @@ const description = "";
         </div>
         <a
         href="/cinema"
-        class=" font-medium fixed bottom-4 right-4   text-5xl max-sm:text-3xl p-2 hover:cursor-pointer   transition duration-300"
+            class=" font-medium fixed bottom-4 right-4    text-5xl max-sm:text-3xl p-2 hover:cursor-pointer   transition duration-300"
       >
         .
       </a>

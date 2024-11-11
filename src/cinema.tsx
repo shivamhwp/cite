@@ -2,7 +2,7 @@ import { movies, songs } from "./data";
 
 export default function CinemaComponent() {
   return (
-    <div className="flex justify-between h-full w-full pt-14 max-sm:pt-16 ">
+    <div className="flex justify-between h-full w-full pt-10 max-sm:pt-16 ">
       <div className="gap-8 text-xl">
         <div className="flex flex-col">
           {movies.map((movie) => {
@@ -16,7 +16,7 @@ export default function CinemaComponent() {
             );
           })}
         </div>
-        <hr className="border-white my-12" />
+        <hr className="border-white  my-12" />
         <ul className="pb-16 ">
           {songs.map((song) => {
             return (
@@ -24,7 +24,7 @@ export default function CinemaComponent() {
                 <a
                   href={song.link}
                   target="_blank"
-                  className="hover:bg-zinc-700 px-1"
+                  className="hover:bg-zinc-200  px-1"
                 >
                   {song.title}
                 </a>
@@ -35,7 +35,7 @@ export default function CinemaComponent() {
       </div>
       <a
         href="/"
-        className=" font-medium fixed bottom-4 right-4   text-5xl max-sm:text-3xl p-2 hover:cursor-pointer  hover:bg-zinc-700 transition duration-300"
+        className=" font-medium fixed bottom-4 right-4   text-5xl max-sm:text-3xl p-2 hover:cursor-pointer  hover:underline transition duration-300"
       >
         back
       </a>
