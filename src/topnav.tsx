@@ -9,7 +9,7 @@ export function TopNav({ pathname }: { pathname: string }) {
               pathname === "/" ? "underline" : ""
             } p-1`}
           >
-            shivam
+            home
           </a>
           <a
             href="/blog"
