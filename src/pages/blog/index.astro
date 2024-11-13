@@ -4,6 +4,7 @@ import Layout from "../../layouts/layout.astro"
 const siteTitle = "shivam's blog"
 const description = "serious dumps."
 
+const allPosts = await Astro.glob("../../content/posts/*.md");
 
 ---
 <head>
@@ -26,7 +27,14 @@ const description = "serious dumps."
 
 
 <Layout>
-<div class="pt-12 p-1">{}   
+<div class="pt-12  flex">
+    <div>
+        <!-- {allPosts.slice(0, 3).map((post) => (
+            <a href={`blog/post/${post.frontmatter.url}`} class="">{post.frontmatter.title}</a>
+        ))} -->
+
+        blog in progress
+        </div>
 </div>
 
 </Layout>

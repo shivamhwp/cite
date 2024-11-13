@@ -24,7 +24,7 @@ export default function CinemaComponent() {
                 <a
                   href={song.link}
                   target="_blank"
-                  className="hover:bg-zinc-200  px-1"
+                  className="hover:bg-zinc-600  px-1"
                 >
                   {song.title}
                 </a>
