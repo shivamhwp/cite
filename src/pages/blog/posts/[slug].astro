@@ -1,0 +1,64 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../../layouts/layout.astro";
+import BlogHeader from "../../../components/blogHeader";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  return allPosts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const title = post.data.title || "[]";
+const description = post.data.title || "[]";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <meta property="twitter:title" content="shivam" />
+  <meta
+    name="twitter:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta
+    property="og:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <title>{title}</title>
+</head>
+<Layout>
+  <div class="pt-12 flex flex-col font-normal w-full h-full">
+    <BlogHeader header={post.data.title} date={post.data.published} />
+    <Content />
+  </div>
+  <a
+    href="/blog"
+    class="fixed bottom-4 right-4 text-xl hover:underline hover:cursor-pointer"
+  >
+    back to /blog
+  </a>
+</Layout>

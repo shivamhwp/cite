@@ -1,40 +1,52 @@
 ---
-import Layout from "../../layouts/layout.astro"
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/layout.astro";
+import dayjs from "dayjs";
 
-const siteTitle = "shivam's blog"
-const description = "serious dumps."
+const siteTitle = "shivam's blog";
+const description = "[blogs]";
 
-const allPosts = await Astro.glob("../../content/posts/*.md");
-
+const allPosts = await getCollection("posts");
 ---
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" />
-    <meta name="description" content={description} />
-    <meta property="twitter:title" content="shivam">
-    <meta name="twitter:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="@shivamhwp" />
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="shivam.ing">
-    <meta property="og:url" content="https://www.shivam.ing">
-    <meta property="og:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
-    <title>{siteTitle}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <meta property="twitter:title" content="shivam" />
+  <meta
+    name="twitter:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta
+    property="og:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <title>{siteTitle}</title>
 </head>
 
-
-
 <Layout>
-<div class="pt-12  flex">
-    <div>
-        <!-- {allPosts.slice(0, 3).map((post) => (
-            <a href={`blog/post/${post.frontmatter.url}`} class="">{post.frontmatter.title}</a>
-        ))} -->
-
-        blog in progress
-        </div>
-</div>
-
+  <div class="pt-12 flex text-xl">
+    <div class="flex flex-col w-full gap-2">
+      {
+        allPosts.map((post) => (
+          <div class="flex items-center  justify-between border-b-2 border-zinc-700 hover:border-blue-600">
+            <a href={`blog/posts/${post.slug}`} class="">
+              {post.data.title}
+            </a>
+            <div class="">
+              {dayjs(post.data.published).format("YYYY-MM-DD")}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </Layout>

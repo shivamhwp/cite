@@ -1,54 +1,58 @@
 ---
 import { socials } from "../data";
-import Layout from "../layouts/layout.astro";       
+import Layout from "../layouts/layout.astro";
 
-const siteTitle = "shivam"
+const siteTitle = "shivam";
 const description = "";
-
 ---
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" />
-    <meta name="description" content={description} />
-    <meta property="twitter:title" content="shivam">
-    <meta name="twitter:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="@shivamhwp" />
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="shivam.ing">
-    <meta property="og:url" content="https://www.shivam.ing">
-    <meta property="og:image" content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV" />
-    <title>{siteTitle}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <meta property="twitter:title" content="shivam" />
+  <meta
+    name="twitter:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta
+    property="og:image"
+    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
+  />
+  <title>{siteTitle}</title>
 </head>
 
-
 <Layout title="shivam">
-    <div class="h-full w-full flex flex-col gap-4 pt-10 max-sm:pt-16 ">
-        <div class="flex flex-col gap-2 w-auto items-start">
-
-            <div
-                class="gap-3 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex "
-            >
-                {
-                    socials?.map((x) => (
-                        <a
-                            href={x?.link}
-                            target="_blank"
-                             class={`flex text-xl border-b-2  max-sm:border-purple-600 border-transparent hover:border-purple-600 `}
-                        >
-                            {x.title}
-                        </a>
-                    ))
-                }
-            </div>
-        </div>
-        <a
-        href="/cinema"
-            class=" fixed bottom-4 right-4 text-5xl max-sm:text-3xl p-2 hover:cursor-pointer   transition duration-300"
+  <div class="h-full w-full flex flex-col gap-4 pt-10 max-sm:pt-16">
+    <div class="flex flex-col gap-2 w-auto items-start">
+      <div
+        class="gap-3 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex"
       >
-        .
-      </a>
+        {
+          socials?.map((x) => (
+            <a
+              href={x?.link}
+              target="_blank"
+              class={`flex text-xl border-b-2  max-sm:border-zinc-600 border-transparent hover:border-zinc-600 `}
+            >
+              {x.title}
+            </a>
+          ))
+        }
+      </div>
     </div>
+    <a
+      href="/cinema"
+      class="fixed bottom-4 right-4 text-5xl max-sm:text-3xl p-2 hover:cursor-pointer transition duration-300"
+    >
+      .
+    </a>
+  </div>
 </Layout>
