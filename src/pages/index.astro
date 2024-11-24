@@ -1,12 +1,14 @@
 ---
 import { socials } from "../data";
 import Layout from "../layouts/layout.astro";
+import { Umami } from "astro-umami-analytics";
 
 const siteTitle = "shivam";
 const description = "don't know what to write here";
 ---
 
 <head>
+  <Umami id="50047cd7-0f24-4458-900a-a1c99a60782e" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/favicon.svg" />
