@@ -2,11 +2,23 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 const siteTitle = "shivam's blog";
 const description = "[blogs]";
 
 const allPosts = await getCollection("posts");
+
+const sortedPosts = allPosts.sort((a, b) => {
+  if (a.data.published > b.data.published) {
+    return -1;
+  } else {
+    return 1;
+  }
+});
+// sort posts by date, the latest first
 ---
 
 <head>
@@ -36,14 +48,12 @@ const allPosts = await getCollection("posts");
   <div class="pt-12 flex text-xl">
     <div class="flex flex-col w-full gap-2">
       {
-        allPosts.map((post) => (
-          <div class="flex items-center  justify-between border-b-2 border-zinc-700 hover:border-blue-600">
+        sortedPosts.map((post) => (
+          <div class="flex items-center  justify-between border-b-2 border-zinc-600 hover:border-blue-600">
             <a href={`blog/posts/${post.slug}`} class="">
               {post.data.title}
             </a>
-            <div class="">
-              {dayjs(post.data.published).format("YYYY-MM-DD")}
-            </div>
+            <div class="">{dayjs().to(dayjs(post.data.published))}</div>
           </div>
         ))
       }

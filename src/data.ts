@@ -145,7 +145,7 @@ export const socials: social[] = [
   {
     id: 5,
     title: "bsky",
-    link: "https://bsky.app/profile/shivamhwp.bsky.social",
+    link: "https://bsky.app/profile/shivam.ing",
   },
 ];
 
