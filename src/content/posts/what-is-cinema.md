@@ -6,12 +6,13 @@ published: 2024-11-24
 updated: 2024-11-27
 ---
 
+<p class="">
 cinema, there is not a word that defines cinema. to some it’s dream building, to some motivation, to some the great work of art and to some the only way of living.
 
-but to me it’s beautiful. its history, it’s present and future. it is something beautiful, to be treated with care. to be treated with delicacy. it’s not just entertainment, but something important , something lively, something new.
+but to me it’s beautiful. its history, it’s present and future. it is something beautiful, to be treated with care. to be treated with delicacy. it’s not just entertainment, but something important, something lively, something new.
 
-<br>
+</p>
 
-it’s a amalgamation of arts. the music, the chitra, the story and the people and to be presented with love, it is it’s right.
+<p class="pt-3">it’s a amalgamation of arts. the music, the chitra, the story and the people and to be presented with love, it is it’s right.</p>
 
-<u><a href = "/cinema"> some recommendations </a></u>
+<a href = "/cinema" class="text-purple-500 group">some recommendations<span class="group-hover:text-red-500 text-white pl-1  text-opacity-55">♥︎ </span> </a>

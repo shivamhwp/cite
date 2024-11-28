@@ -42,15 +42,15 @@ const sortedPosts = allPosts.sort((a, b) => {
     <div class="flex flex-col w-full gap-2">
       {
         sortedPosts.map((post) => (
-          <div class="flex items-center   justify-between">
+          <div class="flex items-center justify-between">
             <a
               href={`blogs/posts/${post.slug}`}
-              class="border-b-2 border-transparent hover:border-blue-600"
+              class=" hover:text-blue-600 transition duration-500 font-medium tracking-normal"
             >
               {post.data.title}
             </a>
             <div class="">
-              {post.data.updated?.toString() === "" ? "" : "updt."}
+              {post.data.updated?.toString() === "" ? "" : "up."}
               {dayjs().to(
                 dayjs(
                   post.data.updated?.toString() === ""
