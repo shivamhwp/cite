@@ -1,4 +1,4 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 export const postSchema = z.object({
   title: z.string(),
@@ -6,6 +6,7 @@ export const postSchema = z.object({
   imageUrl: z.string().optional(),
   tags: z.array(z.string()),
   published: z.date(),
+  updated: z.date().optional(),
 });
 
 const posts = defineCollection({

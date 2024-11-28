@@ -24,8 +24,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const title = post.data.title || "[]";
-const description = post.data.url || "[]";
+const title = post.data.title || "";
+const description = post.data.updated || "";
 ---
 
 <head>
@@ -33,32 +33,32 @@ const description = post.data.url || "[]";
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/favicon.svg" />
   <meta name="description" content={description} />
-  <meta property="twitter:title" content="shivam" />
-  <meta
-    name="twitter:image"
-    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
-  />
+  <meta property="twitter:title" content=" shivam " />
+  <meta name="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@shivamhwp" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content="shivam.ing" />
   <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://utfs.io/f/38t7p527clgqX5dOcQ7v8sPQUuYndb0xI2wjoA1efSJzOtcV"
-  />
+  <meta property="og:image" content="/images/og-image.png" />
   <title>{title}</title>
 </head>
 <Layout>
-  <div class="pt-12 flex flex-col font-normal w-full h-full">
-    <BlogHeader header={post.data.title} date={post.data.published} />
-    <Content />
+  <div class="flex flex-col font-normal gap-5 max-sm:gap-3 w-full h-full">
+    <BlogHeader
+      header={post.data.title}
+      updated={post.data.updated === null ? false : true}
+      date={post.data.updated === null
+        ? post.data.published
+        : post.data.updated}
+    />
+    <div class="text-lg"><Content /></div>
   </div>
   <a
-    href="/blog"
+    href="/blogs"
     class="fixed bottom-4 right-4 text-xl hover:underline hover:cursor-pointer"
   >
-    back to /blog
+    back to /blogs
   </a>
 </Layout>

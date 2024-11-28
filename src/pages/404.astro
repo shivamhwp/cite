@@ -1,9 +1,39 @@
 ---
-import Layout from "../layouts/layout.astro";
+import { ViewTransitions } from "astro:transitions";
+
+const siteTitle = "404";
+const description = "i think the url is wrong, btw hi.";
 ---
 
-<Layout>
-  <div class="h-full w-full items-center justify-center flex">
-    <div>well, hello there !</div>
-  </div>
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta property="twitter:title" content=" shivam " />
+    <meta name="twitter:image" content="/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@shivamhwp" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="shivam.ing" />
+    <meta property="og:url" content="https://www.shivam.ing" />
+    <meta property="og:image" content="/images/og-image.png" />
+    <title>{siteTitle}</title>
+    <ViewTransitions />
+  </head>
+  <body
+    class="bg-black text-xl items-center justify-center h-screen w-screen fixed text-white text-opacity-55 max-sm:px-4 text-center flex max-sm:text-6xl"
+  >
+    <div class="flex items-center justify-center flex-col gap-3">
+      <div>i think the url is wrong, btw hi.</div>
+      <a
+        href="/"
+        class="text-blue-600 text-xl max-sm:text-3xl hover:cursor-pointer transition duration-300"
+      >
+        go to home
+      </a>
+    </div>
+  </body>
+</html>
