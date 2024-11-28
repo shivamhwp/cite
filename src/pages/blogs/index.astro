@@ -51,7 +51,7 @@ const sortedPosts = allPosts.sort((a, b) => {
               {post.data.title}
             </a>
             <div class="">
-              {post.data.updated === undefined ? "" : "updt."}
+              {post.data.updated.toString() === "" ? "" : "updt."}
               {dayjs().to(
                 dayjs(
                   post.data.updated === ""
