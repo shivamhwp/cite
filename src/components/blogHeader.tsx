@@ -6,7 +6,7 @@ function BlogHeader({
   updated,
 }: {
   header: string;
-  date: Date;
+  date: Date | undefined;
   updated?: boolean;
 }) {
   return (
@@ -14,7 +14,11 @@ function BlogHeader({
       <div className="text-xl font-bold">{header}</div>
       <div className="pb-6 flex gap-1">
         <div> {updated === true ? "Updated" : ""}</div>
-        <div> {dayjs(date).format("MMMM DD, YYYY")}</div>
+        <div>
+          {date === undefined
+            ? dayjs(Date.now()).format("MMMM DD, YYYY")
+            : dayjs(date).format("MMMM DD, YYYY")}
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { undefined } from "astro:schema";
 
 dayjs.extend(relativeTime);
 
@@ -51,12 +50,12 @@ const sortedPosts = allPosts.sort((a, b) => {
               {post.data.title}
             </a>
             <div class="">
-              {post.data.updated.toString() === "" ? "" : "updt."}
+              {post.data.updated?.toString() === "" ? "" : "updt."}
               {dayjs().to(
                 dayjs(
-                  post.data.updated === ""
-                    ? post.data.published
-                    : post.data.updated
+                  post.data.updated?.toString() === ""
+                    ? post.data?.published
+                    : post.data?.updated
                 )
               )}
             </div>
