@@ -2,16 +2,19 @@ import { movies, songs } from "./data";
 
 export default function CinemaComponent() {
   return (
-    <div className="flex justify-between h-full w-full overflow-y-scroll  [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]  ">
-      <div className="gap-8 text-xl">
-        <div className="flex flex-col">
+    <div className="flex justify-between h-full w-full overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]  ">
+      <div className="gap-8 w-full flex  flex-col">
+        <div className="flex flex-col w-full">
           {movies.map((movie) => {
             return (
               <div
                 key={movie.title}
-                className={`font-semibold text-8xl  md:text-6xl hover:text-opacity-70  max-sm:text-3xl `}
+                className={` bg-cover bg-no-repeat hover:pb-14  flex  max-sm:hover:pb-0  group duration-500 w-full border-black border-2 `}
+                style={{ backgroundImage: `url(${movie.image})` }}
               >
-                {movie.title}
+                <span className="group-hover:text-transparent max-sm:text-3xl  w-full h-full font-semibold  text-6xl transition duration-500">
+                  {movie.title}
+                </span>
               </div>
             );
           })}
@@ -24,7 +27,7 @@ export default function CinemaComponent() {
                 <a
                   href={song.link}
                   target="_blank"
-                  className="hover:bg-zinc-600  px-1"
+                  className="hover:bg-zinc-600 transition duration-500  px-1"
                 >
                   {song.title}
                 </a>
@@ -35,7 +38,7 @@ export default function CinemaComponent() {
       </div>
       <a
         href="/"
-        className=" font-medium fixed bottom-4 right-4   text-xl max-sm:text-3xl p-2 hover:cursor-pointer  hover:underline transition duration-300"
+        className=" font-medium fixed bottom-4 right-4 text-xl max-sm:text-3xl p-2 hover:cursor-pointer  hover:underline transition duration-300"
       >
         back
       </a>
