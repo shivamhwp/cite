@@ -9,10 +9,10 @@ export default function CinemaComponent() {
             return (
               <div
                 key={movie.title}
-                className={` bg-cover bg-no-repeat hover:pb-14  flex  max-sm:hover:pb-0  group duration-500 w-full border-black border-2 `}
+                className={` bg-cover bg-no-repeat hover:2xl:pb-16 hover:xl:pb-14 hover:max-lg:pb-2  flex  max-sm:hover:pb-0 group duration-500 w-full border-black border-2 `}
                 style={{ backgroundImage: `url(${movie.image})` }}
               >
-                <span className="group-hover:text-transparent max-sm:text-3xl  w-full h-full font-semibold  text-6xl transition duration-500">
+                <span className="group-hover:xl:text-transparent group-hover:2xl:text-transparent group-hover:lg:text-transparent  max-sm:text-3xl  w-full h-full font-semibold  text-5xl transition duration-500">
                   {movie.title}
                 </span>
               </div>

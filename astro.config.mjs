@@ -3,9 +3,15 @@ import react from "@astrojs/react";
 
 import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
 export default defineConfig({
-  prefetch: true,
+  image: {
+    domains: ["utfs.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+      },
+    ],
+  },
   integrations: [react(), tailwind()],
   markdown: {
     syntaxHighlight: "prism",
