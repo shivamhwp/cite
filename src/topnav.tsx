@@ -1,6 +1,6 @@
 export function TopNav({ pathname }: { pathname: string }) {
   return (
-    <div className="flex  lg:flex-col md:flex-col xl:flex-col items-start justify-start max-sm:pt-8  gap-3 font-medium pt-40 text-xl ">
+    <div className="flex  lg:flex-col md:flex-col xl:flex-col items-start justify-start max-sm:pt-8  gap-2 font-medium pt-40 text-xl ">
       <a
         href="/"
         className={`hover:text-blue-600 transition duration-500${
@@ -8,6 +8,15 @@ export function TopNav({ pathname }: { pathname: string }) {
         } `}
       >
         home
+      </a>
+     
+      <a
+        href="/services"
+        className={` hover:text-blue-600 transition duration-500 ${
+          pathname === "/services" ? "text-blue-600" : ""
+        }`}
+      >
+        services
       </a>
       <a
         href="/blogs"

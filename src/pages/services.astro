@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/layout.astro";
+
+const siteTitle = "services";
+const description = "can help you with these";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <meta property="twitter:title" content="services" />
+  <meta name="twitter:image" content="https://shivam.ing/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta property="og:image" content="https://shivam.ing/images/og-image.png" />
+  <title>{siteTitle}</title>
+</head>
+
+<Layout>
+  <div class="text-xl flex flex-col gap-2">
+    <a
+      href="https://cal.com/shivamhwp/quick-chat-about-your-product"
+      class="hover:text-blue-600 hover:cursor-pointer transition duration-500"
+    >
+      qwik chat about your product
+    </a>
+    <a
+      href="https://cal.com/shivamhwp/hiring-for-a-project"
+      class="hover:text-blue-600 hover:cursor-pointer transition duration-500"
+    >
+      hire me (<span class="font-thin">to build your project</span>)
+    </a>
+  </div>
+  <div></div>
+</Layout>
