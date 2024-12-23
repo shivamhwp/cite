@@ -1,10 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { TopNav } from "../topnav";
+
+const pathname = Astro.url.pathname;
 
 const siteTitle = "shivam";
 const description = "don't know what to write here";
-const pathname = Astro.url.pathname;
 ---
 
 <html lang="en" class="">
@@ -29,12 +30,16 @@ const pathname = Astro.url.pathname;
       content="https://shivam.ing/images/og-image.png"
     />
     <title>{siteTitle}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body
-    class="bg-black gap-24 max-sm:gap-8 md:pt-12 lg:pt-12 xl:pt-12 text-opacity-55 2xl:pt-12 max-sm:px-4 md:px-24 lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen fixed text-white flex max-sm:flex-col"
+    class="bg-black gap-24 max-sm:gap-8 md:pt-12 lg:pt-12 xl:pt-12 text-opacity-45 2xl:pt-12 max-sm:px-4 md:px-24 lg:px-64 xl:px-96 2xl:px-96 h-screen w-screen fixed text-white flex max-sm:flex-col selection:bg-white/90 selection:text-black/70"
   >
-    <TopNav pathname={pathname} />
-    <div class="flex pt-40 max-sm:pt-0 w-full h-full "><slot /></div>
+    <div
+      class="flex gap-20 max-sm:gap-4 max-sm:flex-col pt-40 max-sm:pt-0 w-full h-full"
+    >
+      <TopNav pathname={pathname} />
+      <slot />
+    </div>
   </body>
 </html>
