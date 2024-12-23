@@ -38,14 +38,14 @@ const sortedPosts = allPosts.sort((a, b) => {
 </head>
 
 <Layout>
-  <div class="flex text-xl w-full">
+  <div class="flex text-xl max-sm:text-lg w-full ">
     <div class="flex flex-col w-full gap-2">
       {
         sortedPosts.map((post) => (
           <div class="flex items-center justify-between">
             <a
               href={`blogs/posts/${post.slug}`}
-              class=" hover:text-blue-600 transition duration-500 font-medium tracking-normal"
+              class=" hover:text-opacity-95 hover:text-white  transition duration-500  tracking-normal"
             >
               {post.data.title}
             </a>
