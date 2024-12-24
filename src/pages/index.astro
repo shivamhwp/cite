@@ -2,6 +2,8 @@
 import { socials } from "../data";
 import Layout from "../layouts/layout.astro";
 
+import "@fontsource/dm-serif-text";
+
 const siteTitle = "shivam";
 const description = "don't know what to write here";
 ---
@@ -31,11 +33,19 @@ const description = "don't know what to write here";
 <Layout title="shivam">
   <div class="h-full w-full flex flex-col gap-4">
     <div class="flex flex-col w-auto items-start">
-      <div class="text-xl max-sm:mb-4 text-black bg-white">experimenting.</div>
+      <div class="text-xl max-sm:mb-2 font-serif bg-white text-black px-1 pb-1">
+        thinking. <br />
+        listening.<br />
+        <span
+          class="underline decoration-wavy decoration-red-500 underline-offset-2"
+          >experimenting.
+        </span>
+        <br />
+      </div>
     </div>
 
     <div
-      class="gap-3 max-sm:gap-3 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex"
+      class="gap-3 max-sm:gap-2 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex"
     >
       {
         socials?.map((x) => (
@@ -53,7 +63,6 @@ const description = "don't know what to write here";
   <a
     href="/cinema"
     data-umami-event="cinema-clicked"
-    data-astro-prefetch
     class="fixed bottom-4 right-4 text-5xl max-sm:text-3xl p-2 hover:cursor-pointer transition duration-300"
   >
     .

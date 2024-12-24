@@ -17,9 +17,8 @@ export type skill = {
 };
 export type movie = {
   title: string;
-  image?: string;
+  // image?: string;
 };
-
 
 export const songs = [
   {
@@ -50,52 +49,56 @@ export const songs = [
     title: "night of the end",
     link: "https://youtu.be/AVgrV4clLTc",
   },
+  {
+    title: "pseudo",
+    link: "https://www.youtube.com/watch?v=9XHVg4GTzPs",
+  },
 ];
 
 export const movies: movie[] = [
   {
     title: "Attack On Titan",
-    image: "https://utfs.io/f/38t7p527clgqTWAzVScCZGuB4JXj70amYe8kDsr5IfyOV6oq",
+    // image: "https://utfs.io/f/38t7p527clgqTWAzVScCZGuB4JXj70amYe8kDsr5IfyOV6oq",
   },
   {
     title: "FA:B(2011)",
-    image: "https://utfs.io/f/38t7p527clgqxbUaIBOiHMLWyPSuw0YQjOE3Jp6aTBv9R2zA",
+    // image: "https://utfs.io/f/38t7p527clgqxbUaIBOiHMLWyPSuw0YQjOE3Jp6aTBv9R2zA",
   },
   {
     title: "Jujutsu Kaisen",
-    image: "https://utfs.io/f/38t7p527clgqaYili5RSSd4Q2G6RY0tJ91LjbAD3iwVThHfs",
+    // image: "https://utfs.io/f/38t7p527clgqaYili5RSSd4Q2G6RY0tJ91LjbAD3iwVThHfs",
   },
   {
     title: "Demon Slayer",
-    image: "https://utfs.io/f/38t7p527clgqVEatlqP8ucaGgpRSEd10zrBoDAHP2nQM6mY4",
+    // image: "https://utfs.io/f/38t7p527clgqVEatlqP8ucaGgpRSEd10zrBoDAHP2nQM6mY4",
   },
   {
     title: "One Punch Man",
-    image: "https://utfs.io/f/38t7p527clgqaLvGPqSSd4Q2G6RY0tJ91LjbAD3iwVThHfsp",
+    // image: "https://utfs.io/f/38t7p527clgqaLvGPqSSd4Q2G6RY0tJ91LjbAD3iwVThHfsp",
   },
   {
     title: "Se7en",
-    image: "https://utfs.io/f/38t7p527clgqEwvYYfxK7iJruFcAblpzLxNM30vHj4R1XQGm",
+    // image: "https://utfs.io/f/38t7p527clgqEwvYYfxK7iJruFcAblpzLxNM30vHj4R1XQGm",
   },
   {
-    title: "Hunter x Hunter(2011)",
-    image: "https://utfs.io/f/38t7p527clgqcCGEbjggLnpFWuQyrejwqNAbak791G6l3HdE",
+    title: "HxH(2011)",
+    // image: "https://utfs.io/f/38t7p527clgqcCGEbjggLnpFWuQyrejwqNAbak791G6l3HdE",
   },
   {
     title: "Mr Robot",
-    image: "https://utfs.io/f/38t7p527clgq3tzOAw27clgq2Loar4WRnpkZsw1SjHvFP9ID",
+    // image: "https://utfs.io/f/38t7p527clgq3tzOAw27clgq2Loar4WRnpkZsw1SjHvFP9ID",
   },
   {
     title: "The Prestige",
-    image: "https://utfs.io/f/38t7p527clgq7plGnEIYty0zsu2PpBGJxga1efWZASI7i4DU",
+    // image: "https://utfs.io/f/38t7p527clgq7plGnEIYty0zsu2PpBGJxga1efWZASI7i4DU",
   },
   {
     title: "The Godfather",
-    image: "https://utfs.io/f/38t7p527clgq94yp73KSrd604KHFMvgZiCXh5UyBeNmJtAOY",
+    // image: "https://utfs.io/f/38t7p527clgq94yp73KSrd604KHFMvgZiCXh5UyBeNmJtAOY",
   },
   {
     title: "Whiplash",
-    image: "https://utfs.io/f/38t7p527clgq6AKXtuwa8bZ5qDz47jVFlBRsQ9uAk2Ydihvr",
+    // image: "https://utfs.io/f/38t7p527clgq6AKXtuwa8bZ5qDz47jVFlBRsQ9uAk2Ydihvr",
   },
 ];
 export const projects: project[] = [

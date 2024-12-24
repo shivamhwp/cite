@@ -2,29 +2,29 @@ import { movies, songs } from "./data";
 
 export default function CinemaComponent() {
   return (
-    <div className="flex h-full w-full justify-between overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex w-full flex-col">
+    <div className="flex h-full w-full justify-between">
+      <div className="flex h-full w-full flex-col">
         <div className="flex w-full flex-col">
           {movies.map((movie) => {
             return (
               <div
                 key={movie.title}
-                className={`group flex w-full border-2 border-black text-5xl font-semibold duration-500`}
+                className={`flex w-full font-serif text-5xl`}
               >
                 {movie.title}
               </div>
             );
           })}
         </div>
-        <hr className="my-12 border-white" />
-        <ul className="pb-16">
+        <hr className="my-8 border-white/45" />
+        <ul className="flex flex-col pb-16">
           {songs.map((song) => {
             return (
               <li className="" key={song.title}>
                 <a
                   href={song.link}
                   target="_blank"
-                  className="px-1 transition duration-500 hover:bg-zinc-600"
+                  className="text-lg underline-offset-4 transition duration-500 hover:text-white"
                 >
                   {song.title}
                 </a>

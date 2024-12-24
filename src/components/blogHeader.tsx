@@ -11,15 +11,15 @@ function BlogHeader({
 }) {
   return (
     <div className="flex w-full flex-col items-start justify-between gap-2">
-      <div className="text-xl font-semibold text-white text-opacity-95">
+      <div className="font-serif text-xl font-semibold text-white text-opacity-95">
         {header}
       </div>
       <div className="flex gap-1 pb-6">
-        <div> {updated === true ? "Updated" : ""}</div>
+        <div> {updated === true ? "updated" : ""}</div>
         <div>
           {date === undefined
-            ? dayjs(Date.now()).format("MMMM DD, YYYY")
-            : dayjs(date).format("MMMM DD, YYYY")}
+            ? dayjs(Date.now()).format("MMMM DD, YYYY").toLowerCase()
+            : dayjs(date).format("MMMM DD, YYYY").toLowerCase()}
         </div>
       </div>
     </div>
