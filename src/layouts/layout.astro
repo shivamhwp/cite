@@ -38,10 +38,10 @@ const description = "don't know what to write here";
     class="bg-black gap-8 flex-col max-sm:gap-8 text-opacity-45 pt-12 max-sm:pt-4 max-sm:px-4 md:px-16 lg:px-48 xl:px-72 2xl:px-96 h-screen w-screen fixed text-white flex max-sm:flex-col selection:bg-white/90 selection:text-black"
   >
     <div
-      class="flex flex-col px-28 max-sm:px-4 overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-8"
+      class="flex flex-col px-28 max-sm:px-3 overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-8"
     >
-      <TopNav path={path} client:load />
-      <slot class="" />
+      <TopNav path={path} />
+      <slot />
     </div>
   </body>
 </html>
