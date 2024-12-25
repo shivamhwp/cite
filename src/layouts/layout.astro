@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import { TopNav } from "../topnav";
 import "@fontsource/dm-serif-text";
 
-const pathname = Astro.url.pathname;
+const path = Astro.url.pathname;
 
 const siteTitle = "shivam";
 const description = "don't know what to write here";
@@ -40,7 +40,7 @@ const description = "don't know what to write here";
     <div
       class="flex flex-col px-28 max-sm:px-4 overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-8"
     >
-      <TopNav pathname={pathname} />
+      <TopNav path={path} client:load />
       <slot class="" />
     </div>
   </body>
