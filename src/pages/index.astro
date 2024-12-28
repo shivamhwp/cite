@@ -1,8 +1,21 @@
 ---
-import { socials } from "../data";
 import Layout from "../layouts/layout.astro";
 
-import "@fontsource/dm-serif-text";
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
+const allPosts = await getCollection("posts");
+
+const sortedPosts = allPosts.sort((a, b) => {
+  if (a.data.published > b.data.published) {
+    return -1;
+  } else {
+    return 1;
+  }
+});
 
 const siteTitle = "shivam";
 const description = "don't know what to write here";
@@ -32,40 +45,37 @@ const description = "don't know what to write here";
 
 <Layout title="shivam">
   <div class="h-full w-full flex flex-col gap-4">
-    <div class="flex flex-col w-auto items-start pb-2">
-      <div class="text-xl max-sm:mb-2 font-serif bg-white text-black px-1 pb-1">
-        thinking. <br />
-        listening.<br />
-        <span
-          class="underline decoration-wavy decoration-red-500 underline-offset-2"
-          >experimenting.
-        </span>
-        <br />
-      </div>
+    <div class="flex flex-col w-auto items-start">
+      <div class="font-serif text-2xl">shivam</div>
+      <div class="text-xl"></div>
     </div>
 
-    <div
-      class="gap-3 max-sm:gap-2 max-sm:flex-col md:text-xl lg:text-xl xl:text-xl flex"
-    >
-      {
-        socials?.map((x) => (
-          <a
-            href={x?.link}
-            target="_blank"
-            class={`flex text-xl transition duration-500 hover:text-opacity-95 hover:text-white `}
-          >
-            {x.title}
-          </a>
-        ))
-      }
+    <!-- can use them #A3C9A8, #89A894, #C48793, #948BBE, #7A9E9F -->
+    <!-- blogs -->
+    <div class="text-2xl font-serif text-[#ff5941] text-opacity-85 font-bold">
+      blogs
+    </div>
+    <!-- blogposts -->
+    <div class="flex text-xl max-sm:text-lg w-full">
+      <div class="flex flex-col w-full gap-2">
+        {
+          sortedPosts.map((post) => (
+            <div class="flex items-center justify-between ">
+              <a
+                href={`blogs/posts/${post.slug}`}
+                class=" hover:text-[#FF5941]  transition duration-500  "
+              >
+                {post.data.title}
+              </a>
+              <div class="font-light">
+                {dayjs(post.data.published)
+                  .format("MMMM D, YYYY")
+                  .toLowerCase()}
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
-  <a
-    href="/cinema"
-    data-umami-event="cinema-clicked"
-    data-astro-prefetch
-    class="fixed bottom-4 right-4 text-5xl max-sm:text-3xl p-2 hover:cursor-pointer transition duration-300"
-  >
-    .
-  </a>
 </Layout>
