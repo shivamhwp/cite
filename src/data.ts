@@ -1,23 +1,11 @@
-export type project = {
-  id: number;
-  title: string;
-  description: string;
-  link: string;
-  github_link?: string;
-};
-
 export type social = {
   id: number;
   title: string;
   link: string;
 };
-export type skill = {
-  id: number;
-  title: string;
-};
 export type movie = {
   title: string;
-  // image?: string;
+  description?: string;
 };
 
 export const songs = [
@@ -26,8 +14,24 @@ export const songs = [
     link: "https://www.youtube.com/watch?v=G6kSqPpSz1g",
   },
   {
+    title: "Into the night",
+    link: "https://youtu.be/d-ePNt_NlF4",
+  },
+  {
+    title: "Lacrimosa",
+    link: "https://youtu.be/k1-TrAvp_xs",
+  },
+  {
     title: "3.0_1-one2blame.fyc",
     link: "https://www.youtube.com/watch?v=0pux7a1y8xo",
+  },
+  {
+    title: "Piano Black",
+    link: "https://youtu.be/ssmYUDYtrKA",
+  },
+  {
+    title: "Tank!",
+    link: "https://youtu.be/UFFa0QoHWvE",
   },
   {
     title: "An Ordinary Day",
@@ -46,9 +50,10 @@ export const songs = [
     link: "https://www.youtube.com/watch?v=n3x0GylBOM0",
   },
   {
-    title: "night of the end",
+    title: "Night of the end",
     link: "https://youtu.be/AVgrV4clLTc",
   },
+
   {
     title: "pseudo",
     link: "https://www.youtube.com/watch?v=9XHVg4GTzPs",
@@ -58,82 +63,54 @@ export const songs = [
 export const movies: movie[] = [
   {
     title: "Attack On Titan",
-    // image: "https://utfs.io/f/38t7p527clgqTWAzVScCZGuB4JXj70amYe8kDsr5IfyOV6oq",
+    description: "one of my favourites. heartbound.",
   },
   {
-    title: "FA:B(2011)",
-    // image: "https://utfs.io/f/38t7p527clgqxbUaIBOiHMLWyPSuw0YQjOE3Jp6aTBv9R2zA",
+    title: "Fullmetal Alchemist:Brotherhood(2011)",
+    description: "one of my favourites.",
   },
   {
     title: "Jujutsu Kaisen",
-    // image: "https://utfs.io/f/38t7p527clgqaYili5RSSd4Q2G6RY0tJ91LjbAD3iwVThHfs",
+    description: "super interesting, crazy storyline.",
   },
   {
     title: "Demon Slayer",
-    // image: "https://utfs.io/f/38t7p527clgqVEatlqP8ucaGgpRSEd10zrBoDAHP2nQM6mY4",
+    description: "animation quality is mental. story's also good.",
   },
   {
-    title: "One Punch Man",
-    // image: "https://utfs.io/f/38t7p527clgqaLvGPqSSd4Q2G6RY0tJ91LjbAD3iwVThHfsp",
+    title: "Steins;Gate",
+    description: "short and sweet. also very interesting.",
   },
   {
     title: "Se7en",
-    // image: "https://utfs.io/f/38t7p527clgqEwvYYfxK7iJruFcAblpzLxNM30vHj4R1XQGm",
+    description: "simple and sanguinary. ofc by david fincher.",
   },
   {
-    title: "HxH(2011)",
-    // image: "https://utfs.io/f/38t7p527clgqcCGEbjggLnpFWuQyrejwqNAbak791G6l3HdE",
+    title: "Hunter x Hunter(2011)",
+    description: "one of my favourites.",
   },
   {
-    title: "Mr Robot",
-    // image: "https://utfs.io/f/38t7p527clgq3tzOAw27clgq2Loar4WRnpkZsw1SjHvFP9ID",
-  },
-  {
-    title: "The Prestige",
-    // image: "https://utfs.io/f/38t7p527clgq7plGnEIYty0zsu2PpBGJxga1efWZASI7i4DU",
-  },
-  {
-    title: "The Godfather",
-    // image: "https://utfs.io/f/38t7p527clgq94yp73KSrd604KHFMvgZiCXh5UyBeNmJtAOY",
+    title: "Cowboy Bebop",
+    description: "very nice story + the jazz is just insane.",
   },
   {
     title: "Whiplash",
-    // image: "https://utfs.io/f/38t7p527clgq6AKXtuwa8bZ5qDz47jVFlBRsQ9uAk2Ydihvr",
-  },
-];
-export const projects: project[] = [
-  {
-    id: 1,
-    title: "twemoji",
-    description: "twitter but only emojis are allowed.",
-    link: "https://twemoji-t3.vercel.app",
-    github_link: "https://github.com/shivamhwp/twemoji",
+    description: "obsession explained.",
   },
   {
-    id: 2,
-    title: "omegle",
-    description: "omegle clone kind of",
-    link: "https://github.com/shivamhwp/omegle-webrtc",
-    github_link: "https://github.com/shivamhwp/omegle-webrtc",
+    title: "The Social Network",
+    description: "i mean, you know it. also by david fincher.",
   },
   {
-    id: 3,
-    title: "rev",
-    description: "image uploader",
-    link: "https://rev-beta.vercel.app",
-    github_link: "https://github.com/shivamhwp/rev",
+    title: "Mr Robot",
   },
   {
-    id: 4,
-    title: "meeraki fdn",
-    description: "meeraki foundation",
-    link: "https://meerakifoundation.org",
+    title: "The Prestige",
+    description: "",
   },
   {
-    id: 5,
-    title: "zero",
-    description: "journal type sleep app",
-    link: "https://zzero.vercel.app",
+    title: "The Godfather",
+    description: "  ",
   },
 ];
 
@@ -164,36 +141,6 @@ export const socials: social[] = [
     id: 5,
     title: "bsky",
     link: "https://bsky.app/profile/shivam.ing",
-  },
-];
-
-export const skills: skill[] = [
-  {
-    id: 1,
-    title: "typescript",
-  },
-
-  {
-    id: 2,
-    title: "react",
-  },
-
-  {
-    id: 3,
-    title: "nextjs",
-  },
-  {
-    id: 4,
-    title: "MERN",
-  },
-
-  {
-    id: 5,
-    title: "tailwindcss",
-  },
-  {
-    id: 6,
-    title: "t3-stack",
   },
 ];
 

@@ -2,21 +2,32 @@ import { movies, songs } from "./data";
 
 export default function CinemaComponent() {
   return (
-    <div className="flex h-full w-full justify-between">
+    <div className="flex h-full w-full justify-between overflow-x-hidden overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex h-full w-full flex-col">
-        <div className="flex w-full flex-col">
+        <a
+          href="/"
+          className="left-0 py-4 text-xl font-medium text-[#FF5941] transition duration-300 hover:cursor-pointer max-sm:text-3xl"
+        >
+          ←
+        </a>
+        <div className="flex w-full flex-col gap-3">
           {movies.map((movie) => {
             return (
-              <div
-                key={movie.title}
-                className={`flex w-full font-serif text-5xl`}
-              >
-                {movie.title}
+              <div className="">
+                <div
+                  key={movie.title}
+                  className={`flex w-full font-serif text-5xl`}
+                >
+                  {movie.title}
+                </div>
+                <div className="text-[#FF5941] text-opacity-90">
+                  {movie.description}
+                </div>
               </div>
             );
           })}
         </div>
-        <hr className="my-8 border-white/45" />
+        <hr className="my-8 border-[#ff5941]" />
         <ul className="flex flex-col pb-16">
           {songs.map((song) => {
             return (
@@ -24,7 +35,7 @@ export default function CinemaComponent() {
                 <a
                   href={song.link}
                   target="_blank"
-                  className="text-lg underline-offset-4 transition duration-500 hover:text-white"
+                  className="text-xl underline-offset-4 transition duration-500 hover:italic hover:text-[#FF5941]"
                 >
                   {song.title}
                 </a>
@@ -33,12 +44,6 @@ export default function CinemaComponent() {
           })}
         </ul>
       </div>
-      <a
-        href="/"
-        className="fixed bottom-4 right-4 p-2 text-xl font-medium transition duration-300 hover:cursor-pointer hover:underline max-sm:text-3xl"
-      >
-        back
-      </a>
     </div>
   );
 }
