@@ -11,7 +11,7 @@ function BlogHeader({
 }) {
   return (
     <div className="flex w-full flex-col items-start justify-between gap-2">
-      <div className="font-serif text-xl font-semibold text-white text-opacity-95">
+      <div className="font-serif text-xl font-semibold text-[#FF5941] text-opacity-95">
         {header}
       </div>
       <div className="flex gap-1 pb-6">

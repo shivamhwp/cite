@@ -46,7 +46,12 @@ const description = "";
 </head>
 <Layout>
   <div class="flex flex-col font-normal gap-4 max-sm:gap-3 w-full h-full">
-    <BlogHeader
+    <a
+      href="/"
+      class="left-0 w-full text-xl hover:text-[#FF5941] text-opacity-90 hover:cursor-pointer"
+    >
+      ←
+    </a><BlogHeader
       header={post.data.title}
       updated={post.data.updated?.toString() === "" ? false : true}
       date={post.data.updated?.toString() === ""
@@ -55,10 +60,4 @@ const description = "";
     />
     <div class="text-lg text-justify"><Content /></div>
   </div>
-  <a
-    href="/blogs"
-    class="fixed bottom-4 right-4 text-xl hover:underline hover:cursor-pointer"
-  >
-    back to /blogs
-  </a>
 </Layout>
