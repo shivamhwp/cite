@@ -91,7 +91,7 @@ export const movies: movie[] = [
   },
   {
     title: "Cowboy Bebop",
-    description: "very nice story + the jazz is just insane.",
+    description: "very nice story + the jazz is just insane & it's a classic",
   },
   {
     title: "Whiplash",
@@ -103,6 +103,11 @@ export const movies: movie[] = [
   },
   {
     title: "Mr Robot",
+    description: "you should watch this",
+  },
+  {
+    title: "Manchester by the Sea",
+    description: "",
   },
   {
     title: "The Prestige",

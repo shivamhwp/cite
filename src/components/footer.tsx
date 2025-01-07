@@ -7,6 +7,7 @@ function Footer() {
         <div className="flex flex-row space-x-12 text-sm sm:space-x-16 sm:text-lg md:space-x-24 md:text-xl">
           <ul>
             <div className="flex gap-4 max-md:flex-col max-sm:gap-2 md:text-lg lg:text-xl xl:text-xl">
+              {/* socials */}
               {socials?.map((x) => (
                 <a
                   href={x?.link}

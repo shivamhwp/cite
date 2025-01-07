@@ -11,13 +11,11 @@ export default function CinemaComponent() {
           ←
         </a>
         <div className="flex w-full flex-col gap-3">
+          {/* movies list */}
           {movies.map((movie) => {
             return (
-              <div className="">
-                <div
-                  key={movie.title}
-                  className={`flex w-full font-serif text-5xl`}
-                >
+              <div className="" key={movie.title}>
+                <div className={`flex w-full font-serif text-5xl`}>
                   {movie.title}
                 </div>
                 <div className="text-[#FF5941] text-opacity-90">
@@ -29,6 +27,7 @@ export default function CinemaComponent() {
         </div>
         <hr className="my-8 border-[#ff5941]" />
         <ul className="flex flex-col pb-16">
+          {/* songs list */}
           {songs.map((song) => {
             return (
               <li className="" key={song.title}>
