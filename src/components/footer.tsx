@@ -11,6 +11,7 @@ function Footer() {
               {socials?.map((x) => (
                 <a
                   href={x?.link}
+                  key={x.id}
                   target="_blank"
                   className={`flex font-serif text-2xl text-[#ff5941] text-opacity-85 transition duration-500 hover:italic hover:text-opacity-100`}
                 >
