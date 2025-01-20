@@ -45,7 +45,7 @@ const description = "don't know what to write here";
 
 <Layout title="shivam">
   <div class="h-full w-full flex flex-col gap-4">
-    <div class="flex flex-col w-auto items-start">
+    <div class="flex flex-col w-auto items-start gap-4">
       <div class="font-serif text-2xl">shivam</div>
       <div class="text-xl"></div>
     </div>
@@ -67,11 +67,11 @@ const description = "don't know what to write here";
               >
                 {post.data.title}
               </a>
-              <div class="font-light text-lg">
+              {/* <div class="font-light text-lg">
                 {dayjs(post.data.published)
                   .format("MMMM D, YYYY")
                   .toLowerCase()}
-              </div>
+              </div> */}
             </div>
           ))
         }
@@ -79,15 +79,22 @@ const description = "don't know what to write here";
     </div>
     <div class="text-lg flex flex-col gap-4 pt-5 max-sm:pt-2">
       <span class="text-2xl font-serif flex">code </span>
-      <a
-        href="https://github.com/shivamhwp/git-acm"
-        class="font-mono text-[#ff5941]"
-        >git-acm >
-        <span
-          class="font-mono text-white text-opacity-60 hover:text-opacity-85 max-sm:text-opacity-75"
-          >instant meaningful git commit messages locally with AI.</span
-        >
-      </a>
+      <div class="flex gap-4">
+        <div class="flex gap-2">
+          <span class="text-[#ff5941] font-serif text-xl">git-acm </span>
+        </div>
+
+        <div class="flex gap-4">
+          <a href="https://github.com/shivamhwp/git-acm" target="_blank">
+            <img
+              alt="github logo"
+              class="h-6 w-6"
+              src="../../images/github.svg"
+            />
+          </a>
+          <span class="text-[#ff5941]"> 1k + downloads.</span>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
