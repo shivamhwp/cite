@@ -2,7 +2,7 @@ import { socials } from "../data";
 
 function Footer() {
   return (
-    <div className="sticky bottom-0 left-0 z-0 flex h-72 w-full items-center justify-center bg-black max-sm:px-3">
+    <div className="sticky bottom-0 left-0 z-0 flex h-72 w-full items-center justify-center bg-white max-sm:px-3">
       <div className="relative flex h-full w-full items-end justify-end overflow-hidden pb-4 text-right">
         <div className="flex flex-row space-x-12 text-sm sm:space-x-16 sm:text-lg md:space-x-24 md:text-xl">
           <ul>
@@ -13,7 +13,7 @@ function Footer() {
                   href={x?.link}
                   key={x.id}
                   target="_blank"
-                  className={`flex font-serif text-2xl text-[#ff5941] text-opacity-85 transition duration-500 hover:italic hover:text-opacity-100`}
+                  className={`flex font-serif text-2xl text-[#ff5941] decoration-wavy transition duration-500 hover:underline`}
                 >
                   {x.title}
                 </a>

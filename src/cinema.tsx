@@ -18,9 +18,7 @@ export default function CinemaComponent() {
                 <div className={`flex w-full font-serif text-5xl`}>
                   {movie.title}
                 </div>
-                <div className="text-[#FF5941] text-opacity-90">
-                  {movie.description}
-                </div>
+                <div className="text-[#FF5941]">{movie.description}</div>
               </div>
             );
           })}
@@ -34,7 +32,7 @@ export default function CinemaComponent() {
                 <a
                   href={song.link}
                   target="_blank"
-                  className="text-xl underline-offset-4 transition duration-500 hover:italic hover:text-[#FF5941]"
+                  className="text-xl underline-offset-4 transition duration-500 hover:text-[#FF5941]"
                 >
                   {song.title}
                 </a>

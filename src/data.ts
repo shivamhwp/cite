@@ -14,6 +14,10 @@ export const songs = [
     link: "https://www.youtube.com/watch?v=G6kSqPpSz1g",
   },
   {
+    title: "But Not For Me (Vocal Version) ❤️",
+    link: "https://www.youtube.com/watch?v=QwAwtMt8t4s",
+  },
+  {
     title: "Into the night",
     link: "https://youtu.be/d-ePNt_NlF4",
   },
@@ -139,13 +143,8 @@ export const socials: social[] = [
 
   {
     id: 4,
-    title: "yt",
+    title: "youtube",
     link: "https://www.youtube.com/@shivamhwp_",
-  },
-  {
-    id: 5,
-    title: "bsky",
-    link: "https://bsky.app/profile/shivam.ing",
   },
 ];
 
