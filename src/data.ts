@@ -2,6 +2,7 @@ export type social = {
   id: number;
   title: string;
   link: string;
+  icon_name?: string;
 };
 export type movie = {
   title: string;
@@ -14,7 +15,7 @@ export const songs = [
     link: "https://www.youtube.com/watch?v=G6kSqPpSz1g",
   },
   {
-    title: "But Not For Me (Vocal Version) ❤️",
+    title: "But Not For Me (Vocal Version) ",
     link: "https://www.youtube.com/watch?v=QwAwtMt8t4s",
   },
   {
@@ -77,10 +78,10 @@ export const movies: movie[] = [
     title: "Jujutsu Kaisen",
     description: "super interesting, crazy storyline.",
   },
-  {
-    title: "Demon Slayer",
-    description: "animation quality is mental. story's also good.",
-  },
+  // {
+  //   title: "Demon Slayer",
+  //   description: "animation quality is mental. story's also good.",
+  // },
   {
     title: "Steins;Gate",
     description: "short and sweet. also very interesting.",
@@ -128,23 +129,27 @@ export const socials: social[] = [
     id: 1,
     title: "x.com",
     link: "https://twitter.com/shivamhwp",
+    icon_name: "Twitter",
   },
   {
     id: 2,
     title: "github",
     link: "https://github.com/shivamhwp",
+    icon_name: "Github",
   },
 
   {
     id: 3,
     title: "linkedin",
     link: "https://linkedin.com/in/shivamhwp",
+    icon_name: "Linkedin",
   },
 
   {
     id: 4,
     title: "youtube",
     link: "https://www.youtube.com/@shivamhwp_",
+    icon_name: "Youtube",
   },
 ];
 

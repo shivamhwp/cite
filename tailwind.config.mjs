@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["DM Serif Text"],
+        serif: ["Instrument Serif"],
       },
     },
     plugins: [],

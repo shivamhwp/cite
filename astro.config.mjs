@@ -14,7 +14,7 @@ export default defineConfig({
   },
   integrations: [react(), tailwind()],
   markdown: {
-    syntaxHighlight: "prism",
+    syntaxHighlight: "shiki",
     gfm: true,
   },
   output: "static",
