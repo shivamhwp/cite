@@ -1,5 +1,5 @@
 ---
-title: "what is cinema(to me)"
+title: "what is cinema ?"
 url: "what-is-cinema"
 tags: ["cinema", "favourites", "love"]
 published: 2024-11-24

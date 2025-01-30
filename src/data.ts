@@ -127,7 +127,7 @@ export const movies: movie[] = [
 export const socials: social[] = [
   {
     id: 1,
-    title: "x.com",
+    title: "x / twitter",
     link: "https://twitter.com/shivamhwp",
     icon_name: "Twitter",
   },
