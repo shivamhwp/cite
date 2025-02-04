@@ -4,12 +4,12 @@ export default function CinemaComponent() {
   return (
     <div className="relative z-10 flex h-full w-full justify-between overflow-x-hidden overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex h-full w-full flex-col">
-        <a
+        {/* <a
           href="/"
           className="left-0 py-4 text-xl font-medium text-red-600 transition duration-300 hover:cursor-pointer max-sm:text-3xl"
         >
           ←
-        </a>
+        </a> */}
         <div className="flex w-full flex-col gap-3">
           {/* movies list */}
           {movies.map((movie) => {

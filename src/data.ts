@@ -8,6 +8,22 @@ export type movie = {
   title: string;
   description?: string;
 };
+export type code_projects = {
+  project_name : string,
+  link: string,
+  image?: string,
+  live_link? : string,
+  docs : string,
+}
+
+export const code_projects : code_projects[]  =[
+  {
+    project_name : "git-acm",
+    link : "https://github.com/shivamhwp/git-acm",
+    docs : "https://git-acm.pages.dev",
+  }
+
+]
 
 export const songs = [
   {
@@ -127,27 +143,27 @@ export const movies: movie[] = [
 export const socials: social[] = [
   {
     id: 1,
-    title: "x / twitter",
+    title: "X / Twitter",
     link: "https://twitter.com/shivamhwp",
     icon_name: "Twitter",
   },
   {
     id: 2,
-    title: "github",
+    title: "Github",
     link: "https://github.com/shivamhwp",
     icon_name: "Github",
   },
 
   {
     id: 3,
-    title: "linkedin",
+    title: "Linkedin",
     link: "https://linkedin.com/in/shivamhwp",
     icon_name: "Linkedin",
   },
 
   {
     id: 4,
-    title: "youtube",
+    title: "Youtube",
     link: "https://www.youtube.com/@shivamhwp_",
     icon_name: "Youtube",
   },

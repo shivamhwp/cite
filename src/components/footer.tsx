@@ -2,20 +2,22 @@ import { socials } from "../data";
 
 function Footer() {
   return (
-    <div className="z-0 flex h-72 w-full items-center justify-center bg-black max-sm:px-3">
-      <div className="relative flex h-full w-full items-end justify-end overflow-hidden pb-4 text-right">
-        <div className="flex flex-row space-x-12 text-sm sm:space-x-16 sm:text-lg md:space-x-24 md:text-xl">
-          <ul></ul>
-        </div>
-      </div>
-      <a
-        href="/cinema"
-        data-umami-event="cinema-clicked"
-        data-astro-prefetch
-        className="absolute bottom-0 left-0 font-serif text-[40px] transition duration-500 hover:text-red-600 max-sm:translate-y-5 sm:text-[72px] md:translate-y-11 lg:translate-y-11 xl:translate-y-10"
+    <div className="flex w-full h-28 items-center justify-center bg-black max-sm:px-0 ">
+      <div
+        className="gap-4 w-full px-24 max-sm:px-0  py-4 border-dashed border-white/30 border-t flex items-center justify-around max-sm:gap-2 md:text-lg lg:text-xl xl:text-xl"
       >
-        cinema
-      </a>
+        {
+          socials?.map((x) => (
+            <a
+              href={x?.link}
+              target="_blank"
+              className={`flex text-2xl max-sm:text-xl hover:text-red-600 underline-offset-2 font-serif transition duration-500 hover:cursor-pointer  `}
+            >
+              {x.title}
+            </a>
+          ))
+        }
+      </div>
     </div>
   );
 }
