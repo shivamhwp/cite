@@ -11,7 +11,7 @@ function Footer() {
             <a
               href={x?.link}
               target="_blank"
-              className={`flex text-2xl max-sm:text-xl hover:text-red-600 underline-offset-2 font-serif transition duration-500 hover:cursor-pointer  `}
+              className={`flex text-2xl max-sm:text-xl hover:text-white underline-offset-2 font-serif transition duration-500 hover:cursor-pointer  `}
             >
               {x.title}
             </a>
