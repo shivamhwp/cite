@@ -9,15 +9,19 @@ export default function CinemaComponent() {
           {movies.map((movie) => {
             return (
               <div className="" key={movie.title}>
-                <div className={`flex w-full text-white font-serif text-5xl`}>
+                <div
+                  className={`flex w-full font-serif text-4xl text-white/80`}
+                >
                   {movie.title}
                 </div>
-                <div className="text-white text-opacity-60">{movie.description}</div>
+                <div className="text-white text-opacity-50">
+                  {movie.description}
+                </div>
               </div>
             );
           })}
         </div>
-        <hr className="my-8 border-white border-opacity-60 border-dashed" />
+        <hr className="my-8 border-dashed border-white border-opacity-60" />
         <ul className="flex flex-col pb-16">
           {/* songs list */}
           {songs.map((song) => {

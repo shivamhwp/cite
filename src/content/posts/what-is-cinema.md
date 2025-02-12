@@ -13,6 +13,6 @@ but to me it’s beautiful. its history, it’s present and future. it is someth
 
 </p>
 
-<p class="pt-2"><span class="font-serif text-white">it’s the amalgamation of arts</span> . the music, the chitra, the story and the people and to be presented with love, it is it’s right.</p>
+<p class="pt-2"><span class=" text-white">it’s the amalgamation of arts</span> . the music, the chitra, the story and the people and to be presented with love, it is it’s right.</p>
 
 <a href = "/cinema" class="hover:text-white hover:text-opacity-90 transition duration-500  group">some recommendations<span class="group-hover:text-red-700 text-white pl-1 transition duration-500 text-opacity-55 hover:text-opacity-100 ">♥︎ </span> </a>
