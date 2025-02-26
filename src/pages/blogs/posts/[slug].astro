@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../../layouts/layout.astro";
-import BlogHeader from "../../../components/blogHeader";
+import BlogHeader from "../../../components/ui/blogHeader";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -55,8 +55,8 @@ const description = "";
     />
     <div class="text-lg text-justify"><Content /></div>
     <a
-    href="/"
-    class="left-0 w-full h-8 flex items-end justify-end text-xl hover:text-white transition  duration-500 text-opacity-90 hover:cursor-pointer"
+    href="/more"
+    class="left-0 w-full h-8 flex items-end justify-end text-lg hover:text-white transition  duration-500 text-opacity-90 hover:cursor-pointer"
   >
     ← back
   </a>

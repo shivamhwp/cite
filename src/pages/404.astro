@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const siteTitle = "404";
 const description = "i think the url is wrong, btw hi.";
 ---
@@ -27,16 +29,16 @@ const description = "i think the url is wrong, btw hi.";
     <title>{siteTitle}</title>
   </head>
   <body
-    class="bg-black text-white  text-xl items-center justify-center h-screen w-screen fixed text-opacity-55 max-sm:px-4 text-center flex"
+    class="bg-black text-white  text-lg items-center justify-center h-screen w-screen fixed text-opacity-55 max-sm:px-4 text-center flex"
   >
     <div class="flex items-center justify-center flex-col gap-3">
       <div >i think the url is wrong, btw hi.</div>
-      <img src="/images/armin-armout.gif" alt="gif" class="h-80" />
+      <Image width={400} height={80} inferSize src="/images/armin-armout.gif" alt="gif" class="" />
       <a
         href="/"
-        class="text-white text-xl hover:cursor-pointer hover:underline decoration-wavy underline-offset-4 transition duration-300"
+        class="text-lg hover:cursor-pointer hover:underline  underline-offset-4 transition duration-300"
       >
-        go to shiganshina
+        go back to shiganshina
       </a>
     </div>
   </body>

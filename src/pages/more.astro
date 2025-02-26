@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/layout.astro";
+
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
+const allMorePosts = await getCollection('posts', ({data}) => {
+	return 	data.tags.includes("cinema")
+});
+
+const sortedPosts = allMorePosts.sort((a, b) => {
+  if (a.data.published > b.data.published) {
+    return -1;
+  } else {
+    return 1;
+  }
+});
+
+const siteTitle = "cinema";
+const description = "suggest some great cinema";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <meta property="twitter:title" content=" shivam " />
+  <meta name="twitter:image" content="https://shivam.ing/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta property="og:image" content="https://shivam.ing/images/og-image.png" />
+  <title>{siteTitle}</title>
+</head>
+
+<Layout>
+    <div class="flex text-lg max-sm:text-lg w-full flex-col gap-3">
+		<a class="font-serif text-xl group" href="/cinema">
+		<span class="group-hover:text-black transition duration-300">/cinema</span> - <span class="">movies, anime and songs.</span></a>
+		<div class="text-lg text-black/80 ">writings</div>
+		<div class="flex flex-col text-lg w-full ">
+		  {
+			sortedPosts.map((post) => (
+			  <div class="flex items-center hover:cursor-pointer group justify-between">
+				<a
+				  href={`blogs/posts/${post.slug}`}
+				  class="  group-hover:text-black/80  transition duration-500  "
+				>
+				  {post.data.title}
+				</a>
+				<div class="font-light font-serif text-lg">
+				  {dayjs(post.data.published).format("MMMM D, YYYY")}
+				</div>
+			  </div>
+			))
+		  }
+		</div>
+	  </div>
+	</div>
+</Layout>

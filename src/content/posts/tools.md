@@ -1,7 +1,7 @@
 ---
 title: "inventory."
 url: "tools"
-tags: ["tools", "first"]
+tags: ["tools", "first", "code"]
 published: 2024-11-14
 updated: 2024-12-27
 ---
@@ -15,16 +15,16 @@ updated: 2024-12-27
 
 <li><span class="font-semibold">machine</span> : macbook air m1 2020 : solid.</li>
 
-<li> <span class="font-semibold">browser</span> : always switching bw <a target="_blank" href="https://arc.net/" class=" font-mono text-white ">arc</a> and <a href="https://zen-browser.app/" target="_blank" class="text-white font-mono  ">zen</a>.</li>
+<li> <span class="font-semibold">browser</span> : always switching bw <a target="_blank" href="https://arc.net/" class=" font-mono text-black ">arc</a> and <a href="https://zen-browser.app/" target="_blank" class="text-black font-mono  ">zen</a>.</li>
 
-<li><span class="font-semibold">notes</span> : <a target="_blank" href="https://www.notion.so/" class=" text-white font-mono">notion</a>.</li>
+<li><span class="font-semibold">notes</span> : <a target="_blank" href="https://www.notion.so/" class=" text-black font-mono">notion</a>.</li>
 </ul>
 
 _dev tools_
 
 <ul class="">
 
-<li> <span class="font-semibold">editor</span> : <a href="https://cursor.com" target="_blank" class="text-white font-mono ">cursor</a>/<a href="https://zed.dev" target="_blank" class="text-[#2677FF]  font-mono ">zed</a>. <a href="https://neovim.io/" target="_blank" class="text-[#509947] font-mono ">nvim</a>(sometimes).</li>
+<li> <span class="font-semibold">editor</span> : <a href="https://cursor.com" target="_blank" class="text-black font-mono ">cursor</a>/<a href="https://zed.dev" target="_blank" class="text-[#2677FF]  font-mono ">zed</a>. <a href="https://neovim.io/" target="_blank" class="text-[#509947] font-mono ">nvim</a>(sometimes).</li>
 
 <li class=""><span class="font-semibold">terminal</span> :  <a href="https://ghostty.org/" target="_blank" class="text-[#3551F3] font-mono ">ghostty</a>.</li>
 

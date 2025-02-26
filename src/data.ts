@@ -9,21 +9,23 @@ export type movie = {
   description?: string;
 };
 export type code_projects = {
-  project_name : string,
-  link: string,
-  image?: string,
-  live_link? : string,
-  docs : string,
-}
+  project_name: string;
+  link: Object;
+  image?: string;
+  live_link?: string;
+  docs: string;
+};
 
-export const code_projects : code_projects[]  =[
+export const code_projects: code_projects[] = [
   {
-    project_name : "git-acm",
-    link : "https://github.com/shivamhwp/git-acm",
-    docs : "https://git-acm.pages.dev",
-  }
-
-]
+    project_name: "git-acm",
+    link: {
+      gh: "https://github.com/shivamhwp/git-acm",
+      crate: "https://crates.io/crates/git-acm",
+    },
+    docs: "https://git-acm.pages.dev",
+  },
+];
 
 export const songs = [
   {
