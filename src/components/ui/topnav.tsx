@@ -4,7 +4,7 @@ export function TopNav(pathname: { pathname: string }) {
       <div className="flex w-full gap-4">
         <a
           href="/"
-          className={` ${pathname.pathname === "/" ? "text-black/80" : "text-black/50"} text-lg transition duration-300 hover:text-black/80`}
+          className={` ${pathname.pathname === "/" ? "text-white/80" : "text-white/50"} text-lg transition duration-300 hover:text-white/80`}
         >
           home
         </a>
@@ -12,7 +12,7 @@ export function TopNav(pathname: { pathname: string }) {
           href="/more"
           data-umami-event="more-clicked"
           data-astro-prefetch
-          className={`${pathname.pathname === "/more" ? "text-black/80" : "text-black/50"} text-lg transition duration-300 hover:text-black/80`}
+          className={`${pathname.pathname === "/more" ? "text-white/80" : "text-white/50"} text-lg transition duration-300 hover:text-white/80`}
         >
           more
         </a>

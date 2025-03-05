@@ -43,15 +43,15 @@ const description = "suggest some great cinema";
 <Layout>
     <div class="flex text-lg max-sm:text-lg w-full h-full flex-col gap-3">
 		<a class="font-serif text-xl group" href="/cinema">
-		<span class="group-hover:text-black transition duration-300">/cinema</span> - <span class="">movies, anime and songs.</span></a>
-		<div class="text-lg text-black/80 ">writings</div>
+		<span class="group-hover:text-white transition duration-300">/cinema</span> - <span class="">movies, anime and songs.</span></a>
+		<div class="text-lg text-white/80 ">writings</div>
 		<div class="flex flex-col text-lg w-full ">
 		  {
 			sortedPosts.map((post) => (
 			  <div class="flex items-center hover:cursor-pointer group justify-between">
 				<a
 				  href={`blogs/posts/${post.slug}`}
-				  class="group-hover:text-black/80 transition duration-500"
+				  class="group-hover:text-white/80 transition duration-500"
 				>
 				  {post.data.title}
 				</a>

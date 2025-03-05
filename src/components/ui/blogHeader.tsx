@@ -11,7 +11,7 @@ function BlogHeader({
 }) {
   return (
     <div className="flex w-full flex-col items-start justify-between gap-2">
-      <div className="font-serif text-2xl text-black">{header}</div>
+      <div className="font-serif text-2xl text-white">{header}</div>
       <div className="flex gap-1 pb-5">
         <div> {updated === true ? "updated" : ""}</div>
         <div>
