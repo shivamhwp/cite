@@ -72,44 +72,83 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
       </div>
       </div> 
 
-    <!-- can use them #A3C9A8, #89A894, #C48793, #948BBE, #7A9E9F -->
-    <div class="text-lg max-sm:text-base flex flex-col gap-2">
-      <span class="text-lg text-white/80 flex">code </span>
-      {code_projects.map((project) => (
-        <div class="flex gap-4 items-center hover:cursor-pointer transition duration-300">
-          <div class="flex ">
-            <span class=" group-hover:text-white/80 transition duration-300 max-sm:text-lg text-lg">
-              {project.project_name}
-            </span>
-          </div>
 
-          <div class="flex gap-3 ">
-            {Object.entries(project.link).map(([key, value]) => (
-              <a
-                href={value}
-                class="hover:text-white/80 text-lg transition duration-300 max-sm:text-lg hover:text-opacity-100 underline-offset-2"
-                target="_blank"
-              >
-                {key} ↗
-              </a>
-            ))}
-           {project.docs &&  <a
-              href={project.docs}
-              class="hover:text-white/80 text-lg max-sm:text-lg transition duration-300 hover:text-opacity-100 underline-offset-2"
-              target="_blank"
-            >
-              docs ↗
-            </a>}
-            {project.live_link &&  <a
-              href={project?.live_link}
-              class="hover:text-white/80 text-lg max-sm:text-lg transition duration-300 hover:text-opacity-100 underline-offset-2"
-              target="_blank"
-            >
-              live ↗
-            </a>}
-          </div>
-        </div>
-      ))}
+
+
+    <div class="flex flex-col gap-4">
+      <span class="text-lg text-white/80 flex items-center gap-2">
+              code
+      </span>
+      <div class="grid grid-cols-1 gap-4">
+        {code_projects.map((project) => {
+          return (
+            <div class="bg-black border-2  border-white/30 p-3 hover:translate-y-[2px] hover:translate-x-[-2px] hover:shadow-none active:translate-y-[4px] active:translate-x-[-4px] transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:bg-transparent h-full">
+              <div class="flex flex-col h-full gap-2">
+                <div class="flex justify-between items-center">
+                  <span class="text-white font-bold text-lg">
+                    {project.project_name}
+                  </span>
+                  <div class="flex gap-2 flex-shrink-0">
+                    {Object.entries(project.link).map(([key, value]) => (
+                      <a
+                        href={value}
+                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
+                        target="_blank"
+                        aria-label={`${key} link for ${project.project_name}`}
+                      >
+                        {key === "gh" ? (
+                          <span class="flex items-center gap-1">
+                            <img src="/icons/github.svg" alt="GitHub" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
+                            github
+                          </span>
+                        ) : key === "crate" ? (
+                          <span class="flex items-center gap-1">
+                            <img src="/icons/crate.svg" alt="Crate" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
+                            crate
+                          </span>
+                        ) : (
+                          key
+                        )}
+                      </a>
+                    ))}
+                    {project.docs && (
+                      <a
+                        href={project.docs}
+                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
+                        target="_blank"
+                        aria-label={`Documentation for ${project.project_name}`}
+                      >
+                        <span class="flex items-center gap-1">
+                          <img src="/icons/docs.svg" alt="Documentation" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
+                          docs
+                        </span>
+                      </a>
+                    )}
+                    {project.live_link && (
+                      <a
+                        href={project.live_link}
+                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
+                        target="_blank"
+                        aria-label={`Live demo for ${project.project_name}`}
+                      >
+                        <span class="flex items-center gap-1">
+                          <img src="/icons/live.svg" alt="Live Demo" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
+                          Live
+                        </span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+                {project.description && (
+                  <span class="text-white/60 text-sm w-auto">
+                    {project.description}
+                  </span>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
 </Layout>
 

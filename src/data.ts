@@ -14,16 +14,28 @@ export type code_projects = {
   image?: string;
   live_link?: string;
   docs: string;
+  description: string;
 };
 
 export const code_projects: code_projects[] = [
   {
     project_name: "git-acm",
+    description: "generate meaningful commit messages locally using AI.",
     link: {
       gh: "https://github.com/shivamhwp/git-acm",
       crate: "https://crates.io/crates/git-acm",
     },
     docs: "https://git-acm.pages.dev",
+  },
+  {
+    project_name: "isup",
+    description:
+      "check whether sites, services or particular routes are up or not.",
+    link: {
+      gh: "https://github.com/shivamhwp/isup",
+      crate: "https://crates.io/crates/isup",
+    },
+    docs: "https://isup-docs.pages.dev",
   },
 ];
 
