@@ -29,8 +29,7 @@ export const code_projects: code_projects[] = [
   },
   {
     project_name: "isup",
-    description:
-      "check whether sites, services or particular routes are up or not.",
+    description: "on-device monitoring, lightweight, instant, and efficient.",
     link: {
       gh: "https://github.com/shivamhwp/isup",
       crate: "https://crates.io/crates/isup",
