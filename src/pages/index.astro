@@ -48,109 +48,80 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
 </head>
 
 <Layout title="shivam">
-  <div class="h-full w-full flex flex-col gap-3 ">
-    <div class="text-lg">hi, i'm shivam. i build. </div>
+  <div class="space-y-4">
+    <section class="pt-4 border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
+      <h1 class="text-2xl md:text-3xl text-white/90 font-serif mb-4 leading-relaxed">
+        hi, i'm shivam. <br>
+        <span class="inline-block mt-1">i build things.</span>
+      </h1>
+    </section>
 
-    <div class="flex text-lg max-sm:text-lg w-full flex-col gap-2">
-      <div class="text-lg text-white/80 ">blogs</div>
-      <div class="flex flex-col text-lg w-full ">
+    <section class="border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
+      <h2 class="text-xl md:text-2xl font-serif mb-5 text-white/80">blogs</h2>
+      <div class="space-y-3">
         {
-        sortedCodePosts.map((post) => (
-          <div class="flex items-center hover:cursor-pointer group justify-between">
-          <a
-            href={`blogs/posts/${post.slug}`}
-            class="  group-hover:text-white/80  transition duration-500  "
-          >
-            {post.data.title}
-          </a>
-          <div class="font-light font-serif text-lg">
-            {dayjs(post.data.published).format("MMMM D, YYYY")}
-          </div>
-          </div>
-        ))
+          sortedCodePosts.map((post) => (
+            <div class="flex items-center justify-between group">
+              <a
+                href={`blogs/posts/${post.slug}`}
+                class="text-base md:text-lg text-white/50 group-hover:text-white/70 transition-colors duration-200"
+              >
+                {post.data.title}
+              </a>
+              <div class="font-serif text-white/30 text-sm md:text-base">
+                {dayjs(post.data.published).format("MMMM D, YYYY")}
+              </div>
+            </div>
+          ))
         }
       </div>
-      </div> 
+    </section>
 
-
-
-
-    <div class="flex flex-col gap-4">
-      <span class="text-lg text-white/80 flex items-center gap-2">
-              code
-      </span>
-      <div class="grid grid-cols-1 gap-4">
-        {code_projects.map((project) => {
-          return (
-            <div class="bg-black border-2  border-white/30 p-3 hover:translate-y-[2px] hover:translate-x-[-2px] hover:shadow-none active:translate-y-[4px] active:translate-x-[-4px] transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:bg-transparent h-full">
-              <div class="flex flex-col h-full gap-2">
-                <div class="flex justify-between items-center">
-                  <span class="text-white font-bold text-lg">
-                    {project.project_name}
-                  </span>
-                  <div class="flex gap-2 flex-shrink-0">
-                    {Object.entries(project.link).map(([key, value]) => (
-                      <a
-                        href={value}
-                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
-                        target="_blank"
-                        aria-label={`${key} link for ${project.project_name}`}
-                      >
-                        {key === "gh" ? (
-                          <span class="flex items-center gap-1">
-                            <img src="/icons/github.svg" alt="GitHub" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
-                            github
-                          </span>
-                        ) : key === "crate" ? (
-                          <span class="flex items-center gap-1">
-                            <img src="/icons/crate.svg" alt="Crate" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
-                            crate
-                          </span>
-                        ) : (
-                          key
-                        )}
-                      </a>
-                    ))}
-                    {project.docs && (
-                      <a
-                        href={project.docs}
-                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
-                        target="_blank"
-                        aria-label={`Documentation for ${project.project_name}`}
-                      >
-                        <span class="flex items-center gap-1">
-                          <img src="/icons/docs.svg" alt="Documentation" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
-                          docs
-                        </span>
-                      </a>
-                    )}
-                    {project.live_link && (
-                      <a
-                        href={project.live_link}
-                        class="bg-white/90 text-black px-2 py-0.5 text-sm font-medium hover:bg-transparent hover:text-white border border-white/30 transition-all duration-200 group/link"
-                        target="_blank"
-                        aria-label={`Live demo for ${project.project_name}`}
-                      >
-                        <span class="flex items-center gap-1">
-                          <img src="/icons/live.svg" alt="Live Demo" class="w-4 h-4 brightness-0 group-hover/link:brightness-100 group-hover/link:invert" />
-                          Live
-                        </span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-                {project.description && (
-                  <span class="text-white/60 text-sm w-auto">
-                    {project.description}
-                  </span>
+    <section>
+      <h2 class="text-xl md:text-2xl font-serif mb-5 text-white/80">code</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {code_projects.map((project) => (
+          <div class="border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
+            <div class="flex items-center justify-between">
+              <span class="text-base md:text-lg font-medium text-white/60">
+                {project.project_name}
+              </span>
+              <div class="flex flex-wrap gap-3">
+                {Object.entries(project.link).map(([key, value]) => (
+                  <a
+                    href={value}
+                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${key} link for ${project.project_name}`}
+                  >
+                    {key}
+                  </a>
+                ))}
+                {project.docs && (
+                  <a
+                    href={project.docs}
+                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Documentation for ${project.project_name}`}
+                  >
+                    docs
+                  </a>
+                )}
+                {project.live_link && (
+                  <a
+                    href={project.live_link}
+                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Live demo for ${project.project_name}`}
+                  >
+                    live
+                  </a>
                 )}
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-    </div>
-</Layout>
-
-
-    

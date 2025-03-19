@@ -1,43 +1,45 @@
 import { movies, songs } from "./data";
+
 export default function CinemaComponent() {
   return (
-    <div className="relative z-10 flex h-full w-full justify-between overflow-x-hidden overflow-y-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex h-full w-full flex-col">
-        <div className="flex w-full flex-col gap-3">
-          {/* movies list */}
-          {movies.map((movie) => {
-            return (
-              <div className="" key={movie.title}>
-                <div
-                  className={`flex w-full font-serif text-4xl text-white/80`}
-                >
-                  {movie.title}
-                </div>
-                <div className="text-white text-opacity-50">
-                  {movie.description}
-                </div>
-              </div>
-            );
-          })}
+    <div className="space-y-10">
+      <section className="border border-white/10 p-3 pt-4 transition-colors duration-200 hover:border-white/20">
+        <h2 className="mb-5 font-serif text-xl text-white/80 md:text-2xl">
+          movies
+        </h2>
+        <div className="space-y-6">
+          {movies.map((movie) => (
+            <div key={movie.title} className="space-y-1">
+              <h3 className="font-serif text-xl text-white/60 md:text-2xl">
+                {movie.title}
+              </h3>
+              <p className="max-w-2xl text-sm text-white/40 md:text-base">
+                {movie.description}
+              </p>
+            </div>
+          ))}
         </div>
-        <hr className="my-8 border-dashed border-white border-opacity-60" />
-        <ul className="flex flex-col pb-16">
-          {/* songs list */}
-          {songs.map((song) => {
-            return (
-              <li className="" key={song.title}>
-                <a
-                  href={song.link}
-                  target="_blank"
-                  className="font-serif text-lg underline-offset-4 transition duration-500 hover:text-white"
-                >
-                  {song.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      </section>
+
+      <section className="border border-white/10 p-3 transition-colors duration-200 hover:border-white/20">
+        <h2 className="mb-5 font-serif text-xl text-white/80 md:text-2xl">
+          songs
+        </h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {songs.map((song) => (
+            <div key={song.title}>
+              <a
+                href={song.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-serif text-base text-white/50 transition-colors duration-200 hover:text-white/70 md:text-lg"
+              >
+                {song.title}
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -10,17 +10,19 @@ function BlogHeader({
   updated?: boolean;
 }) {
   return (
-    <div className="flex w-full flex-col items-start justify-between gap-2">
-      <div className="font-serif text-2xl text-white">{header}</div>
-      <div className="flex gap-1 pb-5">
-        <div> {updated === true ? "updated" : ""}</div>
-        <div>
+    <header className="mb-10 border border-white/10 p-3 transition-colors duration-200 hover:border-white/20">
+      <h1 className="mb-3 font-serif text-3xl leading-tight text-white/80 md:text-4xl">
+        {header}
+      </h1>
+      <div className="flex items-center font-serif text-white/50">
+        {updated && <span className="mr-2 text-sm md:text-base">updated</span>}
+        <time dateTime={date?.toISOString()} className="text-sm md:text-base">
           {date === undefined
-            ? dayjs(Date.now()).format("MMMM DD, YYYY").toLowerCase()
-            : dayjs(date).format("MMMM DD, YYYY").toLowerCase()}
-        </div>
+            ? dayjs(Date.now()).format("MMMM D, YYYY").toLowerCase()
+            : dayjs(date).format("MMMM D, YYYY").toLowerCase()}
+        </time>
       </div>
-    </div>
+    </header>
   );
 }
 

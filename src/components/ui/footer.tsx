@@ -2,19 +2,21 @@ import { socials } from "../../data";
 
 function Footer() {
   return (
-    <div className="flex h-16 w-full items-center justify-center bg-black">
-      <div className="flex w-full items-center justify-around gap-4 border-t border-dashed border-white/30 px-24 py-4 max-sm:gap-2 max-sm:px-0 md:text-lg lg:text-lg xl:text-lg">
+    <footer className="mt-10 border border-white/10 p-3 pt-4 transition-colors duration-200 hover:border-white/20">
+      <div className="flex justify-center gap-8 py-2">
         {socials?.map((x) => (
           <a
+            key={x.title}
             href={x?.link}
             target="_blank"
-            className={`flex font-serif text-lg underline-offset-2 transition duration-500 hover:cursor-pointer hover:text-white max-sm:text-lg`}
+            rel="noopener noreferrer"
+            className="font-serif text-lg text-white/30 transition-colors duration-200 hover:text-white/50"
           >
             {x.title}
           </a>
         ))}
       </div>
-    </div>
+    </footer>
   );
 }
 
