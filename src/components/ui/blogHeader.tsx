@@ -15,11 +15,11 @@ function BlogHeader({
         {header}
       </h1>
       <div className="flex items-center font-serif text-white/50">
-        {updated && <span className="mr-2 text-sm md:text-base">updated</span>}
+        {updated && <span className="mr-1 text-sm md:text-base">updated</span>}
         <time dateTime={date?.toISOString()} className="text-sm md:text-base">
           {date === undefined
-            ? dayjs(Date.now()).format("MMMM D, YYYY").toLowerCase()
-            : dayjs(date).format("MMMM D, YYYY").toLowerCase()}
+            ? dayjs(Date.now()).format("MMMM D, YYYY")
+            : dayjs(date).format("MMMM D, YYYY")}
         </time>
       </div>
     </header>

@@ -34,66 +34,6 @@ const description = "don't know what to write here";
     <title>{siteTitle}</title>
     <ClientRouter />
     <style>
-      .animated-lines {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-      }
-      .line {
-        position: absolute;
-        height: 1px;
-        background-color: rgba(255, 255, 255, 0.05);
-        animation-name: moveLine;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-      }
-      .line-1 {
-        top: 15%;
-        width: 100%;
-        animation-duration: 3s;
-      }
-      .line-2 {
-        top: 35%;
-        width: 90%;
-        animation-duration: 4s;
-      }
-      .line-3 {
-        top: 55%;
-        width: 70%;
-        animation-duration: 2.5s;
-      }
-      .line-4 {
-        top: 75%;
-        width: 85%;
-        animation-duration: 5s;
-      }
-      .line-5 {
-        top: 90%;
-        width: 50%;
-        animation-duration: 2s;
-      }
-      .line-6 {
-        top: 25%;
-        width: 80%;
-        animation-duration: 3.5s;
-      }
-      .line-7 {
-        top: 65%;
-        width: 60%;
-        animation-duration: 2.8s;
-      }
-      @keyframes moveLine {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(100%);
-        }
-      }
       ::selection {
         background-color: rgba(255, 255, 255, 0.1);
       }
@@ -103,17 +43,8 @@ const description = "don't know what to write here";
   <body
     class="bg-black text-white min-h-screen w-full overflow-x-hidden"
   >
-    <div class="animated-lines">
-      <div class="line line-1"></div>
-      <div class="line line-2"></div>
-      <div class="line line-3"></div>
-      <div class="line line-4"></div>
-      <div class="line line-5"></div>
-      <div class="line line-6"></div>
-      <div class="line line-7"></div>
-    </div>
     <div
-      class="mx-auto max-w-2xl px-4 pt-12 pb-16 flex flex-col min-h-screen"
+      class="mx-auto max-w-2xl px-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen"
     >
       <TopNav pathname={pathname}/>
       <main class="flex-grow">
