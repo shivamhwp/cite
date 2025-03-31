@@ -1,7 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/ui/footer";
-import '@fontsource/instrument-serif';
 import { TopNav } from "../components/ui/topnav";
 
 const pathname = Astro.url.pathname;
@@ -35,16 +34,16 @@ const description = "don't know what to write here";
     <ClientRouter />
     <style>
       ::selection {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
 
   <body
-    class="bg-black text-white min-h-screen w-full overflow-x-hidden"
+    class="bg-white text-black min-h-screen w-full overflow-x-hidden"
   >
     <div
-      class="mx-auto max-w-2xl px-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen"
+      class="mx-auto font-mono max-w-2xl px-2 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen"
     >
       <TopNav pathname={pathname}/>
       <main class="flex-grow">

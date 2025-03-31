@@ -7,7 +7,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Instrument Serif"],
+        serif: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
       },
     },
     plugins: [],

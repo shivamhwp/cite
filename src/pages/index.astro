@@ -48,27 +48,27 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-4">
-    <section class="pt-4 border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
-      <h1 class="text-2xl md:text-3xl text-white/80 font-serif  leading-relaxed">
-        hi, i'm shivam. <br>
+  <div class="space-y-2">
+    <section class="pt-4 p-3 transition-colors duration-200">
+      <h1 class="text-2xl md:text-3xl text-black/80 leading-relaxed">
+        hi,i'm shivam. <br>
         <span class="inline-block mt-1">i build things.</span>
       </h1>
     </section>
 
-    <section class="border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
-      <h2 class="text-xl md:text-2xl font-serif mb-4 text-white/80">blogs</h2>
+    <section class="p-3 transition-colors duration-200">
+      <h2 class="text-xl md:text-2xl mb-4 text-black/80">blogs</h2>
       <div class="space-y-3">
         {
           sortedCodePosts.map((post) => (
             <div class="flex items-center justify-between group">
               <a
                 href={`blogs/posts/${post.slug}`}
-                class="text-base md:text-lg text-white/50 group-hover:text-white/70 transition-colors duration-200"
+                class="text-base md:text-lg text-black/50 group-hover:text-black/70 transition-colors duration-200"
               >
                 {post.data.title}
               </a>
-              <div class="font-serif text-white/30 text-sm md:text-base">
+              <div class="text-black/30 text-sm md:text-base">
                 {dayjs(post.data.published).format("MMMM D, YYYY")}
               </div>
             </div>
@@ -77,20 +77,20 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
       </div>
     </section>
 
-    <section>
-      <h2 class="text-xl md:text-2xl  font-serif mb-3 text-white/80">code</h2>
+    <section class="p-3 transition-colors duration-200">
+      <h2 class="text-xl md:text-2xl mb-3 text-black/80">code</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {code_projects.map((project) => (
-          <div class="border border-white/10 p-3 hover:border-white/20 transition-colors duration-200">
+          <div class="transition-colors duration-200 border border-black/10 rounded-lg p-3">
             <div class="flex items-center justify-between">
-              <span class="text-base md:text-lg font-medium text-white/60">
+              <span class="text-base md:text-lg font-medium text-black/60">
                 {project.project_name}
               </span>
               <div class="flex flex-wrap gap-3">
                 {Object.entries(project.link).map(([key, value]) => (
                   <a
                     href={value}
-                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${key} link for ${project.project_name}`}
@@ -101,7 +101,7 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
                 {project.docs && (
                   <a
                     href={project.docs}
-                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Documentation for ${project.project_name}`}
@@ -112,7 +112,7 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
                 {project.live_link && (
                   <a
                     href={project.live_link}
-                    class="text-white/30 text-sm hover:text-white/50 transition-colors duration-200"
+                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Live demo for ${project.project_name}`}
@@ -125,3 +125,6 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
           </div>
         ))}
       </div>
+    </section>
+  </div>
+</Layout>
