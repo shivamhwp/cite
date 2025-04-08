@@ -8,9 +8,15 @@ export type movie = {
   title: string;
   description?: string;
 };
+
+export type song = {
+  title: string;
+  link: string;
+};
+
 export type code_projects = {
   project_name: string;
-  link: Object;
+  github: string;
   image?: string;
   live_link?: string;
   docs: string;
@@ -21,19 +27,13 @@ export const code_projects: code_projects[] = [
   {
     project_name: "git-acm",
     description: "generate meaningful commit messages locally using AI.",
-    link: {
-      gh: "https://github.com/shivamhwp/git-acm",
-      crate: "https://crates.io/crates/git-acm",
-    },
+    github: "https://github.com/shivamhwp/git-acm",
     docs: "https://git-acm.pages.dev",
   },
   {
     project_name: "isup",
     description: "on-device monitoring, lightweight, instant, and efficient.",
-    link: {
-      gh: "https://github.com/shivamhwp/isup",
-      crate: "https://crates.io/crates/isup",
-    },
+    github: "https://github.com/shivamhwp/isup",
     docs: "https://isup-docs.pages.dev",
   },
 ];
@@ -107,14 +107,6 @@ export const movies: movie[] = [
     title: "Jujutsu Kaisen",
     description: "super interesting, crazy storyline.",
   },
-  // {
-  //   title: "Demon Slayer",
-  //   description: "animation quality is mental. story's also good.",
-  // },
-  {
-    title: "Steins;Gate",
-    description: "short and sweet. also very interesting.",
-  },
   {
     title: "Se7en",
     description: "simple and sanguinary. ofc by david fincher.",
@@ -124,16 +116,8 @@ export const movies: movie[] = [
     description: "one of my favourites.",
   },
   {
-    title: "Cowboy Bebop",
-    description: "very nice story + the jazz is just insane & it's a classic",
-  },
-  {
     title: "Whiplash",
     description: "obsession explained.",
-  },
-  {
-    title: "The Social Network",
-    description: "i mean, you know it. also by david fincher.",
   },
   {
     title: "Mr Robot",
@@ -147,36 +131,32 @@ export const movies: movie[] = [
     title: "The Prestige",
     description: "",
   },
-  {
-    title: "The Godfather",
-    description: "  ",
-  },
 ];
 
 export const socials: social[] = [
   {
     id: 1,
-    title: "X",
+    title: "x",
     link: "https://twitter.com/shivamhwp",
     icon_name: "Twitter",
   },
   {
     id: 2,
-    title: "Github",
+    title: "gh",
     link: "https://github.com/shivamhwp",
     icon_name: "Github",
   },
 
-  {
-    id: 2,
-    title: "Linkedin",
-    link: "https://www.linkedin.com/in/shivamhwp/",
-    icon_name: "Linkedin",
-  },
+  // {
+  //   id: 3,
+  //   title: "linkedin",
+  //   link: "https://www.linkedin.com/in/shivamhwp/",
+  //   icon_name: "Linkedin",
+  // },
 
   {
     id: 4,
-    title: "Youtube",
+    title: "yt",
     link: "https://www.youtube.com/@shivamhwp_",
     icon_name: "Youtube",
   },

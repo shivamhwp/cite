@@ -1,17 +1,14 @@
+import { socials } from "../../data";
+
 export function TopNav(pathname: { pathname: string }) {
   return (
-    <nav className="mb-6 flex w-full items-center justify-between p-3 transition-colors duration-200">
-      <div className="flex items-center">
-        <a href="/" className="mr-6">
-          <div className="h-8 w-8 rounded-full bg-black/70 transition duration-500 hover:bg-black"></div>
-        </a>
-      </div>
+    <nav className="mb-6 flex w-full items-center justify-between py-4 pt-4 text-white/80 transition duration-500">
       <div className="flex items-center gap-6">
         <a
           href="/"
           className={`${
-            pathname.pathname === "/" ? "text-black" : "text-black/50"
-          } text-lg transition-colors duration-200 hover:text-black/90`}
+            pathname.pathname === "/" ? "underline underline-offset-4" : ""
+          } text-lg transition duration-500 hover:text-white/90`}
         >
           home
         </a>
@@ -20,11 +17,27 @@ export function TopNav(pathname: { pathname: string }) {
           data-umami-event="more-clicked"
           data-astro-prefetch
           className={`${
-            pathname.pathname === "/more" ? "text-black" : "text-black/50"
-          } text-lg transition-colors duration-200 hover:text-black/90`}
+            pathname.pathname === "/more" ? "underline underline-offset-4" : ""
+          } text-lg transition duration-500 hover:text-white/90`}
         >
           more
         </a>
+      </div>
+
+      {/* socials */}
+      <div className="flex gap-4 text-lg">
+        {socials.map((social) => (
+          <a
+            key={social.id}
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-8"
+            aria-label={`${social.title} link`}
+          >
+            {social.title}
+          </a>
+        ))}
       </div>
     </nav>
   );

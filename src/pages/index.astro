@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/layout.astro";
-import {code_projects} from "../data";
+import {code_projects, socials} from "../data";
+
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -48,78 +49,33 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-2">
-    <section class="pt-4 p-3 transition-colors duration-200">
-      <h1 class="text-2xl md:text-3xl text-black/80 leading-relaxed">
-        hi,i'm shivam. <br>
-        <span class="inline-block mt-1">i build things.</span>
-      </h1>
-    </section>
-
-    <section class="p-3 transition-colors duration-200">
-      <h2 class="text-xl md:text-2xl mb-4 text-black/80">blogs</h2>
-      <div class="space-y-3">
-        {
-          sortedCodePosts.map((post) => (
-            <div class="flex items-center justify-between group">
-              <a
-                href={`blogs/posts/${post.slug}`}
-                class="text-base md:text-lg text-black/50 group-hover:text-black/70 transition-colors duration-200"
-              >
-                {post.data.title}
-              </a>
-              <div class="text-black/30 text-sm md:text-base">
-                {dayjs(post.data.published).format("MMMM D, YYYY")}
-              </div>
-            </div>
-          ))
-        }
+  <div class="space-y-6">
+    <section class="pt-2  transition duration-500">
+      <div class=" text-xl text-white/60 ">
+        hi shivam here. i build things.
       </div>
     </section>
 
-    <section class="p-3 transition-colors duration-200">
-      <h2 class="text-xl md:text-2xl mb-3 text-black/80">code</h2>
+    <section class=" transition duration-500">
+        <div class="text-xl mb-3 text-white/60">stuff i built</div> 
+
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {code_projects.map((project) => (
-          <div class="transition-colors duration-200 border border-black/10 rounded-lg p-3">
+          <div class="transition-colors duration-200 border border-white/20  p-3">
             <div class="flex items-center justify-between">
-              <span class="text-base md:text-lg font-medium text-black/60">
+              <span class="text-base md:text-lg font-medium text-white/60">
                 {project.project_name}
               </span>
               <div class="flex flex-wrap gap-3">
-                {Object.entries(project.link).map(([key, value]) => (
-                  <a
-                    href={value}
-                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${key} link for ${project.project_name}`}
-                  >
-                    {key}
-                  </a>
-                ))}
-                {project.docs && (
-                  <a
-                    href={project.docs}
-                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Documentation for ${project.project_name}`}
-                  >
-                    docs
-                  </a>
-                )}
-                {project.live_link && (
-                  <a
-                    href={project.live_link}
-                    class="text-black/30 text-sm hover:text-black/50 transition-colors duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Live demo for ${project.project_name}`}
-                  >
-                    live
-                  </a>
-                )}
+                <a
+                  href={project.github}
+                  class="text-white/30  hover:text-white/80 transition duration-500"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`GitHub link for ${project.project_name}`}
+                >
+                  github
+                </a>
               </div>
             </div>
           </div>

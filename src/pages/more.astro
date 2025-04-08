@@ -7,11 +7,9 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-const allMorePosts = await getCollection('posts', ({data}) => {
-	return 	data.tags.includes("cinema")
-});
+const allPosts = await getCollection('posts');
 
-const sortedPosts = allMorePosts.sort((a, b) => {
+const sortedPosts = allPosts.sort((a, b) => {
   if (a.data.published > b.data.published) {
     return -1;
   } else {
@@ -43,27 +41,27 @@ const description = "suggest some great cinema";
 <Layout>
   <div class="space-y-2">
     <section class="">
-      <a href="/cinema" class="inline-block w-full mb-4 p-3 transition-colors duration-200">
-        <h2 class="text-xl md:text-2xl text-black/80 hover:text-black transition-colors duration-200">
+      <a href="/cinema" class="inline-block w-full mb-4  transition-colors duration-200 ">
+        <h2 class="text-xl md:text-2xl text-white/80 hover:text-white transition-colors duration-200">
           /cinema
         </h2>
-        <p class="text-base md:text-lg text-black/40 mt-1">movies, anime and songs.</p>
+        <p class="text-base md:text-lg text-white/40 mt-1">movies, anime and songs.</p>
       </a>
     </section>
 
-    <section class="p-3 transition-colors duration-200">
-      <h2 class="text-xl md:text-2xl mb-4 text-black/80">writings</h2>
-      <div class="space-y-1">
+    <section class=" transition-colors duration-200">
+      <h2 class="text-xl md:text-2xl mb-4 text-white/80">blogs</h2>
+      <div class="">
         {
           sortedPosts.map((post) => (
             <div class="flex items-center justify-between group">
               <a
                 href={`blogs/posts/${post.slug}`}
-                class="text-base md:text-lg text-black/40 group-hover:text-black/70 transition-colors duration-200"
+                class="text-base md:text-lg text-white/40 group-hover:text-white/70 transition duration-500"
               >
                 {post.data.title}
               </a>
-              <div class="text-black/30 text-sm md:text-base">
+              <div class="text-white/30 text-sm md:text-base">
                 {dayjs(post.data.published).format("MMMM D, YYYY")}
               </div>
             </div>
