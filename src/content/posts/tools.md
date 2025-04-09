@@ -19,7 +19,7 @@ updated: 2024-12-27
 
 <li><span class="font-semibold">notes</span> : <a target="_blank" href="https://www.notion.so/" class=" text-white">notion</a> & <a href="https://notesnook.com" class= " text-white" target="_blank">notesnook</a>.</li>
 
-<li> <b>tracker block : </b> <a href="https://nextdns.io/" class="text-[#008AFF]" >nextdns</a> </li>
+<li> <span class="font-semibold">tracker block : </span> <a href="https://nextdns.io/" class="text-[#008AFF]" >nextdns</a> </li>
 </ul>
 
 <span class="bg-white/90 px-2  text-black"> _dev tools_ </span>

@@ -29,7 +29,7 @@ export default function CinemaComponent() {
             audio{" "}
           </button>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {showContent === "movies" &&
             movies.map((movie) => (
               <div key={movie.title} className="space-y-1">
