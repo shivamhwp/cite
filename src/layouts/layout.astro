@@ -2,10 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/ui/footer";
 import { TopNav } from "../components/ui/topnav";
-import "@fontsource/jetbrains-mono/400.css";
-import "@fontsource/jetbrains-mono/500.css";
-import "@fontsource/jetbrains-mono/600.css";
-import "@fontsource/jetbrains-mono/700.css";
+import '@fontsource-variable/jetbrains-mono';
 
 const pathname = Astro.url.pathname;
 
@@ -15,6 +12,7 @@ const description = "don't know what to write here";
 
 <html lang="en" class="font-mono">
   <head>
+    <link rel="preload" as="font" type="font/woff2" href="@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2" crossorigin="anonymous" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.svg" />
