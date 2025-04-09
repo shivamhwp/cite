@@ -2,7 +2,11 @@
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/ui/footer";
 import { TopNav } from "../components/ui/topnav";
-import '@fontsource-variable/jetbrains-mono';
+import '@fontsource/jetbrains-mono';
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
+import "@fontsource/jetbrains-mono/700.css";
 
 const pathname = Astro.url.pathname;
 
@@ -33,6 +37,7 @@ const description = "don't know what to write here";
     />
     <title>{siteTitle}</title>
     <ClientRouter />
+
   </head>
 
   <body

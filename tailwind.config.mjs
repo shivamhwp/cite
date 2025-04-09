@@ -5,11 +5,7 @@ export default {
     "./src/topnav.tsx",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        mono: ["JetBrains Mono Variable", "monospace"],
-      },
-    },
+    extend: {},
     plugins: [],
   },
 };
