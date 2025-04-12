@@ -5,7 +5,9 @@ export default {
     "./src/topnav.tsx",
   ],
   theme: {
-    extend: {},
+    
+    extend: {
+    },
     plugins: [],
   },
 };

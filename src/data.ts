@@ -137,7 +137,7 @@ export const socials: social[] = [
   {
     id: 1,
     title: "x",
-    link: "https://twitter.com/shivamhwp",
+    link: "https://x.com/shivamhwp",
     icon_name: "Twitter",
   },
   {
@@ -159,6 +159,12 @@ export const socials: social[] = [
     title: "yt",
     link: "https://www.youtube.com/@shivamhwp_",
     icon_name: "Youtube",
+  },
+  {
+    id: 5,
+    title: "cal",
+    link: "https://cal.com/shivamhwp/just-chatting",
+    icon_name: "call",
   },
 ];
 
