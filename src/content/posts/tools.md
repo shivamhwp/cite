@@ -15,9 +15,9 @@ updated: 2024-12-27
 
 <li><span class="font-semibold">machine</span> : macbook air m1 2020 : solid.</li>
 
-<li> <span class="font-semibold">browser</span> : always switching between <a target="_blank" href="https://brave.com/" class=" text-[#FF1F02] ">brave</a> and <a href="https://zen-browser.app/" target="_blank" class="text-[#F76F53]  ">zen</a>.</li>
+<li> <span class="font-semibold">browser</span> :  <a target="_blank" href="https://brave.com/" class=" text-[#FF1F02] ">brave</a> and <a href="https://zen-browser.app/" target="_blank" class="text-[#F76F53]  ">zen</a>.</li>
 
-<li><span class="font-semibold">notes</span> : <a target="_blank" href="https://www.notion.so/" class=" text-white">notion</a> & <a href="https://notesnook.com" class= " text-white" target="_blank">notesnook</a>.</li>
+<li><span class="font-semibold">note-taking</span> : <a target="_blank" href="https://www.notion.so/" class=" text-white">notion</a> & <a href="https://notesnook.com" class= " text-white" target="_blank">notesnook</a>.</li>
 
 <li> <span class="font-semibold">tracker block : </span> <a href="https://nextdns.io/" class="text-[#008AFF]" >nextdns</a> </li>
 </ul>
@@ -26,7 +26,7 @@ updated: 2024-12-27
 
 <ul class="">
 
-<li> <span class="font-semibold">editor</span> : <a href="https://cursor.com" target="_blank" class="text-white ">cursor </a>/<a href="https://zed.dev" target="_blank" class="text-[#2677FF]  "> zed</a>. <a href="https://neovim.io/" target="_blank" class="text-[#509947]  ">nvim</a> (sometimes).</li>
+<li> <span class="font-semibold">editor</span> : <a href="https://cursor.com" target="_blank" class="text-white ">cursor</a>.<a href="https://zed.dev" target="_blank" class="text-[#2677FF]  "> zed</a> & <a href="https://neovim.io/" target="_blank" class="text-[#509947]  ">nvim</a> (sometimes).</li>
 
 <li class=""><span class="font-semibold">terminal</span> :  <a href="https://ghostty.org/" target="_blank" class="text-[#3551F3] ">ghostty</a>.</li>
 
