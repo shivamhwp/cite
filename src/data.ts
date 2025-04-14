@@ -174,3 +174,11 @@ export const walls = [
     link: "https://utfs.io/f/cd8841e4-0cd3-4c3a-b260-6c1b416f45bf-ar80q7.png",
   },
 ];
+
+export const updates = [
+  {
+    id: 1,
+    description:
+      "isup crossed 1.1k downloads and git-acm crossed 3.5k downloads on crates.io. i feel very happy.",
+  },
+];

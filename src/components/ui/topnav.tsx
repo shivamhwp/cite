@@ -7,7 +7,9 @@ export function TopNav(pathname: { pathname: string }) {
         <a
           href="/"
           className={`${
-            pathname.pathname === "/" ? "underline underline-offset-4" : ""
+            pathname.pathname === "/"
+              ? "underline underline-offset-4"
+              : "no-underline"
           } text-lg transition duration-500 hover:text-white/90`}
         >
           home
@@ -17,7 +19,9 @@ export function TopNav(pathname: { pathname: string }) {
           data-umami-event="more-clicked"
           data-astro-prefetch
           className={`${
-            pathname.pathname === "/more" ? "underline underline-offset-4" : ""
+            pathname.pathname === "/more"
+              ? "underline underline-offset-4"
+              : "no-underline"
           } text-lg transition duration-500 hover:text-white/90`}
         >
           more

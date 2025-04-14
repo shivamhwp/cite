@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/layout.astro";
-import {code_projects, socials} from "../data";
+import {code_projects, socials, updates} from "../data";
 
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
@@ -82,5 +82,14 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
         ))}
       </div>
     </section>
+
+    <section class=" transition duration-500">
+
+      <div class="text-lg mb-3 text-white/80">updates</div> 
+
+      {updates.map((update) => (
+        <div class="text-white/50">{update.description}</div>
+      ))}
+     
   </div>
 </Layout>
