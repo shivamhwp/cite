@@ -42,26 +42,26 @@ const description = "suggest some great cinema";
   <div class="space-y-2">
     <section class="">
       <a href="/cinema" class="inline-block w-full mb-4  transition-colors duration-200 ">
-        <h2 class="text-xl md:text-2xl text-white/60 hover:text-white transition duration-500">
+        <h2 class="text-xl md:text-2xl text-black/60 hover:text-black transition duration-500">
           /cinema
         </h2>
-        <p class="text-base md:text-lg text-white/40 mt-1">movies, anime and songs.</p>
+        <p class="text-base md:text-lg text-black/40 mt-1">movies, anime and songs.</p>
       </a>
     </section>
 
     <section class=" transition-colors duration-200">
-      <h2 class="text-xl md:text-2xl mb-4 text-white/80">blogs</h2>
+      <h2 class="text-xl md:text-2xl mb-4 text-black/80">blogs</h2>
       <div class="gap-1 flex flex-col">
         {
           sortedPosts.map((post) => (
             <div class="flex items-center  justify-between group">
               <a
                 href={`blogs/posts/${post.slug}`}
-                class="text-base md:text-lg text-white/40 group-hover:text-white/70 transition duration-500"
+                class="text-base md:text-lg text-black/40 group-hover:text-black/70 transition duration-500"
               >
                 {post.data.title}
               </a>
-              <div class="text-white/30 text-sm md:text-base">
+              <div class="text-black/30 text-sm md:text-base">
                 {dayjs(post.data.published).format("MMMM D, YYYY")}
               </div>
             </div>
