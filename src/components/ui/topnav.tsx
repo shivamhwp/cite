@@ -6,11 +6,11 @@ export function TopNav(pathname: { pathname: string }) {
       <div className="flex items-center gap-6">
         <a
           href="/"
-          className={`${
+          className={`text-lg text-black/50 transition duration-500 hover:text-black/90 hover:underline hover:underline-offset-4 ${
             pathname.pathname === "/"
-              ? "underline underline-offset-4"
-              : "no-underline"
-          } text-lg transition duration-500 hover:text-black/90`}
+              ? "text-black/90 underline underline-offset-4"
+              : ""
+          }`}
         >
           home
         </a>
@@ -18,11 +18,11 @@ export function TopNav(pathname: { pathname: string }) {
           href="/more"
           data-umami-event="more-clicked"
           data-astro-prefetch
-          className={`${
+          className={`text-lg text-black/50 transition duration-500 hover:text-black/90 hover:underline hover:underline-offset-4 ${
             pathname.pathname === "/more"
-              ? "underline underline-offset-4"
-              : "no-underline"
-          } text-lg transition duration-500 hover:text-black/90`}
+              ? "text-black/90 underline underline-offset-4"
+              : ""
+          }`}
         >
           more
         </a>

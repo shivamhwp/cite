@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/layout.astro";
-import {code_projects, socials, updates} from "../data";
-
-import { getCollection } from "astro:content";
+import {code_projects} from "../data";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -10,19 +8,6 @@ dayjs.extend(relativeTime);
 
 const siteTitle = "shivam";
 const description = "don't know what to write here";
-
-const allCodePosts = await getCollection('posts', ({data}) => {
-	return 	data.tags.includes("code")
-});
-
-const sortedCodePosts = allCodePosts.sort((a, b) => {
-  if (a.data.published > b.data.published) {
-    return -1;
-  } else {
-    return 1;
-  }
-});
-
 
 ---
 
@@ -32,7 +17,7 @@ const sortedCodePosts = allCodePosts.sort((a, b) => {
     is:inline
     src="https://cloud.umami.is/script.js"
     data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"></script>
-  t<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/favicon.svg" />
   <meta name="description" content={description} />

@@ -1,6 +1,5 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import Footer from "../components/ui/footer";
 import { TopNav } from "../components/ui/topnav";
 import '@fontsource/jetbrains-mono';
 import "@fontsource/jetbrains-mono/400.css";
@@ -41,16 +40,12 @@ const description = "don't know what to write here";
   </head>
 
   <body
-    class="bg-white text-black min-h-screen w-full overflow-x-hidden font-['JetBrains_Mono']"
-  >
-    <div
-      class="mx-auto max-w-2xl px-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen"
-    >
+    class="bg-white text-black min-h-screen w-full overflow-x-hidden font-['JetBrains_Mono']">
+    <div class="mx-auto max-w-2xl px-4  pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen">
       <TopNav pathname={pathname}/>
       <main class="flex-grow">
         <slot />
       </main>
-      <!-- <Footer /> -->
     </div>
   </body>
 </html>

@@ -33,9 +33,9 @@ export default function CinemaComponent() {
           {showContent === "movies" &&
             movies.map((movie) => (
               <div key={movie.title} className="space-y-1">
-                <h3 className="text-lg text-black/40 md:text-2xl">
+                <h3 className="text-lg text-black/50 md:text-2xl">
                   {movie.title}
-                  <p className="hidden max-w-2xl text-sm text-black/40 md:block md:text-base">
+                  <p className="hidden max-w-2xl text-sm text-black/50 md:block md:text-base">
                     {movie.description}
                   </p>
                 </h3>
@@ -44,7 +44,7 @@ export default function CinemaComponent() {
           {showContent === "songs" &&
             songs.map((song) => (
               <div key={song.title} className="space-y-1">
-                <h3 className="text-lg text-black/40 md:text-2xl">
+                <h3 className="text-lg text-black/50 md:text-2xl">
                   <a
                     href={song.link}
                     target="_blank"
