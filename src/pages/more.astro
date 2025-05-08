@@ -58,6 +58,7 @@ const description = "suggest some great cinema";
             <div class="flex items-center  justify-between group">
               <a
                 href={`blogs/posts/${post.slug}`}
+                data-umami-event={post.slug}
                 class="text-base md:text-lg text-black/40 group-hover:text-black/70 transition duration-500"
               >
                 {post.data.title}
