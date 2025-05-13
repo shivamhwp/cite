@@ -12,8 +12,8 @@ export default function CinemaComponent() {
             onClick={() => setShowContent("movies")}
             className={`px-4 py-2 ${
               showContent === "movies"
-                ? "bg-black/20 text-black"
-                : "text-black/50"
+                ? "bg-white/20 text-white"
+                : "text-white/50"
             }`}
           >
             mkv
@@ -22,8 +22,8 @@ export default function CinemaComponent() {
             onClick={() => setShowContent("songs")}
             className={`px-4 py-2 ${
               showContent === "songs"
-                ? "bg-black/20 text-black"
-                : "text-black/50"
+                ? "bg-white/20 text-white"
+                : "text-white/50"
             }`}
           >
             audio{" "}
@@ -33,9 +33,9 @@ export default function CinemaComponent() {
           {showContent === "movies" &&
             movies.map((movie) => (
               <div key={movie.title} className="space-y-1">
-                <h3 className="text-lg text-black/50 md:text-2xl">
+                <h3 className="text-lg text-white/50 md:text-2xl">
                   {movie.title}
-                  <p className="hidden max-w-2xl text-sm text-black/50 md:block md:text-base">
+                  <p className="hidden max-w-2xl text-sm text-white/50 md:block md:text-base">
                     {movie.description}
                   </p>
                 </h3>
@@ -44,12 +44,12 @@ export default function CinemaComponent() {
           {showContent === "songs" &&
             songs.map((song) => (
               <div key={song.title} className="space-y-1">
-                <h3 className="text-lg text-black/50 md:text-2xl">
+                <h3 className="text-lg text-white/50 md:text-2xl">
                   <a
                     href={song.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition duration-500 hover:text-black/80"
+                    className="transition duration-500 hover:text-white/80"
                   >
                     {song.title}
                   </a>

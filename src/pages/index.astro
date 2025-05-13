@@ -36,25 +36,25 @@ const description = "don't know what to write here";
 <Layout title="shivam">
   <div class="space-y-4">
     <section class="pt-2  transition duration-500">
-      <div class=" text-lg text-black/60 ">
+      <div class=" text-lg text-white/60 ">
         hi shivam here. i build things.
       </div>
     </section>
 
     <section class=" transition duration-500">
-        <div class="text-lg mb-3 text-black/60">stuff i built</div> 
+        <div class="text-lg mb-3 text-white/60">stuff i built</div> 
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {code_projects.map((project) => (
-          <div class="transition-colors duration-200 border border-black/20  p-3">
+          <div class="transition-colors duration-200 border border-white/20  p-3">
             <div class="flex items-center justify-between">
-              <span class="text-base md:text-lg font-medium text-black/60">
+              <span class="text-base md:text-lg font-medium text-white/60">
                 {project.project_name}
               </span>
               <div class="flex flex-wrap gap-3">
                 <a
                   href={project.github}
-                  class="text-black/30  hover:text-black/80 transition duration-500"
+                  class="text-white/30  hover:text-white/80 transition duration-500"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`GitHub link for ${project.project_name}`}

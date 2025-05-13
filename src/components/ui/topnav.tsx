@@ -2,13 +2,13 @@ import { socials } from "../../data";
 
 export function TopNav(pathname: { pathname: string }) {
   return (
-    <nav className="mb-6 flex w-full items-center justify-between py-4 pt-4 text-black/80 transition duration-500">
+    <nav className="mb-6 flex w-full items-center justify-between py-4 pt-4 text-white/80 transition duration-500">
       <div className="flex items-center gap-6">
         <a
           href="/"
-          className={`text-lg text-black/50 transition duration-500 hover:text-black/90 hover:underline hover:underline-offset-4 ${
+          className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
             pathname.pathname === "/"
-              ? "text-black/90 underline underline-offset-4"
+              ? "text-white/90 underline underline-offset-4"
               : ""
           }`}
         >
@@ -18,9 +18,9 @@ export function TopNav(pathname: { pathname: string }) {
           href="/more"
           data-umami-event="more-clicked"
           data-astro-prefetch
-          className={`text-lg text-black/50 transition duration-500 hover:text-black/90 hover:underline hover:underline-offset-4 ${
+          className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
             pathname.pathname === "/more"
-              ? "text-black/90 underline underline-offset-4"
+              ? "text-white/90 underline underline-offset-4"
               : ""
           }`}
         >
@@ -36,7 +36,7 @@ export function TopNav(pathname: { pathname: string }) {
             href={social.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition duration-500 hover:text-black/90 hover:underline hover:underline-offset-8"
+            className="transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-8"
             aria-label={`${social.title} link`}
           >
             {social.title}
