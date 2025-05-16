@@ -36,12 +36,14 @@ const description = "don't know what to write here";
 <Layout title="shivam">
   <div class="space-y-4">
     <section class="pt-2 transition gap-2 duration-500">
+      <div class="flex flex-col gap-2">
       <div class=" text-lg text-white/60 ">
         hi shivam here. i build things.
       </div>
-      <div class="pt-2 text-white/60 text-lg">
+      <div class="text-white/60 text-lg">
         founding ai researcher @<a target= "_blank" class="hover:underline transition duration-500" href="https://supermemory.ai/">supermemory</a>
       </div>
+    </div>
     </section>
 
     <section class=" transition duration-500">
@@ -53,7 +55,7 @@ const description = "don't know what to write here";
             <div class="flex items-center justify-between">
               <span class="text-base md:text-lg font-medium text-white/60">
                 {project.project_name}
-              </span>
+              </span> 
               <div class="flex flex-wrap gap-3">
                 <a
                   href={project.github}
