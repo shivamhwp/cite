@@ -3,6 +3,7 @@ import Layout from "../layouts/layout.astro";
 import {code_projects} from "../data";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import {updates} from "../data";
 
 dayjs.extend(relativeTime);
 
@@ -36,7 +37,7 @@ const description = "don't know what to write here";
 <Layout title="shivam">
   <div class="space-y-4">
     <section class="pt-2 transition gap-2 duration-500">
-      <div class=" text-lg text-white/60 ">
+      <div class=" text-lg text-white/50 ">
         hi shivam here. i build things.
       </div>
     </section>
@@ -48,7 +49,7 @@ const description = "don't know what to write here";
         {code_projects.map((project) => (
           <div class="transition-colors duration-200 border border-white/20  p-3">
             <div class="flex items-center justify-between">
-              <span class="text-base md:text-lg font-medium text-white/60">
+              <span class="text-base md:text-lg font-medium text-white/50">
                 {project.project_name}
               </span> 
               <div class="flex flex-wrap gap-3">
@@ -68,13 +69,13 @@ const description = "don't know what to write here";
       </div>
     </section>
 
-    <!-- <section class=" transition duration-500">
+    <section class=" transition duration-500">
 
-      <div class="text-lg mb-3 text-black/80">updates</div> 
+      <div class="text-lg mb-3 text-white/60">updates</div> 
 
-      {updates.map((update) => (
-        <div class="text-black/50">{update.description}</div>
+      {updates.map((update: any) => (
+        <div class="text-white/50">{update.description}</div>
       ))}
-     </section> -->
+     </section>
   </div>
 </Layout>

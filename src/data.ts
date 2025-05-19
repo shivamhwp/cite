@@ -179,6 +179,6 @@ export const updates = [
   {
     id: 1,
     description:
-      "isup crossed 1.1k downloads and git-acm crossed 3.5k downloads on crates.io. i feel very happy.",
+      "worked with the supermemoryai team for a bit, did some ai testing, research, evals and stuff. crazy team.",
   },
 ];
