@@ -26,7 +26,6 @@ export function TopNav(pathname: { pathname: string }) {
         </a>
         <a
           href="/more"
-          data-umami-event="more-clicked"
           data-astro-prefetch
           className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
             pathname.pathname === "/more"
