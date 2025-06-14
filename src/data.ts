@@ -131,6 +131,11 @@ export const movies: movie[] = [
     title: "The Prestige",
     description: "",
   },
+  {
+    title: "nymphomaniac volume 1 and 2",
+    description:
+      "one of the most interesting movies i've seen lately.Charlotte Lucy Gainsbourg acting was insane.",
+  },
 ];
 
 export const socials: social[] = [

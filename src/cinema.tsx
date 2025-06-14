@@ -35,7 +35,7 @@ export default function CinemaComponent() {
               <div key={movie.title} className="space-y-1">
                 <h3 className="text-lg text-white/50 md:text-2xl">
                   {movie.title}
-                  <p className="hidden max-w-2xl text-sm text-white/50 md:block md:text-base">
+                  <p className="hidden max-w-2xl text-sm text-white/40 md:block md:text-base">
                     {movie.description}
                   </p>
                 </h3>
