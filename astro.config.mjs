@@ -1,21 +1,28 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   image: {
-    domains: ["utfs.io"],
-    remotePatterns: [
-      {
-        protocol: "https",
-      },
-    ],
-  },
-  integrations: [react(), tailwind()],
+      domains: ["utfs.io"],
+      remotePatterns: [
+          {
+              protocol: "https",
+          },
+      ],
+	},
+
+  integrations: [react()],
+
   markdown: {
-    syntaxHighlight: "shiki",
-    gfm: true,
-  },
+      syntaxHighlight: "shiki",
+      gfm: true,
+	},
+
   output: "static",
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

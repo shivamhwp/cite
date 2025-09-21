@@ -10,7 +10,7 @@ function Footer() {
             href={x?.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg text-black/70 transition-colors duration-200 hover:text-black/30"
+            className="text-black/70 transition-colors duration-200 hover:text-black/30"
           >
             {x.title}
           </a>

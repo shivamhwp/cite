@@ -1,81 +1,42 @@
 ---
-import Layout from "../layouts/layout.astro";
-import {code_projects} from "../data";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import {updates} from "../data";
 
-dayjs.extend(relativeTime);
-
-const siteTitle = "shivam";
-const description = "don't know what to write here";
+import { socials } from "../data";
+import Layout from "../layouts/Layout.astro";
 
 ---
 
 <head>
-  <script 
-  defer 
-  is:inline
-  src="https://assets.onedollarstats.com/stonks.js"
- ></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/favicon.svg" />
-  <meta name="description" content={description} />
+  <meta name="description" content={"an ipv4 address"} />
   <meta property="twitter:title" content=" shivam " />
-  <meta name="twitter:image" content="https://shivam.ing/images/og-image.png" />
+  <meta name="twitter:image" content="https://shivam.ing/images/opengraph-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={siteTitle} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={"shivam"} />
+  <meta property="og:description" content={"an ipv4 address"} />
   <meta property="og:site_name" content="shivam.ing" />
   <meta property="og:url" content="https://www.shivam.ing" />
-  <meta property="og:image" content="https://shivam.ing/images/og-image.png" />
-  <title>{siteTitle}</title>
+  <meta property="og:image" content="https://shivam.ing/images/opengraph-image.png" />
+  <title>{"shivam"}</title>
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-4">
-    <section class="pt-2 transition gap-2 duration-500">
-      <div class=" text-lg text-white/50 ">
+  <div class="gap-2 px-3">
+    <section class="transition gap-2 duration-500">
+      <div>
         hi shivam here.
       </div>
     </section>
-
-    <section class=" transition duration-500">
-        <div class="text-lg mb-3 text-white/60">stuff i built</div> 
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {code_projects.map((project) => (
-          <div class="transition-colors duration-200 border border-white/20  p-3">
-            <div class="flex items-center justify-between">
-              <span class="text-base md:text-lg font-medium text-white/50">
-                {project.project_name}
-              </span> 
-              <div class="flex flex-wrap gap-3">
-                <a
-                  href={project.github}
-                  class="text-white/30  hover:text-white/80 transition duration-500"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`GitHub link for ${project.project_name}`}
-                >
-                  github
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class=" transition duration-500">
-
-      <div class="text-lg mb-3 text-white/60">updates</div> 
-
-      {updates.map((update: any) => (
-        <div class="text-white/50">{update.description}</div>
+    <div>made <a class="text-blue-600" target="_blank" href="https://github.com/shivamhwp/git-acm">git-acm</a> & <a class="text-blue-600" target="_blank" href="https://github.com/shivamhwp/isup">isup</a>. currently <a class="text-blue-600" target="_blank" href="https://github.com/0bs-chat">0bs.chat</a>.
+    </div>
+    <div class="flex gap-2"
+      >
+      on the internet  :
+      {socials.map((social) => (
+        <a class="text-blue-600" target="_blank" href={social.link}>{social.title}</a>
       ))}
-     </section>
+    </div>
   </div>
 </Layout>

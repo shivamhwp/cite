@@ -1,28 +1,27 @@
 ---
-import CinemaComponent from "../cinema";
+import UpdatesMarkdown from "../content/updates.md";
 import Layout from "../layouts/Layout.astro";
-
-const siteTitle = "cinema";
-const description = "suggest some great cinema";
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/favicon.svg" />
-  <meta name="description" content={description} />
+  <meta name="description" content={"updates"} />
   <meta property="twitter:title" content=" shivam " />
   <meta name="twitter:image" content="https://shivam.ing/images/opengraph-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={siteTitle} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={"updates"} />
+  <meta property="og:description" content={"updates"} />
   <meta property="og:site_name" content="shivam.ing" />
   <meta property="og:url" content="https://www.shivam.ing" />
   <meta property="og:image" content="https://shivam.ing/images/opengraph-image.png" />
-  <title>{siteTitle}</title>
+  <title>{"updates"}</title>
 </head>
 
 <Layout>
-  <CinemaComponent client:only="react" />
+	<div class="space-y-4 px-3 ">
+		<UpdatesMarkdown />
+	</div>
 </Layout>

@@ -1,9 +1,11 @@
+import { Github, Twitter, Youtube } from "lucide-react";
+
 export type social = {
-  id: number;
-  title: string;
-  link: string;
-  icon_name?: string;
-};
+		id: number;
+		title: string;
+		link: string;
+		icon?: React.ComponentType;
+	};
 export type movie = {
   title: string;
   description?: string;
@@ -36,6 +38,37 @@ export const code_projects: code_projects[] = [
     github: "https://github.com/shivamhwp/isup",
     docs: "https://isup-docs.pages.dev",
   },
+];
+
+export const not_found_images = [
+	{
+		id: 1,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7heePrgO1cBmwLdT5ZRyqHtP3IUGSA4gxfQV0",
+	},
+	{
+		id: 2,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gFJs0j9jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
+	},
+	{
+		id: 3,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7qaa9EJEcIaOMeuEbCg1HmlAi9sxSNX24GV7y",
+	},
+	{
+		id: 4,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gz3sS49jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
+	},
+	{
+		id: 5,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7htdZu71cBmwLdT5ZRyqHtP3IUGSA4gxfQV0D",
+	},
+	{
+		id: 6,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA782wmUSLJcvMWsprOm12CiUPSoX4uyKq307Rn",
+	},
+	{
+		id: 7,
+		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7iyZrlBRnAUwghlYnQ36TSrL0EupG5CascFRb",
+	},
 ];
 
 export const songs = [
@@ -95,95 +128,83 @@ export const songs = [
 ];
 
 export const movies: movie[] = [
-  {
-    title: "Attack On Titan",
-    description: "one of my favourites. heartbound.",
-  },
-  {
-    title: "Fullmetal Alchemist:Brotherhood(2011)",
-    description: "one of my favourites.",
-  },
-  {
-    title: "Jujutsu Kaisen",
-    description: "super interesting, crazy storyline.",
-  },
-  {
-    title: "Se7en",
-    description: "simple and sanguinary. ofc by david fincher.",
-  },
-  {
-    title: "Hunter x Hunter(2011)",
-    description: "one of my favourites.",
-  },
-  {
-    title: "Whiplash",
-    description: "obsession explained.",
-  },
-  {
-    title: "Mr Robot",
-    description: "you should watch this",
-  },
-  {
-    title: "Manchester by the Sea",
-    description: "",
-  },
-  {
-    title: "The Prestige",
-    description: "",
-  },
-  {
-    title: "nymphomaniac volume 1 and 2",
-    description:
-      "one of the most interesting movies i've seen lately.Charlotte Lucy Gainsbourg acting was insane.",
-  },
+	{
+		title: "Attack On Titan",
+		description: "one of my favourites. heartbound. ",
+	},
+	{
+		title: "FA:Brotherhood(2011)",
+		description: "one of my favourites.",
+	},
+	{
+		title: "Jujutsu Kaisen",
+		description: "super interesting, crazy storyline.",
+	},
+	{
+		title: "Se7en",
+		description:
+			"simple and sanguinary. ofc by david fincher. what's in the box?",
+	},
+	{
+		title: "Hunter x Hunter(2011)",
+		description: "one of my favourites. reading the manga currently.",
+	},
+	{
+		title: "Whiplash",
+		description: "obsession explained. on the point cast. ",
+	},
+	{
+		title: "Mr Robot",
+		description: "you should watch this. rami malek went godmode.",
+	},
+	{
+		title: "Manchester by the Sea",
+		description:
+			"casey affleck shows you his acting range. have you seen him talking to oppy in oppenheimer?",
+	},
+	{
+		title: "The Prestige",
+		description: "a not so much talked about great movie by christopher nolan.",
+	},
+	{
+		title: "nymphomaniac vol 1&2",
+		description:
+			"one of the most interesting movies i've seen lately. Charlotte Lucy Gainsbourg & Stacy Martin acting was insane.",
+	},
 ];
 
 export const socials: social[] = [
-  {
-    id: 1,
-    title: "x",
-    link: "https://x.com/shivamhwp",
-    icon_name: "Twitter",
-  },
-  {
-    id: 2,
-    title: "gh",
-    link: "https://github.com/shivamhwp",
-    icon_name: "Github",
-  },
+	{
+		id: 1,
+		title: "x.com",
+		link: "https://x.com/shivamhwp",
+		icon: Twitter,
+	},
+	{
+		id: 2,
+		title: "github",
+		link: "https://github.com/shivamhwp",
+		icon: Github,
+	},
 
-  // {
-  //   id: 3,
-  //   title: "linkedin",
-  //   link: "https://www.linkedin.com/in/shivamhwp/",
-  //   icon_name: "Linkedin",
-  // },
+	// {
+	//   id: 3,
+	//   title: "linkedin",
+	//   link: "https://www.linkedin.com/in/shivamhwp/",
+	//   icon: "Linkedin",
+	// },
 
-  {
-    id: 4,
-    title: "yt",
-    link: "https://www.youtube.com/@shivamhwp_",
-    icon_name: "Youtube",
-  },
-  {
-    id: 5,
-    title: "cal",
-    link: "https://cal.com/shivamhwp/just-chatting",
-    icon_name: "call",
-  },
+	{
+		id: 3,
+		title: "youtube",
+		link: "https://www.youtube.com/@shivamhwp_",
+		icon: Youtube,
+	},
 ];
 
 export const walls = [
-  {
-    id: 1,
-    link: "https://utfs.io/f/cd8841e4-0cd3-4c3a-b260-6c1b416f45bf-ar80q7.png",
-  },
-];
-
-export const updates = [
-  {
-    id: 1,
-    description:
-      "worked with the supermemoryai team for a bit, did some ai testing, research, evals and stuff. crazy team.",
-  },
+	{
+		id: 1,
+		link: "https://utfs.io/f/cd8841e4-0cd3-4c3a-b260-6c1b416f45bf-ar80q7.png",
+	},
 ];

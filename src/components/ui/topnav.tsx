@@ -1,57 +1,62 @@
-import { socials } from "../../data";
 
-export function TopNav(pathname: { pathname: string }) {
-  return (
-    <nav className="mb-6 flex w-full items-center justify-between py-4 pt-4 text-white/80 transition duration-500">
-      <div className="flex items-center gap-3">
-        <a
-          href="/"
-          className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
-            pathname.pathname === "/"
-              ? "text-white/90 underline underline-offset-4"
-              : ""
-          }`}
-        >
-          home
-        </a>
-        <a
-          href="/labs"
-          className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
-            pathname.pathname === "/labs"
-              ? "text-white/90 underline underline-offset-4"
-              : ""
-          }`}
-        >
-          labs
-        </a>
-        <a
-          href="/more"
-          data-astro-prefetch
-          className={`text-lg text-white/50 transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-4 ${
-            pathname.pathname === "/more"
-              ? "text-white/90 underline underline-offset-4"
-              : ""
-          }`}
-        >
-          more
-        </a>
-      </div>
+interface TopNavProps {
+	pathname: string;
+}
 
-      {/* socials */}
-      <div className="flex gap-4 text-lg">
-        {socials.map((social) => (
-          <a
-            key={social.id}
-            href={social.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition duration-500 hover:text-white/90 hover:underline hover:underline-offset-8"
-            aria-label={`${social.title} link`}
-          >
-            {social.title}
-          </a>
-        ))}
-      </div>
-    </nav>
-  );
+export function TopNav({ pathname }: TopNavProps) {
+	const logoUrl =
+		"https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gz3sS49jhBA7aDxcElbpQXquP9kMnvOLZ6Ci";
+
+	const isActive = (path: string) => pathname.startsWith(path);
+
+	return (
+		<nav className="flex h-full w-full items-center justify-between py-4 sm:py-2">
+			<a href="/" className="flex items-center">
+				{logoUrl && (
+					<img
+						src={logoUrl}
+						title="tatakae"
+						width={32}
+						height={32}
+						alt="logo"
+						className="h-11 w-11 cursor-pointer"
+						loading="eager"
+						decoding="async"
+					/>
+				)}
+			</a>
+			<div className="flex items-center gap-1">
+				<a
+					href="/cinema"
+					className={`rounded-md px-2 py-1 transition-colors ${
+						isActive("/cinema")
+							? "bg-accent text-foreground"
+							: "hover:bg-accent"
+					}`}
+				>
+					cinema
+				</a>
+				<a
+					href="/writings"
+					className={`rounded-md px-2 py-1 transition-colors ${
+						isActive("/writings")
+							? "bg-accent text-foreground"
+							: "hover:bg-accent"
+					}`}
+				>
+					writings
+				</a>
+				<a
+					href="/updates"
+					className={`rounded-md px-2 py-1 transition-colors ${
+						isActive("/updates")
+							? "bg-accent text-foreground"
+							: "hover:bg-accent"
+					}`}
+				>
+					updates
+				</a>
+			</div>
+		</nav>
+	);
 }
