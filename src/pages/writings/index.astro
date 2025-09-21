@@ -1,11 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/layout.astro";
 import WritingsTabs from "./tabs";
 
 const allPosts = await getCollection("posts");
 
-const sortedPosts = allPosts.sort((a, b) => (a.data.published > b.data.published ? -1 : 1));
+const sortedPosts = allPosts.sort((a, b) =>
+	a.data.published > b.data.published ? -1 : 1,
+);
 ---
 
 <Layout>

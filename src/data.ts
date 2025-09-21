@@ -1,10 +1,7 @@
-import { Github, Twitter, Youtube } from "lucide-react";
-
 export type social = {
 		id: number;
 		title: string;
 		link: string;
-		icon?: React.ComponentType;
 	};
 export type movie = {
   title: string;
@@ -178,13 +175,11 @@ export const socials: social[] = [
 		id: 1,
 		title: "x.com",
 		link: "https://x.com/shivamhwp",
-		icon: Twitter,
 	},
 	{
 		id: 2,
 		title: "github",
 		link: "https://github.com/shivamhwp",
-		icon: Github,
 	},
 
 	// {
@@ -198,7 +193,6 @@ export const socials: social[] = [
 		id: 3,
 		title: "youtube",
 		link: "https://www.youtube.com/@shivamhwp_",
-		icon: Youtube,
 	},
 ];
 
