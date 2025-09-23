@@ -21,7 +21,6 @@ export function TopNav({ pathname }: TopNavProps) {
 						alt="logo"
 						className="h-11 w-11 cursor-pointer"
 						loading="eager"
-						decoding="async"
 					/>
 				)}
 			</a>
