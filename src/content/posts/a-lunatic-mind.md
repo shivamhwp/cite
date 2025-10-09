@@ -7,7 +7,7 @@ published: 2025-04-27
 
 <div class="pb-8">the thing i have written below can seem like complete bs or something interesting. you may also find it depressing. you may also think i am trying to sound smart or cool or whatever(or maybe you don't think that.)i consider myself as an idiot and i have a lot of things left to realise and understand rn.<b> but i'm not trying anything. </b> i just wanted to write this.</div>
 
-<div class= " flex flex-col blur-sm hover:blur-none transition duration-500">
+<div class= " flex flex-col">
 
 <div class=" ">i'm way too confused rn. honestly, i don't even know wtf is going on. but there are some things i find super-interesting. some of them include music, movies, anime, learning about things in general. there is something i stumbled upon few years ago that was "knowing yourself" or "who am i". here's what i understood.  
  <br>

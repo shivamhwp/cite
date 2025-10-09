@@ -8,7 +8,7 @@ published: 2025-05-04
 <div> dir. steven soderbergh</div>
 <div class="text-red-500 pt-4"> major spoilers ahead</div>
 
-<div class="blur-sm hover:blur-none transition duration-500">
+<div class="">
 <p >
 just watched the "black bag" by sodenbergh.it's a  good film. <br>
 so here the main spy (micheal fassbender) tries to find the mole in the team. i'm not going to explain the film. i'll tell the things i found interesting. <br>

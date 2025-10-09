@@ -17,11 +17,11 @@ function BlogHeader({
 				</h1>
 				<div className="flex items-center space-x-2">
 					{updated && (
-						<Badge variant="outline" className="text-xs px-2 py-0.5">
+						<Badge variant="secondary" className="text-xs px-2 py-0.5">
 							updated
 						</Badge>
 					)}
-					<Badge variant="secondary" className="text-xs px-2 py-0.5">
+					<Badge variant="default" className="text-xs px-2 py-0.5">
 						<time dateTime={date?.toISOString()}>
 							{date === undefined
 								? dayjs(Date.now()).format("MMMM D, YYYY").toLowerCase()
