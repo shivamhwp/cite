@@ -43,7 +43,7 @@ const { Content } = await post.render();
   <title>{post.data.title || ""}</title>
 </head>
 <Layout>
-  <div class="flex flex-col  font-normal w-full h-full">
+  <div class="flex flex-col  font-normal w-full h-full sm:px-3">
    <BlogHeader
       header={post.data.title}
       updated={post.data.updated?.toString() === "" ? false : true}

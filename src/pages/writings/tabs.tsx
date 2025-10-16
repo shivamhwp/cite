@@ -22,20 +22,21 @@ export default function WritingsTabs({ posts }: { posts: Post[] }) {
 		<section>
 			<div className="space-y-1">
 				{sortedPosts.map((post) => (
-					<div
+					<a
+					    href={`/writings/posts/${post.slug}`}
+					    rel="noopener noreferrer"
 						key={post.slug}
 						className="flex items-center px-3 py-2 min-h-0 h-9 rounded-md hover:bg-accent transition-colors"
 					>
-						<a
-							href={`writings/posts/${post.slug}`}
+						<div
 							className="text-base w-full truncate"
 						>
 							{post.data.title}
-						</a>
+						</div>
 						<span className="ml-3 text-xs text-muted-foreground whitespace-nowrap">
 							{dayjs(post.data.published).format("D MMM")}
 						</span>
-					</div>
+					</a>
 				))}
 			</div>
 		</section>
