@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
-import WritingsTabs from "./tabs";
+import WritingsTabs from "../../components/tabs";
 
 const allPosts = await getCollection("posts");
 
