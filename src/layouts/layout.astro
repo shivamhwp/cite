@@ -2,6 +2,7 @@
 import '@fontsource-variable/inter-tight';
 import { ClientRouter } from "astro:transitions";
 import { TopNav } from "../components/ui/topnav";
+import { ModeToggle } from "../components/ui/ModeToggle";
 import "../styles/global.css";
 
 const pathname = Astro.url.pathname;
@@ -10,13 +11,22 @@ const pathname = Astro.url.pathname;
 <html lang="en" class="font-mono">
   <head>
     <script is:inline>
-      const updateTheme = () => {
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', isDark);
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
-      
-      updateTheme();
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+     
+      if (typeof localStorage !== 'undefined') {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      }
     </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"></script>
     <meta charset="UTF-8" />
@@ -46,8 +56,9 @@ const pathname = Astro.url.pathname;
   <body
     class="bg-background text-muted-foreground min-h-screen w-full overflow-x-hidden ">
     <div class="mx-auto max-w-2xl px-4 gap-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen">
-      <div class="flex gap-0.5 items-center ">
+      <div class="flex gap-0.5 items-center justify-between">
         <TopNav pathname={pathname}/>
+        <ModeToggle client:load />
       </div>
       <main class="flex-grow">
         <slot />
