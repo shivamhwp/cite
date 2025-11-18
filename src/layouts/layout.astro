@@ -1,7 +1,6 @@
 ---
 import '@fontsource-variable/inter-tight';
 import { ClientRouter } from "astro:transitions";
-import { ModeToggle } from "../components/mode-toggle";
 import { TopNav } from "../components/ui/topnav";
 import "../styles/global.css";
 
@@ -11,13 +10,13 @@ const pathname = Astro.url.pathname;
 <html lang="en" class="font-mono">
   <head>
     <script is:inline>
-      const getThemePreference = () => {
-        const saved = localStorage.getItem('theme');
-        if (saved) return saved;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const updateTheme = () => {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', isDark);
       };
-      const isDark = getThemePreference() === 'dark';
-      document.documentElement.classList.toggle('dark', isDark);
+      
+      updateTheme();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
     </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"></script>
     <meta charset="UTF-8" />
@@ -49,7 +48,6 @@ const pathname = Astro.url.pathname;
     <div class="mx-auto max-w-2xl px-4 gap-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen">
       <div class="flex gap-0.5 items-center ">
         <TopNav pathname={pathname}/>
-        <ModeToggle client:load/>
       </div>
       <main class="flex-grow">
         <slot />
