@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import { ClientRouter } from "astro:transitions";
 import type { UrlItem } from "../components/CommandPalette";
 import { CommandPalette } from "../components/CommandPalette";
-import { Kbd, Kbd, KbdGroup } from "../components/ui/kbd";
+import { Kbd, KbdGroup } from "../components/ui/kbd";
 import { ModeToggle } from "../components/ui/ModeToggle";
 import { TopNav } from "../components/ui/topnav";
 import { code_projects, socials, songs } from "../data";
@@ -114,7 +114,7 @@ const urls = await collectUrls();
 <html lang="en" class="font-mono">
   <head>
     <script
-      defer
+      is:inline
       src="https://cloud.umami.is/script.js"
       data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"
     ></script>
