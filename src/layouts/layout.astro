@@ -1,11 +1,114 @@
 ---
 import "@fontsource-variable/inter-tight";
+import { getCollection } from "astro:content";
 import { ClientRouter } from "astro:transitions";
+import type { UrlItem } from "../components/CommandPalette";
+import { CommandPalette } from "../components/CommandPalette";
+import { Kbd, Kbd, KbdGroup } from "../components/ui/kbd";
 import { ModeToggle } from "../components/ui/ModeToggle";
 import { TopNav } from "../components/ui/topnav";
+import { code_projects, socials, songs } from "../data";
 import "../styles/global.css";
 
 const pathname = Astro.url.pathname;
+
+// Generate URLs at build time
+async function collectUrls(): Promise<UrlItem[]> {
+	const items: UrlItem[] = [];
+
+	// Add routes/pages
+	items.push(
+		{
+			title: "Home",
+			url: "/",
+			category: "Pages",
+		},
+		{
+			title: "Cinema",
+			url: "/cinema",
+			category: "Pages",
+		},
+		{
+			title: "Writings",
+			url: "/writings",
+			category: "Pages",
+		},
+		{
+			title: "Updates",
+			url: "/updates",
+			category: "Pages",
+		},
+	);
+
+	// Add blog posts
+	const allPosts = await getCollection("posts");
+	for (const post of allPosts) {
+		items.push({
+			title: post.data.title,
+			url: `/writings/posts/${post.slug}`,
+			category: "Blog",
+		});
+	}
+
+	// Add social links
+	for (const social of socials) {
+		items.push({
+			title: social.title,
+			url: social.link,
+			category: "Social",
+		});
+	}
+
+	// Add song links
+	for (const song of songs) {
+		items.push({
+			title: song.title,
+			url: song.link,
+			category: "Music",
+		});
+	}
+
+	// Add code project links
+	for (const project of code_projects) {
+		items.push({
+			title: `${project.project_name} - GitHub`,
+			url: project.github,
+			category: "Projects",
+		});
+		if (project.docs) {
+			items.push({
+				title: `${project.project_name} - Docs`,
+				url: project.docs,
+				category: "Projects",
+			});
+		}
+		if (project.live_link) {
+			items.push({
+				title: `${project.project_name} - Live`,
+				url: project.live_link,
+				category: "Projects",
+			});
+		}
+	}
+
+	// Add additional project URLs from homepage
+	items.push(
+		{
+			title: "agentsonweb.com",
+			url: "https://github.com/shivamhwp/agentsonweb",
+			category: "Projects",
+		},
+		{
+			title: "0bs.chat",
+			url: "https://github.com/0bs-chat",
+			category: "Projects",
+		},
+	);
+
+	return items;
+}
+
+const urls = await collectUrls();
 ---
 
 <html lang="en" class="font-mono">
@@ -51,6 +154,17 @@ const pathname = Astro.url.pathname;
       <main class="flex-grow">
         <slot/>
       </main>
+	  <footer>
+		<div class="mx-auto max-w-2xl px-4 pb-6 flex justify-end">
+        <KbdGroup client:load>
+          <Kbd>⌘</Kbd>
+          <Kbd>K</Kbd>
+		 <span class="text-muted-foreground font-sans">- cmd palette</span>
+        </KbdGroup>
     </div>
+	  </footer>
+    </div>
+    <CommandPalette urls={urls} client:load/>
   </body>
+  
 </html>
