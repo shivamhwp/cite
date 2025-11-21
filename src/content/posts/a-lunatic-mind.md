@@ -15,9 +15,9 @@ published: 2025-04-27
 i'm not my name because it's just a identification thing. i'm not my body because it's just literally bones and muscles. i'm not my brain because it's a fking organ. i'm not my mind(मन) because they are made up of memories you personal(subjective) experiences, societal learnings and experiences (you would be surprised to know how much one learns from society). so now it's emptyness. <br>
 so one thing becomes clear, if you're worshipping a human, there is no one more dumb than you. ask yourself who are you worshipping ? the name, the body or the mind? if you have all of it, then how are you any different?
 
-<b> so now, the question arises,</b><span class= "bg-black/90 text-white px-1"> who am i ?</span> <br/>
+<b> so now, the question arises,</b><span class="bg-muted text-muted-foreground px-1"> who am i ?</span> <br/>
 
-actually i don't even know, but there is something there, <span class="bg-black/90 text-white px-1">i don't know what.</span> and i am also not trying to fill it with anything like god, allah, jesus etc. etc. <br/>
+actually i don't even know, but there is something there, <span class="bg-muted text-muted-foreground px-1">i don't know what.</span> and i am also not trying to fill it with anything like god, allah, jesus etc. etc. <br/>
 i just want to know. i am seeking the truth. and i am in no hurry. <br/>
 there's <b>something permanent</b> which some people may have found 100 or 1000 or 10000 years ago. (which i can't verify is true or not!!). there may be some people among us who've also realised the truth. and there will be some who may realise it in the future. there is a big fking i don't know !! <br/>
 
@@ -30,5 +30,5 @@ it's not that easy to realise or understand this. i love my parents and my siste
 
 <div>rn, this much is in my mind, i'll keep updating it in the future.</div>
 
-<div>also if you wanna talk about movies,anime,music or whatever was above :<a class="hover:text-black/90 transition duration-500" href="https://cal.com/shivamhwp/secret">[cal.com link]</a>  </div>
+<div>also if you wanna talk about movies,anime,music or whatever was above :<a class="hover:text-primary transition duration-500" href="https://cal.com/shivamhwp/secret">[cal.com link]</a>  </div>
 </div>

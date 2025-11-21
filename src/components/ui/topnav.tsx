@@ -25,30 +25,30 @@ export function TopNav({ pathname }: TopNavProps) {
       </a>
       <div className="flex items-center gap-1">
         <a
-          className={`rounded-md px-2 py-1 transition-colors ${
+          className={`px-2 py-1 transition-colors ${
             isActive("/cinema")
-              ? "bg-accent text-foreground"
-              : "hover:bg-accent"
+              ? "border-primary border-b-2 text-foreground"
+              : "hover:border-accent hover:border-b-2"
           }`}
           href="/cinema"
         >
           cinema
         </a>
         <a
-          className={`rounded-md px-2 py-1 transition-colors ${
+          className={`px-2 py-1 transition-colors ${
             isActive("/writings")
-              ? "bg-accent text-foreground"
-              : "hover:bg-accent"
+              ? "border-primary border-b-2 text-foreground"
+              : "hover:border-accent hover:border-b-2"
           }`}
           href="/writings"
         >
           writings
         </a>
         <a
-          className={`rounded-md px-2 py-1 transition-colors ${
+          className={`px-2 py-1 transition-colors ${
             isActive("/updates")
-              ? "bg-accent text-foreground"
-              : "hover:bg-accent"
+              ? "border-primary border-b-2 text-foreground"
+              : "hover:border-accent hover:border-b-2"
           }`}
           href="/updates"
         >

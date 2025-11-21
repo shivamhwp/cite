@@ -6,7 +6,7 @@ published: 2025-05-04
 ---
 
 <div> dir. steven soderbergh</div>
-<div class="text-red-500 pt-4"> major spoilers ahead</div>
+<div class="text-destructive pt-4"> major spoilers ahead</div>
 
 <div class="">
 <p >

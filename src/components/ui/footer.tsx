@@ -6,7 +6,7 @@ function Footer() {
       <div className="flex justify-center gap-8">
         {socials?.map((x) => (
           <a
-            className="text-black/70 transition-colors duration-200 hover:text-black/30"
+            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
             href={x?.link}
             key={x.title}
             rel="noopener noreferrer"
