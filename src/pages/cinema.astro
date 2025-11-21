@@ -7,22 +7,28 @@ const description = "suggest some great cinema";
 ---
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
-  <meta name="description" content={description} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta name="twitter:image" content="https://shivam.ing/images/opengraph-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={siteTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta property="og:image" content="https://shivam.ing/images/opengraph-image.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="/favicon.svg">
+  <meta name="description" content={description}>
+  <meta property="twitter:title" content=" shivam ">
+  <meta
+    name="twitter:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  >
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@shivamhwp">
+  <meta property="og:title" content={siteTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:site_name" content="shivam.ing">
+  <meta property="og:url" content="https://www.shivam.ing">
+  <meta
+    property="og:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  >
   <title>{siteTitle}</title>
 </head>
 
 <Layout>
-  <CinemaComponent client:only="react" />
+  <CinemaComponent client:only="react"/>
 </Layout>

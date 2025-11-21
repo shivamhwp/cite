@@ -1,41 +1,67 @@
 ---
-
 import { socials } from "../data";
 import Layout from "../layouts/layout.astro";
 ---
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
-  <meta name="description" content={"an ipv4 address"} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta name="twitter:image" content="https://shivam.ing/images/opengraph-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={"shivam"} />
-  <meta property="og:description" content={"an ipv4 address"} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta property="og:image" content="https://shivam.ing/images/opengraph-image.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="/favicon.svg">
+  <meta name="description" content={"an ipv4 address"}>
+  <meta property="twitter:title" content=" shivam ">
+  <meta
+    name="twitter:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  >
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@shivamhwp">
+  <meta property="og:title" content={"shivam"}>
+  <meta property="og:description" content={"an ipv4 address"}>
+  <meta property="og:site_name" content="shivam.ing">
+  <meta property="og:url" content="https://www.shivam.ing">
+  <meta
+    property="og:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  >
   <title>{"shivam"}</title>
 </head>
 
 <Layout title="shivam">
   <div class="gap-2 px-3">
     <section class="transition gap-2 duration-500">
-      <div>
-        hi, shivam here.
-      </div>
+      <div>hi, shivam here.</div>
     </section>
     <div>
-      currently <a class="text-blue-600" target="_blank" href="https://github.com/shivamhwp/agentsonweb">agentsonweb.com</a>.
+      currently
+      <a
+        class="text-blue-600"
+        target="_blank"
+        href="https://github.com/shivamhwp/agentsonweb"
+        >agentsonweb.com</a
+      >.
     </div>
-    <div>prev : <a class="text-blue-600" target="_blank" href="https://github.com/shivamhwp/git-acm">git-acm</a>, <a class="text-blue-600" target="_blank" href="https://github.com/shivamhwp/isup">isup</a>, <a class="text-blue-600" target="_blank" href="https://github.com/0bs-chat">0bs.chat</a>.
+    <div>
+      prev :
+      <a
+        class="text-blue-600"
+        target="_blank"
+        href="https://github.com/shivamhwp/git-acm"
+        >git-acm</a
+      >, <a
+        class="text-blue-600"
+        target="_blank"
+        href="https://github.com/shivamhwp/isup"
+        >isup</a
+      >,
+      <a
+        class="text-blue-600"
+        target="_blank"
+        href="https://github.com/0bs-chat"
+        >0bs.chat</a
+      >.
     </div>
-    <div class="flex gap-2"
-      >
-      on the internet  :
+    <div class="flex gap-2">
+      on the internet :
       {socials.map((social) => (
         <a class="text-blue-600" target="_blank" href={social.link}>{social.title}</a>
       ))}

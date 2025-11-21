@@ -6,11 +6,11 @@ function Footer() {
       <div className="flex justify-center gap-8">
         {socials?.map((x) => (
           <a
-            key={x.title}
-            href={x?.link}
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-black/70 transition-colors duration-200 hover:text-black/30"
+            href={x?.link}
+            key={x.title}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             {x.title}
           </a>

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const Tabs = TabsPrimitive.Root;
 
@@ -9,11 +9,11 @@ const TabsList = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
-    ref={ref}
     className={cn(
-      "bg-accent text-accent-foreground inline-flex items-center justify-center gap-1 rounded-lg p-1",
-      className,
+      "inline-flex items-center justify-center gap-1 rounded-lg bg-accent p-1 text-accent-foreground",
+      className
     )}
+    ref={ref}
     {...props}
   />
 ));
@@ -24,13 +24,13 @@ const TabsTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
-    ref={ref}
     className={cn(
-      "inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 font-medium text-sm transition-all",
       "text-muted-foreground data-[state=active]:text-foreground",
       "data-[state=active]:bg-background",
-      className,
+      className
     )}
+    ref={ref}
     {...props}
   />
 ));
@@ -41,8 +41,8 @@ const TabsContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
-    ref={ref}
     className={cn("mt-3 outline-none", className)}
+    ref={ref}
     {...props}
   />
 ));

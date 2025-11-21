@@ -1,8 +1,8 @@
 export type social = {
-		id: number;
-		title: string;
-		link: string;
-	};
+  id: number;
+  title: string;
+  link: string;
+};
 export type movie = {
   title: string;
   description?: string;
@@ -38,34 +38,34 @@ export const code_projects: code_projects[] = [
 ];
 
 export const not_found_images = [
-	{
-		id: 1,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7heePrgO1cBmwLdT5ZRyqHtP3IUGSA4gxfQV0",
-	},
-	{
-		id: 2,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gFJs0j9jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
-	},
-	{
-		id: 3,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7qaa9EJEcIaOMeuEbCg1HmlAi9sxSNX24GV7y",
-	},
-	{
-		id: 4,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gz3sS49jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
-	},
-	{
-		id: 5,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7htdZu71cBmwLdT5ZRyqHtP3IUGSA4gxfQV0D",
-	},
-	{
-		id: 6,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA782wmUSLJcvMWsprOm12CiUPSoX4uyKq307Rn",
-	},
-	{
-		id: 7,
-		url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7iyZrlBRnAUwghlYnQ36TSrL0EupG5CascFRb",
-	},
+  {
+    id: 1,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7heePrgO1cBmwLdT5ZRyqHtP3IUGSA4gxfQV0",
+  },
+  {
+    id: 2,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gFJs0j9jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
+  },
+  {
+    id: 3,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7qaa9EJEcIaOMeuEbCg1HmlAi9sxSNX24GV7y",
+  },
+  {
+    id: 4,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7gz3sS49jhBA7aDxcElbpQXquP9kMnvOLZ6Ci",
+  },
+  {
+    id: 5,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7htdZu71cBmwLdT5ZRyqHtP3IUGSA4gxfQV0D",
+  },
+  {
+    id: 6,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA782wmUSLJcvMWsprOm12CiUPSoX4uyKq307Rn",
+  },
+  {
+    id: 7,
+    url: "https://61izvpe5ob.ufs.sh/f/ghNXXt9jhBA7iyZrlBRnAUwghlYnQ36TSrL0EupG5CascFRb",
+  },
 ];
 
 export const songs = [
@@ -125,80 +125,88 @@ export const songs = [
 ];
 
 export const movies: movie[] = [
-	{
-		title: "Attack On Titan",
-		description: "one of my favourites. heartbound. ",
-	},
-	{
-		title: "FA:Brotherhood(2011)",
-		description: "one of my favourites.",
-	},
-	{
-		title: "Jujutsu Kaisen",
-		description: "super interesting, crazy storyline.",
-	},
-	{
-		title: "Se7en",
-		description:
-			"simple and sanguinary. ofc by david fincher. what's in the box?",
-	},
-	{
-		title: "Hunter x Hunter(2011)",
-		description: "one of my favourites. reading the manga currently.",
-	},
-	{
-		title: "Whiplash",
-		description: "obsession explained. on the point cast. ",
-	},
-	{
-		title: "Mr Robot",
-		description: "you should watch this. rami malek went godmode.",
-	},
-	{
-		title: "Manchester by the Sea",
-		description:
-			"casey affleck shows you his acting range. have you seen him talking to oppy in oppenheimer?",
-	},
-	{
-		title: "The Prestige",
-		description: "a not so much talked about great movie by christopher nolan.",
-	},
-	{
-		title: "nymphomaniac vol 1&2",
-		description:
-			"one of the most interesting movies i've seen lately. Charlotte Lucy Gainsbourg & Stacy Martin acting was insane.",
-	},
+  {
+    title: "Attack On Titan",
+    description: "one of my favourites. heartbound. ",
+  },
+  {
+    title: "FA:Brotherhood(2011)",
+    description: "one of my favourites.",
+  },
+  {
+    title: "Jujutsu Kaisen",
+    description: "super interesting, crazy storyline.",
+  },
+  {
+    title: "Se7en",
+    description:
+      "simple and sanguinary. ofc by david fincher. what's in the box?",
+  },
+  {
+    title: "Hunter x Hunter(2011)",
+    description: "one of my favourites. reading the manga currently.",
+  },
+  {
+    title: "Whiplash",
+    description: "obsession explained. on the point cast. ",
+  },
+  {
+    title: "Mr Robot",
+    description: "you should watch this. rami malek went godmode.",
+  },
+  {
+    title: "Manchester by the Sea",
+    description:
+      "casey affleck shows you his acting range. have you seen him talking to oppy in oppenheimer?",
+  },
+  {
+    title: "The Prestige",
+    description: "a not so much talked about great movie by christopher nolan.",
+  },
+  {
+    title: "nymphomaniac vol 1&2",
+    description:
+      "one of the most interesting movies i've seen lately. Charlotte Lucy Gainsbourg & Stacy Martin acting was insane.",
+  },
+  {
+    title: "orb: about the movements of earth",
+    description: "beautiful, it gets better evrey time you watch it.",
+  },
+  {
+    title: "kengen ashura",
+    description: "i loved it. this was very very good",
+  },
 ];
 
 export const socials: social[] = [
-	{
-		id: 1,
-		title: "x.com",
-		link: "https://x.com/shivamhwp",
-	},
-	{
-		id: 2,
-		title: "github",
-		link: "https://github.com/shivamhwp",
-	},
+  {
+    id: 1,
+    title: "x.com",
+    link: "https://x.com/shivamhwp",
+  },
+  {
+    id: 2,
+    title: "github",
+    link: "https://github.com/shivamhwp",
+  },
 
-	// {
-	//   id: 3,
-	//   title: "linkedin",
-	//   link: "https://www.linkedin.com/in/shivamhwp/",
-	//   icon: "Linkedin",
-	// },
+  // {
+  //   id: 3,
+  //   title: "linkedin",
+  //   link: "https://www.linkedin.com/in/shivamhwp/",
+  //   icon: "Linkedin",
+  // },
 
-	{
-		id: 3,
-		title: "youtube",
-		link: "https://www.youtube.com/@shivamhwp_",
-	},
+  {
+    id: 3,
+    title: "youtube",
+    link: "https://www.youtube.com/@shivamhwp_",
+  },
 ];
 
 export const walls = [
-	{
-		id: 1,
-		link: "https://utfs.io/f/cd8841e4-0cd3-4c3a-b260-6c1b416f45bf-ar80q7.png",
-	},
+  {
+    id: 1,
+    link: "https://utfs.io/f/cd8841e4-0cd3-4c3a-b260-6c1b416f45bf-ar80q7.png",
+  },
 ];

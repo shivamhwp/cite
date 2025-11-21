@@ -1,27 +1,34 @@
-import * as React from "react";
-import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import { useState, useEffect } from "react";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {
-	const [isDark, setIsDark] = React.useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      if (stored) {
+        return stored === "dark";
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return false;
+  });
 
-	React.useEffect(() => {
-		const darkMode = document.documentElement.classList.contains("dark");
-		setIsDark(darkMode);
-	}, []);
+  useEffect(() => {
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
-	const toggleTheme = () => {
-		const newDark = !isDark;
-		setIsDark(newDark);
-		document.documentElement.classList[newDark ? "add" : "remove"]("dark");
-	};
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
 
-	return (
-		<Button variant="ghost" size="icon" onClick={toggleTheme}>
-			<SunIcon className="h-[1.2rem] w-[1.2rem] transition-all scale-100 rotate-0 dark:scale-0 dark:-rotate-90" />
-			<MoonIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all scale-0 rotate-90 dark:scale-100 dark:rotate-0" />
-			<span className="sr-only">Toggle theme</span>
-		</Button>
-	);
+  return (
+    <Button onClick={toggleTheme} size="icon" variant="ghost">
+      <SunIcon className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
+      <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
 }
