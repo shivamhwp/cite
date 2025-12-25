@@ -1,5 +1,4 @@
 ---
-import "@fontsource-variable/inter-tight";
 import { getCollection } from "astro:content";
 import { ClientRouter } from "astro:transitions";
 import type { UrlItem } from "../components/CommandPalette";
@@ -9,6 +8,7 @@ import { ModeToggle } from "../components/ui/ModeToggle";
 import { TopNav } from "../components/ui/topnav";
 import { code_projects, socials, songs } from "../data";
 import "../styles/global.css";
+import { Font } from "astro:assets";
 
 const pathname = Astro.url.pathname;
 
@@ -111,8 +111,11 @@ async function collectUrls(): Promise<UrlItem[]> {
 const urls = await collectUrls();
 ---
 
-<html lang="en" class="font-mono">
+<html lang="en">
   <head>
+    <Font cssVariable="--font-inter-tight" preload />
+    <Font cssVariable="--font-azeret-mono" preload />
+    <Font cssVariable="--font-melodrama" preload />
     <script
       is:inline
       src="https://cloud.umami.is/script.js"
@@ -150,21 +153,9 @@ const urls = await collectUrls();
         <TopNav pathname={pathname} />
         <ModeToggle client:load />
       </div>
-      <main class="flex-grow">
+      <main class="grow">
         <slot />
       </main>
-      {
-        pathname === "/" && (
-          <footer>
-            <div class="mx-auto max-w-2xl px-4 pb-6 flex justify-end">
-              <KbdGroup client:load>
-                <Kbd>⌘</Kbd>
-                <Kbd>K</Kbd>
-              </KbdGroup>
-            </div>
-          </footer>
-        )
-      }
     </div>
     <CommandPalette urls={urls} client:load />
   </body>

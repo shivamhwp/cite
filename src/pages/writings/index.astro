@@ -7,20 +7,20 @@ import Layout from "../../layouts/layout.astro";
 const allPosts = await getCollection("posts");
 
 const sortedPosts = allPosts.sort((a, b) =>
-  a.data.published > b.data.published ? -1 : 1
+	a.data.published > b.data.published ? -1 : 1,
 );
 
 // Group posts by published year
 const postsByYear = sortedPosts.reduce(
-  (acc, post) => {
-    const year = new Date(post.data.published).getFullYear().toString();
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(post);
-    return acc;
-  },
-  {} as Record<string, typeof sortedPosts>
+	(acc, post) => {
+		const year = new Date(post.data.published).getFullYear().toString();
+		if (!acc[year]) {
+			acc[year] = [];
+		}
+		acc[year].push(post);
+		return acc;
+	},
+	{} as Record<string, typeof sortedPosts>,
 );
 ---
 

@@ -25,29 +25,29 @@ const { Content } = await post.render();
 ---
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="icon" href="/favicon.svg">
-  <meta name="description" content={post.data.title}>
-  <meta property="twitter:title" content=" shivam ">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content={post.data.title} />
+  <meta property="twitter:title" content=" shivam " />
   <meta
     name="twitter:image"
     content="https://shivam.ing/images/opengraph-image.png"
-  >
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:creator" content="@shivamhwp">
-  <meta property="og:title" content={post.data.title || ""}>
-  <meta property="og:description" content={post.data.title}>
-  <meta property="og:site_name" content="shivam.ing">
-  <meta property="og:url" content="https://www.shivam.ing">
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content={post.data.title || ""} />
+  <meta property="og:description" content={post.data.title} />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
   <meta
     property="og:image"
     content="https://shivam.ing/images/opengraph-image.png"
-  >
+  />
   <title>{post.data.title || ""}</title>
 </head>
 <Layout>
-  <div class="flex flex-col  font-normal w-full h-full sm:px-3">
+  <div class="flex flex-col w-full h-full sm:px-3">
     <BlogHeader
       header={post.data.title}
       updated={post.data.updated?.toString() === "" ? false : true}
@@ -55,12 +55,12 @@ const { Content } = await post.render();
         ? post.data?.published
         : post.data?.updated}
     />
-    <div class=" text-muted-foreground transition-colors duration-200">
-      <Content/>
+    <div class="text-foreground/50">
+      <Content />
     </div>
     <a
       href="/writings"
-      class="left-0 w-full h-8 flex items-end justify-end  hover:text-foreground transition-colors duration-200 hover:cursor-pointer"
+      class="left-0 w-full h-8 flex items-end justify-end hover:text-foreground transition-colors duration-200 hover:cursor-pointer"
     >
       ← back
     </a>

@@ -27,7 +27,7 @@ import Layout from "../layouts/layout.astro";
 </head>
 
 <Layout title="shivam">
-  <div class="gap-2 px-3">
+  <div class="px-3 flex flex-col gap-0.5">
     <section class="transition gap-2 duration-500">
       <div>hi, shivam here.</div>
     </section>
@@ -63,33 +63,21 @@ import Layout from "../layouts/layout.astro";
           </>
         ))
       }
-
-      <div class="flex gap-2">
-        on the internet :
-        {
-          socials.map((social) => (
-            <a
-              class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
-              href={social.link}
-            >
-              {social.title}
-            </a>
-          ))
-        }
-      </div>
     </div>
-    <hr class="my-4" />
-    <div class="font-semibold">what i offer</div>
-    <ul class="list-decimal px-4">
-      <li>eng - in your team.</li>
-      <li>
-        research - will research in the specific field your app/anything is in.
-        and ask you questions (this is mostly dev focused), can suggest some new
-        tools. (free, starts $1k for priority.). i kinda love researching.
-      </li>
-      <li>
-        just chat, talk cinema or whatever. that too is nice, it's free :)
-      </li>
-    </ul>
+    <div class="flex gap-2">
+      on the internet :
+      {
+        socials.map((social) => (
+          <a
+            class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={social.link}
+          >
+            {social.title}
+          </a>
+        ))
+      }
+    </div>
   </div>
 </Layout>

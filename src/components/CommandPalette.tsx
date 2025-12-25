@@ -9,6 +9,7 @@ import {
 	CommandItem,
 	CommandList,
 } from "@/components/ui/command";
+import { ArrowRightIcon, EmptyIcon, PlaceholderIcon } from "@phosphor-icons/react";
 
 export type UrlItem = {
 	title: string;
@@ -57,20 +58,22 @@ export function CommandPalette({ urls }: CommandPaletteProps) {
 	}, [urls]);
 
 	return (
-		<CommandDialog onOpenChange={setOpen} open={open}>
-			<CommandInput placeholder="Search URLs..." />
+		<CommandDialog onOpenChange={setOpen} open={open} className="bg-background">
+			<CommandInput placeholder="search..." />
 			<CommandList>
-				<CommandEmpty>No URLs found.</CommandEmpty>
+				<CommandEmpty className="flex flex-col items-center justify-center gap-2 py-10 text-foreground/70">
+					<PlaceholderIcon className="size-10" weight="fill"/>
+					<div>no results found</div>
+				</CommandEmpty>
 				{Object.entries(groupedUrls).map(([category, items]) => (
-					<CommandGroup heading={category} key={category}>
+					<CommandGroup heading={category} key={category} className="py-2">
 						{items.map((item) => (
 							<CommandItem
-								className="lowercase  rounded-md"
+								className="lowercase flex items-center justify-between rounded-md"
 								key={`${item.category}-${item.url}`}
 								onSelect={() => handleSelect(item.url)}
 							>
-								{/* <ExternalLinkIcon className="size-4" /> */}
-								<span>{item.title}</span>
+								<span className="text-foreground">{item.title}</span>
 							</CommandItem>
 						))}
 					</CommandGroup>

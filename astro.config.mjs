@@ -1,27 +1,49 @@
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
-  image: {
-    domains: ["utfs.io"],
-    remotePatterns: [
-      {
-        protocol: "https",
-      },
-    ],
-  },
+	experimental: {
+		fonts: [
+			{
+				name: "Inter Tight",
+				cssVariable: "--font-inter-tight",
+				provider: fontProviders.google(),
+				fallbacks: ["sans-serif"],
+			},
+			{
+				name: "Azeret Mono",
+				cssVariable: "--font-azeret-mono",
+				provider: fontProviders.fontshare(),
+				fallbacks: ["monospace"],
+			},
+			{
+				name: "Melodrama",
+				cssVariable: "--font-melodrama",
+				provider: fontProviders.fontshare(),
+				fallbacks: ["serif"],
+			},
+		],
+	},
+	image: {
+		domains: ["utfs.io"],
+		remotePatterns: [
+			{
+				protocol: "https",
+			},
+		],
+	},
 
-  integrations: [react()],
+	integrations: [react()],
 
-  markdown: {
-    syntaxHighlight: "shiki",
-    gfm: true,
-  },
+	markdown: {
+		syntaxHighlight: "shiki",
+		gfm: true,
+	},
 
-  output: "static",
+	output: "static",
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });
