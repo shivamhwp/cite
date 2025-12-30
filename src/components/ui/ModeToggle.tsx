@@ -1,5 +1,5 @@
 import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
@@ -15,13 +15,11 @@ export function ModeToggle() {
 		return false;
 	});
 
-	useEffect(() => {
-		document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-		localStorage.setItem("theme", isDark ? "dark" : "light");
-	}, [isDark]);
-
 	const toggleTheme = () => {
-		setIsDark(!isDark);
+		const newIsDark = !isDark;
+		setIsDark(newIsDark);
+		document.documentElement.classList[newIsDark ? "add" : "remove"]("dark");
+		localStorage.setItem("theme", newIsDark ? "dark" : "light");
 	};
 
 	return (

@@ -28,11 +28,9 @@ export default function WritingsTabs({ posts }: { posts: Post[] }) {
 						key={post.slug}
 						rel="noopener noreferrer"
 					>
-						<div className="w-full truncate font-serif text-lg font-semibold">
-							{post.data.title}
-						</div>
+						<div className="w-full truncate text-lg">{post.data.title}</div>
 						<span className="ml-3 whitespace-nowrap text-muted-foreground text-xs">
-							{dayjs(post.data.published).format("D MMM")}
+							{dayjs(post.data.published).format("D MMM YYYY")}
 						</span>
 					</a>
 				))}

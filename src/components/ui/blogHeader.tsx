@@ -12,7 +12,7 @@ function BlogHeader({
 }) {
 	return (
 		<header className="mb-4 transition-colors duration-200">
-			<div className="mb-3 font-serif text-foreground text-2xl md:text-3xl">
+			<div className="mb-3 font-light text-foreground text-2xl md:text-3xl">
 				{header}
 			</div>
 			<div className="flex items-center space-x-2">

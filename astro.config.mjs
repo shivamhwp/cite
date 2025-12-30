@@ -18,9 +18,9 @@ export default defineConfig({
 				fallbacks: ["monospace"],
 			},
 			{
-				name: "Melodrama",
-				cssVariable: "--font-melodrama",
-				provider: fontProviders.fontshare(),
+				name: "Instrument Serif",
+				cssVariable: "--font-instrument-serif",
+				provider: fontProviders.google(),
 				fallbacks: ["serif"],
 			},
 		],

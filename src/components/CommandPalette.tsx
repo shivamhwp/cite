@@ -1,5 +1,10 @@
 "use client";
 
+import {
+	ArrowRightIcon,
+	EmptyIcon,
+	PlaceholderIcon,
+} from "@phosphor-icons/react";
 import { useEffect, useMemo, useState } from "react";
 import {
 	CommandDialog,
@@ -9,7 +14,6 @@ import {
 	CommandItem,
 	CommandList,
 } from "@/components/ui/command";
-import { ArrowRightIcon, EmptyIcon, PlaceholderIcon } from "@phosphor-icons/react";
 
 export type UrlItem = {
 	title: string;
@@ -62,7 +66,7 @@ export function CommandPalette({ urls }: CommandPaletteProps) {
 			<CommandInput placeholder="search..." />
 			<CommandList>
 				<CommandEmpty className="flex flex-col items-center justify-center gap-2 py-10 text-foreground/70">
-					<PlaceholderIcon className="size-10" weight="fill"/>
+					<PlaceholderIcon className="size-10" weight="fill" />
 					<div>no results found</div>
 				</CommandEmpty>
 				{Object.entries(groupedUrls).map(([category, items]) => (

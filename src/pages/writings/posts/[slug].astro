@@ -5,19 +5,19 @@ import Layout from "../../../layouts/layout.astro";
 
 // Props retained for typing reference
 interface Props {
-  post: CollectionEntry<"posts">;
+	post: CollectionEntry<"posts">;
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
-  return allPosts.map((post) => ({
-    params: {
-      slug: post.slug,
-    },
-    props: {
-      post,
-    },
-  }));
+	const allPosts = await getCollection("posts");
+	return allPosts.map((post) => ({
+		params: {
+			slug: post.slug,
+		},
+		props: {
+			post,
+		},
+	}));
 }
 
 const { post } = Astro.props;

@@ -37,7 +37,7 @@
   --sidebar-border: #d0d0d0;
   --sidebar-ring: #606060;
   --font-sans: var(--font-inter-tight), ui-sans-serif, sans-serif, system-ui;
-  --font-serif: var(--font-melodrama), ui-serif, serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, serif;
   --font-mono: Azeret Mono, ui-monospace, monospace;
   --radius: 0.35rem;
   --shadow-x: 0px;
@@ -92,7 +92,7 @@
   --sidebar-border: #353535;
   --sidebar-ring: #a0a0a0;
   --font-sans: var(--font-inter-tight), ui-sans-serif, sans-serif, system-ui;
-  --font-serif: var(--font-melodrama), ui-serif, serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, serif;
   --font-mono: Azeret Mono, ui-monospace, monospace;
   --radius: 0.35rem;
   --shadow-x: 0px;

@@ -31,7 +31,7 @@ export default function CinemaPage() {
 							>
 								<div className="flex h-full w-full items-center gap-3">
 									<div
-										className="w-1/3 truncate font-serif text-foreground/90 text-xl font-semibold"
+										className="w-1/3 truncate font-light text-foreground/90 text-xl"
 										title={movie.title}
 									>
 										{movie.title}
@@ -59,7 +59,7 @@ export default function CinemaPage() {
 								<div className="flex h-full w-full items-center gap-3">
 									<a
 										aria-label={song.title}
-										className="w-full truncate font-serif text-muted-foreground text-xl transition duration-300 group-hover:text-foreground"
+										className="w-full truncate font-light text-muted-foreground text-xl transition duration-300 group-hover:text-foreground"
 										href={song.link}
 										rel="noopener noreferrer"
 										target="_blank"
