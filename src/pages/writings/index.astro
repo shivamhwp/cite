@@ -1,7 +1,7 @@
 ---
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { getCollection } from "astro:content";
-import WritingsTabs from "../../components/tabs";
+import dayjs from "dayjs";
+import { PostItem } from "../../components/ui/PostItem";
 import Layout from "../../layouts/layout.astro";
 
 const allPosts = await getCollection("posts");
@@ -9,29 +9,44 @@ const allPosts = await getCollection("posts");
 const sortedPosts = allPosts.sort((a, b) =>
   a.data.published > b.data.published ? -1 : 1
 );
-
-// Group posts by published year
-const postsByYear = sortedPosts.reduce(
-  (acc, post) => {
-    const year = new Date(post.data.published).getFullYear().toString();
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(post);
-    return acc;
-  },
-  {} as Record<string, typeof sortedPosts>
-);
 ---
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content="writings" />
+  <meta property="twitter:title" content=" shivam " />
+  <meta
+    name="twitter:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content="writings" />
+  <meta property="og:description" content="writings" />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing" />
+  <meta
+    property="og:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  />
+  <title>writings</title>
+</head>
+
 <Layout>
-  {
-    Object.keys(postsByYear)
-      .sort((a, b) => Number(b) - Number(a))
-      .map((year) => (
-        <section>
-          <WritingsTabs client:only="react" posts={postsByYear[year]} />
-        </section>
-      ))
-  }
+  <div class="w-full">
+    <div class="gap-3 flex flex-col">
+      {
+        sortedPosts.map((post) => (
+          <PostItem
+            client:load
+            href={`/writings/posts/${post.slug}`}
+            title={post.data.title}
+            date={dayjs(post.data.published).format("MMM D YYYY")}
+          />
+        ))
+      }
+    </div>
+  </div>
 </Layout>

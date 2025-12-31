@@ -1,19 +1,24 @@
-import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
-import { useState } from "react";
+"use client";
 
-import { Button } from "@/components/ui/button";
+import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 
 export function ModeToggle() {
-	const [isDark, setIsDark] = useState(() => {
-		if (typeof window !== "undefined") {
-			const stored = localStorage.getItem("theme");
-			if (stored) {
-				return stored === "dark";
-			}
-			return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	const [isDark, setIsDark] = useState(false);
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+		const stored = localStorage.getItem("theme");
+		const prefersDark = window.matchMedia(
+			"(prefers-color-scheme: dark)",
+		).matches;
+		const shouldBeDark = stored === "dark" || (!stored && prefersDark);
+		setIsDark(shouldBeDark);
+		if (shouldBeDark) {
+			document.documentElement.classList.add("dark");
 		}
-		return false;
-	});
+	}, []);
 
 	const toggleTheme = () => {
 		const newIsDark = !isDark;
@@ -22,11 +27,19 @@ export function ModeToggle() {
 		localStorage.setItem("theme", newIsDark ? "dark" : "light");
 	};
 
+	if (!mounted) {
+		return null;
+	}
+
 	return (
-		<Button onClick={toggleTheme} size="icon" variant="ghost">
-			<SunDimIcon className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
-			<MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-			<span className="sr-only">Toggle theme</span>
-		</Button>
+		<button
+			className="fixed bottom-4 right-4 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+			onClick={toggleTheme}
+			type="button"
+			aria-label="Toggle theme"
+		>
+			<SunDimIcon className="dark:hidden h-6 w-6" />
+			<MoonIcon className="hidden dark:block h-6 w-6" />
+		</button>
 	);
 }

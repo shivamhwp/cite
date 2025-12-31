@@ -2,14 +2,10 @@
 title: "black-bag"
 url: "black-bag"
 tags: ["steven soderbergh", "black-bag"]
+director : "steven soderbergh"
 published: 2025-05-04
 ---
 
-<div> dir. steven soderbergh</div>
-<div class="text-destructive pt-4"> major spoilers ahead</div>
-
-<div class="">
-<p >
 just watched the "black bag" by sodenbergh.it's a  good film. <br>
 so here the main spy (micheal fassbender) tries to find the mole in the team. i'm not going to explain the film. i'll tell the things i found interesting. <br>
 
@@ -24,9 +20,6 @@ so here the main spy (micheal fassbender) tries to find the mole in the team. i'
 
 - actually if you see now, we know that within i think like 10-20 minutes we got a hint on who was the culprit. as i think, zoe or dr vaughan asks (Naomie Harris): "how many civilians died as a result ?". james(Rege-Jean Page) answers with "greater good.".
 
-</p>
-<p>
-well, this is what i found interesting in the movie rn. maybe i'll update in the future, who knows!
-</p>
 
-</div>
+well, this is what i found interesting in the movie rn. maybe i'll update in the future, who knows!
+

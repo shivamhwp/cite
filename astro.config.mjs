@@ -6,22 +6,16 @@ export default defineConfig({
 	experimental: {
 		fonts: [
 			{
-				name: "Inter Tight",
-				cssVariable: "--font-inter-tight",
-				provider: fontProviders.google(),
+				name: "General Sans",
+				cssVariable: "--font-general-sans",
+				provider: fontProviders.fontshare(),
 				fallbacks: ["sans-serif"],
 			},
 			{
-				name: "Azeret Mono",
-				cssVariable: "--font-azeret-mono",
+				name: "JetBrains Mono",
+				cssVariable: "--font-jetbrains-mono",
 				provider: fontProviders.fontshare(),
 				fallbacks: ["monospace"],
-			},
-			{
-				name: "Instrument Serif",
-				cssVariable: "--font-instrument-serif",
-				provider: fontProviders.google(),
-				fallbacks: ["serif"],
 			},
 		],
 	},

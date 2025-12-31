@@ -1,6 +1,18 @@
 ---
-import { socials } from "../data";
+import { getCollection } from "astro:content";
+import { BellSimpleRingingIcon } from "@phosphor-icons/react";
+import { Socials } from "../components/ui/socials";
+import UpdatesMarkdown from "../content/updates.md";
+import { code_projects, movies, songs } from "../data";
 import Layout from "../layouts/layout.astro";
+
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort((a, b) =>
+  a.data.published > b.data.published ? -1 : 1
+);
+const recentPosts = sortedPosts.slice(0, 6);
+const featuredMovies = movies.slice(0, 6);
+const featuredSongs = songs.slice(0, 8);
 ---
 
 <head>
@@ -27,57 +39,44 @@ import Layout from "../layouts/layout.astro";
 </head>
 
 <Layout title="shivam">
-  <div class="px-3 flex flex-col gap-0.5">
-    <section class="transition gap-2 duration-500">
-      <div>hi, shivam here.</div>
+  <div class="gap-4 flex flex-col">
+    <!-- Hero Section -->
+    <section class="space-y-2">
+      <h1 class="font-semibold text-2xl">shivam.</h1>
+      <p class="text-muted-foreground text-lg">
+        prev <a
+          href="https://supermemory.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-foreground">supermemory</a
+        >, currently <a
+          href="https://github.com/shivamhwp/agentsonweb"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-foreground">agentsonweb.com</a
+        >.
+      </p>
     </section>
-    <div>
-      prev <a
-        target="_blank"
-        href="https://supermemory.ai/"
-        class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
-        >supermemory,</a
+    <hr class="h-px bg-muted-foreground/20" />
+
+    <section class="gap-4 flex flex-col">
+      <h2 class="font-semibold text-xl flex items-center gap-2">updates</h2>
+
+      <div
+        class="text-foreground/60 max-w-[65ch] [&_ul]:mb-6 [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:mb-2 [&_li]:leading-[1.75] [&_a]:text-foreground [&_a]:no-underline [&_a]:transition-all [&_a:hover]:opacity-80"
       >
-      currently <a
-        target="_blank"
-        href="https://github.com/shivamhwp/agentsonweb"
-        class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
-        >agentsonweb.com</a
-      >.
-    </div>
-    <div>
-      prev projects:
-      {
-        ["git-acm", "isup", "0bs.chat"].map((project, index, array) => (
-          <>
-            <a
-              class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`https://github.com/shivamhwp/${project}`}
-            >
-              {project}
-            </a>
-            {/* Conditionally render comma and space if it's not the last item */}
-            {index < array.length - 1 && ", "}
-          </>
-        ))
-      }
-    </div>
-    <div class="flex gap-2">
-      on the internet :
-      {
-        socials.map((social) => (
-          <a
-            class="text-accent-foreground/85 rounded-xs underline underline-offset-2 decoration-0"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={social.link}
-          >
-            {social.title}
-          </a>
-        ))
-      }
-    </div>
+        <UpdatesMarkdown />
+      </div>
+    </section>
+
+    <!-- <section>
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6"
+      >
+        <span class="text-muted-foreground font-semibold text-2xl"
+          >on the internet</span
+        >
+      </div>
+    </section> -->
   </div>
 </Layout>

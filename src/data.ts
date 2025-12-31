@@ -18,22 +18,22 @@ export type code_projects = {
 	github: string;
 	image?: string;
 	live_link?: string;
-	docs: string;
-	description: string;
+	docs?: string;
+	description?: string;
 };
 
 export const code_projects: code_projects[] = [
 	{
-		project_name: "git-acm",
-		description: "generate meaningful commit messages locally using AI.",
-		github: "https://github.com/shivamhwp/git-acm",
-		docs: "https://git-acm.pages.dev",
+		project_name: "agentsonweb()",
+		description: "run any agent cli on web",
+		github: "https://github.com/shivamhwp/agentsonweb",
+		live_link: "https://agentsonweb.com",
 	},
 	{
-		project_name: "isup",
-		description: "on-device monitoring, lightweight, instant, and efficient.",
-		github: "https://github.com/shivamhwp/isup",
-		docs: "https://isup-docs.pages.dev",
+		project_name: "0bs.chat",
+		description: "ai chat app for power users",
+		github: "https://github.com/0bs-chat/zerobs",
+		live_link: "https://0bs.chat",
 	},
 ];
 

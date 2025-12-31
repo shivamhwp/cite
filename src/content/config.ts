@@ -7,6 +7,7 @@ export const postSchema = z.object({
 	tags: z.array(z.string()),
 	published: z.date(),
 	updated: z.date().optional(),
+	director: z.string().optional(),
 });
 
 const posts = defineCollection({

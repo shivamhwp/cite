@@ -1,120 +1,16 @@
 ---
-import { getCollection } from "astro:content";
-import type { UrlItem } from "../components/CommandPalette";
-import { CommandPalette } from "../components/CommandPalette";
-import { Kbd, KbdGroup } from "../components/ui/kbd";
 import { ModeToggle } from "../components/ui/ModeToggle";
-import { TopNav } from "../components/ui/topnav";
-import { code_projects, socials, songs } from "../data";
+import { VerticalNav } from "../components/ui/VerticalNav";
 import "../styles/global.css";
 import { Font } from "astro:assets";
 
 const pathname = Astro.url.pathname;
-
-// Generate URLs at build time
-async function collectUrls(): Promise<UrlItem[]> {
-	const items: UrlItem[] = [];
-
-	// Add routes/pages
-	items.push(
-		{
-			title: "Home",
-			url: "/",
-			category: "Pages",
-		},
-		{
-			title: "Cinema",
-			url: "/cinema",
-			category: "Pages",
-		},
-		{
-			title: "Writings",
-			url: "/writings",
-			category: "Pages",
-		},
-		{
-			title: "Updates",
-			url: "/updates",
-			category: "Pages",
-		},
-	);
-
-	// Add blog posts
-	const allPosts = await getCollection("posts");
-	for (const post of allPosts) {
-		items.push({
-			title: post.data.title,
-			url: `/writings/posts/${post.slug}`,
-			category: "Blog",
-		});
-	}
-
-	// Add social links
-	for (const social of socials) {
-		items.push({
-			title: social.title,
-			url: social.link,
-			category: "Social",
-		});
-	}
-
-	// Add song links
-	for (const song of songs) {
-		items.push({
-			title: song.title,
-			url: song.link,
-			category: "Music",
-		});
-	}
-
-	// Add code project links
-	for (const project of code_projects) {
-		items.push({
-			title: `${project.project_name} - GitHub`,
-			url: project.github,
-			category: "Projects",
-		});
-		if (project.docs) {
-			items.push({
-				title: `${project.project_name} - Docs`,
-				url: project.docs,
-				category: "Projects",
-			});
-		}
-		if (project.live_link) {
-			items.push({
-				title: `${project.project_name} - Live`,
-				url: project.live_link,
-				category: "Projects",
-			});
-		}
-	}
-
-	// Add additional project URLs from homepage
-	items.push(
-		{
-			title: "agentsonweb.com",
-			url: "https://github.com/shivamhwp/agentsonweb",
-			category: "Projects",
-		},
-		{
-			title: "0bs.chat",
-			url: "https://github.com/0bs-chat",
-			category: "Projects",
-		},
-	);
-
-	return items;
-}
-
-const urls = await collectUrls();
 ---
 
 <html lang="en">
   <head>
-    <Font cssVariable="--font-inter-tight" preload />
-    <Font cssVariable="--font-azeret-mono" preload />
-    <Font cssVariable="--font-instrument-serif" preload />
+    <Font cssVariable="--font-general-sans" preload />
+    <Font cssVariable="--font-jetbrains-mono" preload />
     <script
       is:inline
       src="https://cloud.umami.is/script.js"
@@ -154,19 +50,26 @@ const urls = await collectUrls();
   </head>
 
   <body
-    class="bg-background text-muted-foreground min-h-screen w-full overflow-x-hidden"
+    class="bg-background text-foreground/60 h-screen w-full overflow-hidden flex font-sans leading-relaxed antialiased"
   >
-    <div
-      class="mx-auto max-w-2xl px-4 gap-4 pt-6 max-sm:pt-3 pb-10 flex flex-col min-h-screen"
-    >
-      <div class="flex gap-0.5 items-center justify-between">
-        <TopNav pathname={pathname} />
-        <ModeToggle client:load />
-      </div>
-      <main class="grow">
-        <slot />
+    <div class="flex-1 flex justify-center overflow-hidden">
+      <!-- Main content centered -->
+      <main class="flex-1 overflow-hidden max-w-4xl w-full h-full flex">
+        <div
+          class="flex gap-6 sm:gap-10 md:gap-12 px-4 sm:px-6 pt-16 sm:pt-20 w-full h-full"
+        >
+          <!-- Vertical Nav near content -->
+          <aside class="shrink-0 pt-1 overflow-visible flex flex-col gap-4">
+            <VerticalNav pathname={pathname} client:load />
+          </aside>
+
+          <!-- Content - scrollable -->
+          <div class="flex-1 min-w-0 max-w-full overflow-y-auto pb-16 sm:pb-20">
+            <slot />
+          </div>
+        </div>
       </main>
     </div>
-    <CommandPalette urls={urls} client:load />
+    <ModeToggle client:load />
   </body>
 </html>
