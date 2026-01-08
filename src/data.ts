@@ -200,7 +200,7 @@ export const socials: social[] = [
 	{
 		id: 3,
 		title: "youtube",
-		link: "https://www.youtube.com/@shivamhwp_",
+		link: "https://www.youtube.com/@shivamhwp",
 	},
 ];
 
