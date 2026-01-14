@@ -202,6 +202,17 @@ body {
 		@apply text-foreground;
 	}
 
+	/* Inverted selection - black background with white text */
+	::selection {
+		background-color: #000;
+		color: #fff;
+	}
+
+	.dark ::selection {
+		background-color: #fff;
+		color: #000;
+	}
+
 	/* Hide scrollbars while keeping scroll functionality */
 	* {
 		scrollbar-width: none; /* Firefox */
