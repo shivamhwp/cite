@@ -1,18 +1,6 @@
 ---
-import { getCollection } from "astro:content";
-import { BellSimpleRingingIcon } from "@phosphor-icons/react";
-import { Socials } from "../components/ui/socials";
 import UpdatesMarkdown from "../content/updates.md";
-import { code_projects, movies, songs } from "../data";
 import Layout from "../layouts/layout.astro";
-
-const allPosts = await getCollection("posts");
-const sortedPosts = allPosts.sort((a, b) =>
-  a.data.published > b.data.published ? -1 : 1
-);
-const recentPosts = sortedPosts.slice(0, 6);
-const featuredMovies = movies.slice(0, 6);
-const featuredSongs = songs.slice(0, 8);
 ---
 
 <head>
@@ -39,44 +27,34 @@ const featuredSongs = songs.slice(0, 8);
 </head>
 
 <Layout title="shivam">
-  <div class="gap-4 flex flex-col">
+  <div class="space-y-8">
     <!-- Hero Section -->
     <section class="space-y-2">
-      <h1 class="font-semibold text-2xl">shivam.</h1>
-      <p class="text-muted-foreground text-lg">
+      <h1 class="text-foreground text-base font-normal">shivam.</h1>
+      <p class="text-muted-foreground text-sm leading-relaxed">
         prev <a
           href="https://supermemory.ai/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-foreground font-mono">supermemory</a
+          class="text-foreground underline underline-offset-2 decoration-1 hover:opacity-80 transition-opacity"
+          >supermemory</a
         >, currently <a
           href="https://github.com/shivamhwp/agentsonweb"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-foreground">agentsonweb.com</a
+          class="text-foreground underline underline-offset-2 decoration-1 hover:opacity-80 transition-opacity"
+          >agentsonweb.com</a
         >.
       </p>
     </section>
-    <hr class="h-px bg-muted-foreground/20" />
 
-    <section class="gap-4 flex flex-col">
-      <h2 class="font-semibold text-xl flex items-center gap-2">updates</h2>
-
+    <section class="space-y-4">
+      <h2 class="text-foreground text-sm">timeline</h2>
       <div
-        class="text-foreground/60 max-w-[65ch] [&_ul]:mb-6 [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:mb-2 [&_li]:leading-[1.75] [&_a]:text-foreground [&_a]:no-underline [&_a]:transition-all [&_a:hover]:opacity-80"
+        class="text-muted-foreground text-sm leading-relaxed [&_ul]:space-y-2 [&_ul]:mb-4 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:list-outside [&_li]:leading-relaxed [&_li]:pl-0 [&_li]:ml-0 [&_a]:text-foreground [&_a]:underline [&_a]:underline-offset-2 [&_a]:decoration-1 [&_a]:transition-opacity [&_a:hover]:opacity-80"
       >
         <UpdatesMarkdown />
       </div>
     </section>
-
-    <!-- <section>
-      <div
-        class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6"
-      >
-        <span class="text-muted-foreground font-semibold text-2xl"
-          >on the internet</span
-        >
-      </div>
-    </section> -->
   </div>
 </Layout>

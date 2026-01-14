@@ -35,18 +35,16 @@ const sortedPosts = allPosts.sort((a, b) =>
 </head>
 
 <Layout>
-  <div class="w-full">
-    <div class="gap-3 flex flex-col">
-      {
-        sortedPosts.map((post) => (
-          <PostItem
-            client:load
-            href={`/writings/posts/${post.slug}`}
-            title={post.data.title}
-            date={dayjs(post.data.published).format("MMM D YYYY")}
-          />
-        ))
-      }
-    </div>
+  <div class="w-full space-y-4 sm:space-y-6">
+    {
+      sortedPosts.map((post) => (
+        <PostItem
+          client:load
+          href={`/writings/posts/${post.slug}`}
+          title={post.data.title}
+          date={dayjs(post.data.published).format("MMM D, YYYY")}
+        />
+      ))
+    }
   </div>
 </Layout>

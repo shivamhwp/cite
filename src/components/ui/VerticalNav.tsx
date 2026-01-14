@@ -1,6 +1,5 @@
 "use client";
 
-import { ArticleIcon, FilmStripIcon, HouseIcon } from "@phosphor-icons/react";
 import { ModeToggle } from "./ModeToggle";
 import { Socials } from "./socials";
 
@@ -17,33 +16,62 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
 	};
 
 	const navItems = [
-		{ path: "/", label: "home", icon: HouseIcon },
-		{ path: "/cinema", label: "cinema", icon: FilmStripIcon },
-		{ path: "/writings", label: "writings", icon: ArticleIcon },
+		{ path: "/", label: "home" },
+		{ path: "/cinema", label: "cinema" },
+		{ path: "/writings", label: "writings" },
 	];
 
 	return (
-		<nav className="flex flex-col gap-4">
-			{navItems.map((item) => {
-				const Icon = item.icon;
-				const active = isActive(item.path);
+		<>
+			{/* Mobile: horizontal nav */}
+			<nav className="flex md:hidden flex-row items-center justify-between gap-4">
+				<div className="flex flex-row items-center gap-4">
+					{navItems.map((item) => {
+						const active = isActive(item.path);
 
-				return (
-					<a
-						key={item.path}
-						href={item.path}
-						className={`flex flex-col items-center gap-2 transition-colors ${
-							active
-								? "text-foreground"
-								: "text-muted-foreground hover:text-foreground"
-						}`}
-						aria-label={item.label}
-					>
-						<Icon className="h-6 w-6" weight={active ? "fill" : "duotone"} />
-					</a>
-				);
-			})}
-			<Socials />
-		</nav>
+						return (
+							<a
+								key={item.path}
+								href={item.path}
+								className={`text-xs transition-colors whitespace-nowrap ${
+									active
+										? "text-foreground"
+										: "text-muted-foreground hover:text-foreground"
+								}`}
+								aria-label={item.label}
+							>
+								{item.label}
+							</a>
+						);
+					})}
+				</div>
+				<Socials />
+			</nav>
+
+			{/* Desktop: vertical nav */}
+			<nav className="hidden md:flex flex-col gap-6 lg:gap-8 h-full">
+				<div className="flex flex-col gap-2 lg:gap-2">
+					{navItems.map((item) => {
+						const active = isActive(item.path);
+
+						return (
+							<a
+								key={item.path}
+								href={item.path}
+								className={`text-xs transition-colors whitespace-nowrap ${
+									active
+										? "text-foreground"
+										: "text-muted-foreground hover:text-foreground"
+								}`}
+								aria-label={item.label}
+							>
+								{item.label}
+							</a>
+						);
+					})}
+				</div>
+				<Socials />
+			</nav>
+		</>
 	);
 }

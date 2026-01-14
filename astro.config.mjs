@@ -6,12 +6,6 @@ export default defineConfig({
 	experimental: {
 		fonts: [
 			{
-				name: "Zalando Sans",
-				cssVariable: "--font-zalando-sans",
-				provider: fontProviders.google(),
-				fallbacks: ["sans-serif"],
-			},
-			{
 				name: "JetBrains Mono",
 				cssVariable: "--font-jetbrains-mono",
 				provider: fontProviders.fontshare(),

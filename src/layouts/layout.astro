@@ -9,7 +9,6 @@ const pathname = Astro.url.pathname;
 
 <html lang="en">
   <head>
-    <Font cssVariable="--font-zalando-sans" preload />
     <Font cssVariable="--font-jetbrains-mono" preload />
     <script
       is:inline
@@ -50,23 +49,25 @@ const pathname = Astro.url.pathname;
   </head>
 
   <body
-    class="bg-background font-mono text-foreground/60 h-screen w-full overflow-hidden flex leading-relaxed antialiased"
+    class="bg-background text-foreground/60 min-h-screen w-full antialiased"
   >
-    <div class="flex-1 flex justify-center overflow-hidden">
-      <!-- Main content centered -->
-      <main class="flex-1 overflow-hidden max-w-4xl w-full h-full flex">
-        <div
-          class="flex gap-6 sm:gap-10 md:gap-12 px-4 sm:px-6 pt-16 sm:pt-20 w-full h-full"
-        >
-          <!-- Vertical Nav near content -->
-          <aside class="shrink-0 pt-1 overflow-visible flex flex-col gap-4">
-            <VerticalNav pathname={pathname} client:load />
-          </aside>
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Top nav for mobile -->
+      <header class="w-full md:hidden border-b border-muted-foreground/10">
+        <div class="max-w-2xl mx-auto px-3 sm:px-4 py-3">
+          <VerticalNav pathname={pathname} client:load />
+        </div>
+      </header>
 
-          <!-- Content - scrollable -->
-          <div class="flex-1 min-w-0 max-w-full overflow-y-auto pb-16 sm:pb-20">
-            <slot />
-          </div>
+      <!-- Fixed left nav for desktop -->
+      <aside class="hidden md:flex fixed left-0 top-0 h-full w-24 lg:w-32 px-4 lg:px-6 py-6 lg:py-8 flex-col justify-between z-10">
+        <VerticalNav pathname={pathname} client:load />
+      </aside>
+
+      <!-- Main content -->
+      <main class="flex-1 w-full md:ml-24 lg:ml-32">
+        <div class="max-w-2xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 lg:py-12">
+          <slot />
         </div>
       </main>
     </div>
