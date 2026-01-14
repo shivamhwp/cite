@@ -4,163 +4,163 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1a1918;
-  --muted-foreground: #8a8a8a;
-  --font-sans: var(--font-cabinet), ui-sans-serif, sans-serif, system-ui;
-  --font-serif: var(--font-stix-two-text), ui-serif, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+	--background: #fafaf9;
+	--foreground: #1a1918;
+	--muted-foreground: #8a8a8a;
+	--font-sans: var(--font-cabinet), ui-sans-serif, sans-serif, system-ui;
+	--font-serif: var(--font-stix-two-text), ui-serif, serif;
+	--font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 .dark {
-  --background: #0d0d0c;
-  --foreground: #e8e6e3;
-  --muted-foreground: #6b6b6b;
-  --font-sans: var(--font-cabinet), ui-sans-serif, sans-serif, system-ui;
-  --font-serif: var(--font-stix-two-text), ui-serif, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+	--background: #0d0d0c;
+	--foreground: #e8e6e3;
+	--muted-foreground: #6b6b6b;
+	--font-sans: var(--font-cabinet), ui-sans-serif, sans-serif, system-ui;
+	--font-serif: var(--font-stix-two-text), ui-serif, serif;
+	--font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-muted-foreground: var(--muted-foreground);
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
+	--font-serif: var(--font-serif);
 }
 
 body {
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: var(--font-sans);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
-  * {
-    @apply border-transparent;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply border-transparent;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 
-  a:hover {
-    @apply text-foreground;
-  }
-  
-  /* Hide scrollbars while keeping scroll functionality */
-  * {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-  
-  *::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+	a:hover {
+		@apply text-foreground;
+	}
+
+	/* Hide scrollbars while keeping scroll functionality */
+	* {
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+	}
+
+	*::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
 }
 
 /* Prose styles for markdown content */
 .prose {
-  @apply text-foreground;
-  max-width: 65ch;
+	@apply text-foreground;
+	max-width: 65ch;
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
-  font-family: var(--font-serif);
-  @apply font-normal text-foreground mt-8 mb-4;
+	font-family: var(--font-serif);
+	@apply font-normal text-foreground mt-8 mb-4;
 }
 
 .prose h1 {
-  @apply text-3xl sm:text-4xl;
+	@apply text-3xl sm:text-4xl;
 }
 
 .prose h2 {
-  @apply text-2xl sm:text-3xl;
+	@apply text-2xl sm:text-3xl;
 }
 
 .prose h3 {
-  @apply text-xl sm:text-2xl;
+	@apply text-xl sm:text-2xl;
 }
 
 .prose h4 {
-  @apply text-lg sm:text-xl;
+	@apply text-lg sm:text-xl;
 }
 
 .prose p {
-  @apply mb-6 leading-relaxed;
-  font-size: 1.125rem;
-  line-height: 1.75;
+	@apply mb-6 leading-relaxed;
+	font-size: 1.125rem;
+	line-height: 1.75;
 }
 
 .prose a {
-  @apply text-foreground underline underline-offset-2 decoration-1 transition-all;
+	@apply text-foreground underline underline-offset-2 decoration-1 transition-all;
 }
 
 .prose a:hover {
-  @apply text-foreground opacity-80;
+	@apply text-foreground opacity-80;
 }
 
 .prose ul,
 .prose ol {
-  @apply mb-6 pl-6 space-y-2;
+	@apply mb-6 pl-6 space-y-2;
 }
 
 .prose li {
-  @apply mb-2;
-  line-height: 1.75;
+	@apply mb-2;
+	line-height: 1.75;
 }
 
 .prose li::marker {
-  @apply text-muted-foreground;
+	@apply text-muted-foreground;
 }
 
 .prose code {
-  font-family: var(--font-mono);
-  @apply text-sm bg-muted-foreground/10 px-1.5 py-0.5 rounded;
+	font-family: var(--font-mono);
+	@apply text-sm bg-muted-foreground/10 px-1.5 py-0.5 rounded;
 }
 
 .prose pre {
-  font-family: var(--font-mono);
-  @apply overflow-x-auto mb-6 p-4 bg-muted-foreground/5 rounded border border-muted-foreground/20;
+	font-family: var(--font-mono);
+	@apply overflow-x-auto mb-6 p-4 bg-muted-foreground/5 rounded border border-muted-foreground/20;
 }
 
 .prose pre code {
-  @apply bg-transparent p-0;
+	@apply bg-transparent p-0;
 }
 
 .prose blockquote {
-  @apply border-l-2 border-muted-foreground/30 pl-6 italic text-muted-foreground my-6;
+	@apply border-l-2 border-muted-foreground/30 pl-6 italic text-muted-foreground my-6;
 }
 
 .prose hr {
-  @apply border-muted-foreground/20 my-8;
+	@apply border-muted-foreground/20 my-8;
 }
 
 .prose img {
-  @apply rounded my-6;
+	@apply rounded my-6;
 }
 
 .prose strong {
-  @apply font-semibold text-foreground;
+	@apply font-semibold text-foreground;
 }
 
 .prose em {
-  @apply italic;
+	@apply italic;
 }
 
 .prose table {
-  @apply w-full mb-6 border-collapse;
+	@apply w-full mb-6 border-collapse;
 }
 
 .prose th,
 .prose td {
-  @apply border border-muted-foreground/20 px-4 py-2;
+	@apply border border-muted-foreground/20 px-4 py-2;
 }
 
 .prose th {
-  @apply font-semibold bg-muted-foreground/5;
+	@apply font-semibold bg-muted-foreground/5;
 }

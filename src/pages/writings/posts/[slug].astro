@@ -47,16 +47,12 @@ const { Content } = await post.render();
 </head>
 <Layout>
   <article>
-    <header
-      class="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-muted-foreground/20"
-    >
+    <header class="pb-6">
       <div
         class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4"
       >
         <div class="flex-1 min-w-0">
-          <h1
-            class="font-bold text-foreground text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 leading-tight"
-          >
+          <h1 class="text-foreground text-2xl sm:text-3xl md:text-4xl sm:mb-4">
             {post.data.title}
           </h1>
           <time
@@ -85,15 +81,13 @@ const { Content } = await post.render();
     >
       <Content />
     </div>
-    <footer
-      class="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-muted-foreground/20 pb-16 sm:pb-20"
-    >
+    <footer class="mt-8 sm:mt-10 sm:pt-8 pb-16 sm:pb-20">
       <a
         href="/writings"
         class="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2 text-sm sm:text-base no-underline group"
       >
-        <span class="group-hover:-translate-x-1 transition-transform">←</span>
-        <span>back to writings</span>
+        <span>←</span>
+        <span>back</span>
       </a>
     </footer>
   </article>

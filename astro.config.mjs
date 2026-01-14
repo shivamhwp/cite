@@ -6,9 +6,9 @@ export default defineConfig({
 	experimental: {
 		fonts: [
 			{
-				name: "General Sans",
-				cssVariable: "--font-general-sans",
-				provider: fontProviders.fontshare(),
+				name: "Zalando Sans",
+				cssVariable: "--font-zalando-sans",
+				provider: fontProviders.google(),
 				fallbacks: ["sans-serif"],
 			},
 			{
