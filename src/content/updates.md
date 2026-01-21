@@ -1,4 +1,4 @@
-<ul class="flex flex-col list-disc" >
+<ul>
 <li> currently working on <a target="_blank" href="https://github.com/shivamhwp/agentsonweb">agentsonweb</a> (the best background agents).</li>
 <li>revamped <a target="_blank" href='https://x.com/shivamhwp/status/1975535998336704821'>git-acm</a>.</li>
 <li><a target="_blank" href='https://github.com/0bs-chat/zerobs'>0bs.chat</a> with <a target="_blank" href='https://x.com/barre_of_lube'>mantra</a>.</li>

@@ -1,0 +1,79 @@
+---
+---
+
+<div
+  id="nav-timer"
+  transition:persist
+  class="fixed top-10 right-4 text-xs font-mono text-muted-foreground px-3 py-2 border border-muted-foreground/20 rounded bg-background/50 backdrop-blur-sm z-50"
+>
+  <div id="timer-content" class="space-y-1 whitespace-nowrap">
+    <div id="routes" class="text-foreground">-</div>
+    <div class="flex justify-between gap-8">
+      <div>
+        <span id="duration">0ms</span>
+      </div>
+      <div>
+        <span id="current-time">--:--:-- --</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline data-astro-rerun>
+  (function () {
+    let startTime = 0;
+    let previousRoute = window.location.pathname;
+
+    function getISTTime() {
+      const now = new Date();
+      const istTime = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      }).format(now);
+      return istTime;
+    }
+
+    function updateElements() {
+      const routesElement = document.getElementById("routes");
+      const durationElement = document.getElementById("duration");
+      const currentTimeElement = document.getElementById("current-time");
+
+      if (currentTimeElement) {
+        currentTimeElement.textContent = getISTTime();
+      }
+    }
+
+    // Update time every second
+    setInterval(updateElements, 1000);
+    updateElements();
+
+    document.addEventListener("astro:before-preparation", () => {
+      startTime = performance.now();
+    });
+
+    document.addEventListener("astro:page-load", () => {
+      if (startTime) {
+        const endTime = performance.now();
+        const duration = Math.round(endTime - startTime);
+        const currentRoute = window.location.pathname;
+
+        const routesElement = document.getElementById("routes");
+        const durationElement = document.getElementById("duration");
+
+        if (routesElement) {
+          routesElement.textContent = `${previousRoute} → ${currentRoute}`;
+        }
+        if (durationElement) {
+          durationElement.textContent = `${duration}ms`;
+        }
+
+        updateElements();
+        previousRoute = currentRoute;
+        startTime = 0;
+      }
+    });
+  })();
+</script>

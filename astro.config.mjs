@@ -1,6 +1,7 @@
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
+import { remarkMarkdownClasses } from "./src/lib/markdown-remark-plugin.mjs";
 
 export default defineConfig({
 	experimental: {
@@ -27,6 +28,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: "shiki",
 		gfm: true,
+		remarkPlugins: [remarkMarkdownClasses],
 	},
 
 	output: "static",

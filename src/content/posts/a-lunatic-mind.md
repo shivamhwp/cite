@@ -1,6 +1,6 @@
 ---
 title: "a lunatic's mind"
-url: "change"
+url: "a-lunatic-mind"
 tags: ["change"]
 published: 2025-04-27
 ---
