@@ -122,6 +122,22 @@ export const songs = [
 		title: "pseudo",
 		link: "https://www.youtube.com/watch?v=t9i7lSpJyE8",
 	},
+        {
+            title : "spotlight",
+            link : "https://youtu.be/Rgy-eAzARNE?si=yx_7U3joB363dNeb"
+        },
+    {
+        title : "what's your pleasure",
+        link : "https://youtu.be/_R5NMcdpuO4?si=4eWNrrZIagem_dLN"
+    },
+        {
+            title : "posterity",
+            link : "https://youtu.be/ZE5zXLOyEOQ?si=8n6FsIkTSkul4PUs"
+        },
+            {
+                title: "too easy",
+                link: "https://youtu.be/pBeLI6zUjsE?si=-kCIff6t5IKfmIwj"
+            }
 ];
 
 export const movies: movie[] = [
@@ -135,7 +151,7 @@ export const movies: movie[] = [
 	},
 	{
 		title: "Jujutsu Kaisen",
-		description: "super interesting, crazy storyline.",
+		description: "best worldbuilding, best power structure. manga is super good.",
 	},
 	{
 		title: "Se7en",
@@ -155,26 +171,21 @@ export const movies: movie[] = [
 		description: "you should watch this. rami malek went godmode.",
 	},
 	{
-		title: "Manchester by the Sea",
-		description:
-			"casey affleck shows you his acting range. have you seen him talking to oppy in oppenheimer?",
-	},
-	{
 		title: "The Prestige",
 		description: "a not so much talked about great movie by christopher nolan.",
 	},
 	{
 		title: "nymphomaniac vol 1&2",
 		description:
-			"one of the most interesting movies i've seen lately. Charlotte Lucy Gainsbourg & Stacy Martin acting was insane.",
+			"one of the most interesting movies i've seen lately.",
 	},
 	{
 		title: "orb: about the movements of earth",
-		description: "beautiful, it gets better evrey time you watch it.",
+		description: "beautiful, it gets better every time you watch it. i can say it's one of my favourites",
 	},
 	{
 		title: "kengen ashura",
-		description: "i loved it. this was very very good",
+		description: "i loved it. this was very very good.",
 	},
 ];
 

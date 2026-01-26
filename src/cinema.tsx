@@ -67,7 +67,7 @@ export default function CinemaPage() {
 							href={song.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="block break-inside-avoid mb-3 text-muted-foreground text-xs hover:text-foreground transition-colors underline underline-offset-2 decoration-1"
+							className="block break-inside-avoid mb-3 text-muted-foreground text-xs hover:text-foreground transition-colors"
 							style={{
 								animationDelay: `${index * 30}ms`,
 							}}
