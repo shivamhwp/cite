@@ -29,7 +29,7 @@ function CardTitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
 	return (
 		<h3
-			className={cn("font-medium text-sm leading-none", className)}
+			className={cn("font-medium leading-none", className)}
 			{...props}
 		/>
 	);
@@ -40,7 +40,7 @@ function CardDescription({
 	...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
 	return (
-		<p className={cn("text-muted-foreground text-xs", className)} {...props} />
+		<p className={cn("text-muted-foreground", className)} {...props} />
 	);
 }
 

@@ -263,22 +263,6 @@ body {
 	@apply font-normal text-foreground mt-8 mb-4;
 }
 
-.prose h1 {
-	@apply text-3xl sm:text-4xl;
-}
-
-.prose h2 {
-	@apply text-2xl sm:text-3xl;
-}
-
-.prose h3 {
-	@apply text-xl sm:text-2xl;
-}
-
-.prose h4 {
-	@apply text-lg sm:text-xl;
-}
-
 .prose p {
 	@apply mb-6 leading-relaxed;
 	font-size: 1.125rem;
@@ -309,7 +293,7 @@ body {
 
 .prose code {
 	font-family: var(--font-mono);
-	@apply text-sm bg-muted-foreground/10 px-1.5 py-0.5 rounded;
+	@apply bg-muted-foreground/10 px-1.5 py-0.5 rounded;
 }
 
 .prose pre {

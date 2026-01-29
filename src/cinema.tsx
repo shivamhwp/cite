@@ -12,7 +12,7 @@ export default function CinemaPage() {
 			<div className="flex gap-6 border-b border-muted-foreground/10 pb-2">
 				<button
 					onClick={() => setActiveTab("films")}
-					className={`text-xs transition-colors ${
+					className={` transition-colors ${
 						activeTab === "films"
 							? "text-foreground"
 							: "text-muted-foreground hover:text-foreground"
@@ -23,7 +23,7 @@ export default function CinemaPage() {
 				</button>
 				<button
 					onClick={() => setActiveTab("music")}
-					className={`text-xs transition-colors ${
+					className={` transition-colors ${
 						activeTab === "music"
 							? "text-foreground"
 							: "text-muted-foreground hover:text-foreground"
@@ -45,11 +45,11 @@ export default function CinemaPage() {
 								animationDelay: `${index * 50}ms`,
 							}}
 						>
-							<h3 className="text-foreground text-sm font-normal mb-1">
+							<h3 className="text-foreground font-normal mb-1">
 								{movie.title}
 							</h3>
 							{movie.description && (
-								<p className="text-muted-foreground text-xs leading-relaxed">
+								<p className="text-muted-foreground leading-relaxed">
 									{movie.description}
 								</p>
 							)}
@@ -67,7 +67,7 @@ export default function CinemaPage() {
 							href={song.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="block break-inside-avoid mb-3 text-muted-foreground text-xs hover:text-foreground transition-colors"
+							className="block break-inside-avoid mb-3 text-muted-foreground hover:text-foreground transition-colors"
 							style={{
 								animationDelay: `${index * 30}ms`,
 							}}

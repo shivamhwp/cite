@@ -33,7 +33,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
 							<a
 								key={item.path}
 								href={item.path}
-								className={`text-xs transition-colors whitespace-nowrap ${
+								className={` transition-colors whitespace-nowrap ${
 									active
 										? "text-foreground"
 										: "text-muted-foreground hover:text-foreground"
@@ -58,7 +58,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
 							<a
 								key={item.path}
 								href={item.path}
-								className={`text-xs transition-colors whitespace-nowrap ${
+								className={` transition-colors whitespace-nowrap ${
 									active
 										? "text-foreground"
 										: "text-muted-foreground hover:text-foreground"
