@@ -1,16 +1,17 @@
 ---
+import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import { ModeToggle } from "../components/ui/ModeToggle";
 import { VerticalNav } from "../components/ui/VerticalNav";
-import { ClientRouter } from "astro:transitions";
 import NavigationTimer from "../components/NavigationTimer.astro";
 import "../styles/global.css";
-import { Font } from "astro:assets";
 
 const pathname = Astro.url.pathname;
 ---
 
 <html lang="en">
   <head>
+    <Font cssVariable="--font-poppins" preload />
     <Font cssVariable="--font-jetbrains-mono" preload />
     <ClientRouter />
     <script
@@ -48,6 +49,7 @@ const pathname = Astro.url.pathname;
       property="og:image"
       content="https://shivam.ing/images/opengraph-image.png"
     />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <title>shivam</title>
   </head>
 
@@ -70,7 +72,9 @@ const pathname = Astro.url.pathname;
       </aside>
 
       <!-- Main content -->
-      <main class="flex-1 w-full md:ml-24 lg:ml-32 md:fixed md:right-0 md:top-0 md:h-screen md:overflow-y-auto pt-2 md:pt-0">
+      <main
+        class="flex-1 w-full md:ml-24 lg:ml-32 md:fixed md:right-0 md:top-0 md:h-screen md:overflow-y-auto pt-2 md:pt-0"
+      >
         <div
           class="max-w-2xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 lg:py-12"
         >
