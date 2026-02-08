@@ -1,82 +1,63 @@
 "use client";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { movies, songs } from "@/data";
-import { useState } from "react";
 
 export default function CinemaPage() {
-  const [activeTab, setActiveTab] = useState<"films" | "music">("films");
+	return (
+		<div className="flex w-full flex-col h-full min-h-0 font-normal">
+			<Tabs defaultValue="films">
+				<TabsList className="sticky top-0 z-10 bg-secondary/30 pb-4">
+					<TabsTrigger
+						value="films"
+						className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+					>
+						mkv
+					</TabsTrigger>
+					<TabsTrigger
+						value="music"
+						className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+					>
+						wav
+					</TabsTrigger>
+				</TabsList>
 
-  return (
-    <div className="w-full space-y-6">
-      {/* Tabs */}
-      <div className="flex gap-6 border-b border-muted-foreground/10 pb-2">
-        <button
-          onClick={() => setActiveTab("films")}
-          className={` transition-colors ${
-            activeTab === "films"
-              ? "text-foreground"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-          type="button"
-        >
-          films
-        </button>
-        <button
-          onClick={() => setActiveTab("music")}
-          className={` transition-colors ${
-            activeTab === "music"
-              ? "text-foreground"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-          type="button"
-        >
-          music
-        </button>
-      </div>
+				<TabsContent value="films" className="mt-0">
+					<div className="flex flex-col">
+						{movies.map((movie) => (
+							<div
+								key={movie.title}
+								className="group flex flex-col py-2 border-b border-muted-foreground/8 last:border-0"
+							>
+								<span className="text-primary/70 text-xs font-medium">
+									{movie.title}
+								</span>
+								{movie.description && (
+									<span className="text-muted-foreground text-xs font-normal max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-out group-hover:max-h-8 group-hover:opacity-100 group-hover:mt-0.5">
+										{movie.description}
+									</span>
+								)}
+							</div>
+						))}
+					</div>
+				</TabsContent>
 
-      {/* Films */}
-      {activeTab === "films" && (
-        <div className="columns-1 sm:columns-2 gap-6 space-y-4">
-          {movies.map((movie, index) => (
-            <div
-              key={movie.title}
-              className="break-inside-avoid mb-4 space-y-1"
-              style={{
-                animationDelay: `${index * 50}ms`,
-              }}
-            >
-              <h3 className="text-foreground font-normal mb-1">
-                {movie.title}
-              </h3>
-              {movie.description && (
-                <p className="text-muted-foreground leading-relaxed">
-                  {movie.description}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Music */}
-      {activeTab === "music" && (
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-4">
-          {songs.map((song, index) => (
-            <a
-              key={song.title}
-              href={song.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block break-inside-avoid mb-3 text-muted-foreground hover:text-foreground transition-colors"
-              style={{
-                animationDelay: `${index * 30}ms`,
-              }}
-            >
-              {song.title}
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+				<TabsContent value="music" className="mt-0">
+					<div className="flex flex-col">
+						{songs.map((song) => (
+							<a
+								key={song.title}
+								href={song.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="py-2 border-b border-muted-foreground/8 last:border-0 text-xs font-normal text-muted-foreground hover:text-primary/70 transition-colors"
+							>
+								{song.title}
+							</a>
+						))}
+					</div>
+				</TabsContent>
+			</Tabs>
+		</div>
+	);
 }

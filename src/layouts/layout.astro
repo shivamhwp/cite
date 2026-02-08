@@ -51,11 +51,11 @@ const pathname = Astro.url.pathname;
   </head>
 
   <body
-    class="bg-background text-foreground/60 text-sm h-screen w-full antialiased overflow-hidden"
+    class="bg-background text-foreground/75 text-sm h-screen w-full antialiased overflow-hidden"
   >
     <div class="h-screen w-full overflow-hidden flex font-mono flex-col">
       <header class="w-full md:mt-[14vh]">
-        <div class="max-w-2xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+        <div class="max-w-2xl mx-auto px-3 sm:px-4 md:px-6 ">
           <VerticalNav pathname={pathname} client:load />
         </div>
       </header>
