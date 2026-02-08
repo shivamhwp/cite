@@ -29,6 +29,16 @@ export async function collectUrls(): Promise<UrlItem[]> {
       category: "Pages",
     },
     {
+      title: "Services",
+      url: "/services",
+      category: "Pages",
+    },
+    {
+      title: "Socials",
+      url: "/socials",
+      category: "Pages",
+    },
+    {
       title: "Updates",
       url: "/updates",
       category: "Pages",

@@ -1,7 +1,15 @@
 "use client";
 
-import { ModeToggle } from "./ModeToggle";
-import { Socials } from "./socials";
+import {
+  FilmSlateIcon,
+  GithubLogoIcon,
+  HouseIcon,
+  NoteIcon,
+  TwitterLogoIcon,
+  YoutubeLogoIcon,
+} from "@phosphor-icons/react";
+import { socials } from "@/data";
+import { useEffect } from "react";
 
 interface VerticalNavProps {
   pathname: string;
@@ -15,63 +23,117 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
     return pathname.startsWith(path);
   };
 
-  const navItems = [
-    { path: "/", label: "home" },
-    { path: "/cinema", label: "cinema" },
-    { path: "/writings", label: "writings" },
+  const primaryItems = [
+    { path: "/", label: "home", Icon: HouseIcon },
+    { path: "/cinema", label: "cinema", Icon: FilmSlateIcon },
+    { path: "/writings", label: "writing", Icon: NoteIcon },
   ];
 
+  const socialIcons = {
+    "x/twitter": TwitterLogoIcon,
+    github: GithubLogoIcon,
+    youtube: YoutubeLogoIcon,
+  } as const;
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+      const target = event.target as HTMLElement | null;
+      const isTypingTarget =
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target?.isContentEditable;
+      if (isTypingTarget) {
+        return;
+      }
+
+      const key = event.key.toLowerCase();
+      const destination =
+        key === "h"
+          ? "/"
+          : key === "c"
+            ? "/cinema"
+            : key === "w"
+              ? "/writings"
+              : key === "s"
+                ? "/services"
+                : null;
+
+      if (!destination) {
+        return;
+      }
+      if (window.location.pathname === destination) {
+        return;
+      }
+
+      event.preventDefault();
+      window.location.assign(destination);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
-    <>
-      {/* Mobile: horizontal nav */}
-      <nav className="flex md:hidden flex-row items-center justify-between gap-4">
-        <div className="flex flex-row items-center gap-4">
-          {navItems.map((item) => {
-            const active = isActive(item.path);
-
-            return (
-              <a
-                key={item.path}
-                href={item.path}
-                className={` transition-colors whitespace-nowrap ${
-                  active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                aria-label={item.label}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-        <Socials />
-      </nav>
-
-      {/* Desktop: vertical nav */}
-      <nav className="hidden md:flex flex-col gap-6 lg:gap-8 h-full">
-        <div className="flex flex-col gap-2 lg:gap-2">
-          {navItems.map((item) => {
-            const active = isActive(item.path);
-
-            return (
-              <a
-                key={item.path}
-                href={item.path}
-                className={` transition-colors whitespace-nowrap ${
-                  active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                aria-label={item.label}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-        <Socials />
-      </nav>
-    </>
+    <nav className="flex w-full items-center justify-between gap-4">
+      <div className="flex items-center gap-3 sm:gap-5">
+        {primaryItems.map((item) => {
+          const active = isActive(item.path);
+          return (
+            <a
+              key={item.path}
+              href={item.path}
+              className={`transition-colors ${
+                active
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label={item.label}
+              title={item.label}
+            >
+              <item.Icon
+                weight={active ? "fill" : "regular"}
+                className="size-4"
+              />
+              <span className="sr-only">{item.label}</span>
+            </a>
+          );
+        })}
+        <a
+          href="/services"
+          className={`text-sm transition-colors ${
+            isActive("/services")
+              ? "text-foreground font-semibold"
+              : "text-muted-foreground hover:text-foreground font-normal"
+          }`}
+        >
+          services
+        </a>
+      </div>
+      <div className="flex items-center gap-2 sm:gap-3">
+        {socials.map((social) => {
+          const Icon = socialIcons[social.title as keyof typeof socialIcons];
+          if (!Icon) {
+            return null;
+          }
+          return (
+            <a
+              key={social.id}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={social.title}
+              title={social.title}
+            >
+              <Icon weight="fill" className="size-4" aria-hidden />
+              <span className="sr-only">{social.title}</span>
+            </a>
+          );
+        })}
+      </div>
+    </nav>
   );
 }

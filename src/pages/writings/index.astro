@@ -6,8 +6,11 @@ import Layout from "../../layouts/layout.astro";
 
 const allPosts = await getCollection("posts");
 
-const sortedPosts = allPosts.sort((a, b) =>
-  a.data.published > b.data.published ? -1 : 1
+const getSortDate = (post: (typeof allPosts)[number]) =>
+  post.data.updated ?? post.data.published;
+
+const sortedPosts = [...allPosts].sort(
+  (a, b) => getSortDate(b).getTime() - getSortDate(a).getTime()
 );
 ---
 
@@ -42,7 +45,7 @@ const sortedPosts = allPosts.sort((a, b) =>
           client:load
           href={`/writings/posts/${post.slug}`}
           title={post.data.title}
-          date={dayjs(post.data.published).format("MMM D, YYYY")}
+          date={dayjs(getSortDate(post)).format("MMM D, YYYY")}
         />
       ))
     }

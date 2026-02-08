@@ -1,0 +1,47 @@
+---
+import { socials } from "../data";
+import Layout from "../layouts/layout.astro";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="description" content="socials" />
+  <meta property="twitter:title" content="socials" />
+  <meta
+    name="twitter:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@shivamhwp" />
+  <meta property="og:title" content="socials" />
+  <meta property="og:description" content="socials" />
+  <meta property="og:site_name" content="shivam.ing" />
+  <meta property="og:url" content="https://www.shivam.ing/socials" />
+  <meta
+    property="og:image"
+    content="https://shivam.ing/images/opengraph-image.png"
+  />
+  <title>socials</title>
+</head>
+
+<Layout>
+  <section class="space-y-5 sm:space-y-6">
+    <h1 class="text-foreground font-semibold">socials</h1>
+    <div class="space-y-2">
+      {
+        socials.map((social) => (
+          <a
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-muted-foreground hover:text-foreground transition-colors font-normal"
+          >
+            {social.title}
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

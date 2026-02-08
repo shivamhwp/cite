@@ -1,6 +1,7 @@
 import { routes, type VercelConfig } from "@vercel/config/v1";
 
 export const config: VercelConfig = {
+  bunVersion: "1.x",
   redirects: [
     routes.redirect("/youtube", "https://youtube.com/@shivamhwp_"),
     routes.redirect("/github", "https://github.com/shivamhwp"),

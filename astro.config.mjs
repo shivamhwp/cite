@@ -7,12 +7,6 @@ export default defineConfig({
   experimental: {
     fonts: [
       {
-        name: "Poppins",
-        cssVariable: "--font-poppins",
-        provider: fontProviders.fontshare(),
-        fallbacks: ["ui-sans-serif", "sans-serif", "system-ui"],
-      },
-      {
         name: "JetBrains Mono",
         cssVariable: "--font-jetbrains-mono",
         provider: fontProviders.fontshare(),
