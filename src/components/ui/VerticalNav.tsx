@@ -95,7 +95,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
             >
               <item.Icon
                 weight={active ? "fill" : "regular"}
-                className="size-4"
+                className="size-6"
               />
               <span className="sr-only">{item.label}</span>
             </a>
@@ -128,7 +128,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
               aria-label={social.title}
               title={social.title}
             >
-              <Icon weight="fill" className="size-4" aria-hidden />
+              <Icon weight="fill" className="size-6" aria-hidden />
               <span className="sr-only">{social.title}</span>
             </a>
           );
