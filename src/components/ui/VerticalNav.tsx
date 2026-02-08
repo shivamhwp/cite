@@ -77,7 +77,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
 	}, []);
 
 	return (
-		<nav className="flex w-full items-center justify-between gap-4">
+		<nav className="flex w-full items-center justify-between gap-4 pt-4">
 			<div className="flex items-center gap-3 sm:gap-5">
 				{primaryItems.map((item) => {
 					const active = isActive(item.path);
