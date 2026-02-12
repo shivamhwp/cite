@@ -28,7 +28,7 @@ function CardTitle({
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={cn("font-medium leading-none", className)} {...props} />
+    <h3 className={cn("font-normal leading-none", className)} {...props} />
   );
 }
 

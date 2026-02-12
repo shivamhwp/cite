@@ -152,7 +152,7 @@ export const movies: movie[] = [
   {
     title: "Jujutsu Kaisen",
     description:
-      "best worldbuilding, best power structure. manga is super good.",
+      "best worldbuilding, best power structure. manga is super good. it's fun to rewatch everytime.",
   },
   {
     title: "Se7en",

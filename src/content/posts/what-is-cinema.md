@@ -10,4 +10,4 @@ cinema, there is not a word that defines cinema. to some it’s dream building, 
 
 but to me it’s beautiful. its history, it’s present and future. it is something beautiful, to be treated with care. to be treated with delicacy. it’s not just entertainment, but something important, something lively, something new.
 
-<p class="pt-2"><span class="font-semibold text-foreground">it's the amalgamation of arts</span> . the music, the chitra, the story and the people and to be presented with love, it is it’s right.</p>
+<p class="pt-2"><span class="font-normal text-foreground">it's the amalgamation of arts</span> . the music, the chitra, the story and the people and to be presented with love, it is it’s right.</p>

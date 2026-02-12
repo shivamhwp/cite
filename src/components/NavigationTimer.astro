@@ -5,18 +5,14 @@
 <div
   id="nav-timer"
   transition:persist
-  class="hidden md:block fixed top-10 right-4 font-mono text-muted-foreground px-3 py-2 border border-muted-foreground/20 rounded bg-background/50 backdrop-blur-sm z-50"
+  aria-hidden="true"
+  class="pointer-events-none fixed inset-x-0 bottom-2 z-0 px-3 sm:px-4 md:px-6"
 >
-  <div id="timer-content" class="space-y-1 whitespace-nowrap">
-    <div id="routes" class="text-foreground">-</div>
-    <div class="flex justify-between gap-8">
-      <div>
-        <span id="duration">0ms</span>
-      </div>
-      <div>
-        <span id="current-time">--:--:-- --</span>
-      </div>
-    </div>
+  <div
+    id="transition-text"
+    class="font-mono text-muted-foreground/10 dark:text-muted-foreground/5 text-[clamp(4rem,16vw,10rem)] leading-none whitespace-nowrap overflow-hidden text-ellipsis"
+  >
+    0ms
   </div>
 </div>
 
@@ -24,32 +20,17 @@
   (function () {
     let startTime = 0;
     let previousRoute = window.location.pathname;
+    const transitionTextElement = document.getElementById("transition-text");
 
-    function getISTTime() {
-      const now = new Date();
-      const istTime = new Intl.DateTimeFormat("en-IN", {
-        timeZone: "Asia/Kolkata",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-      }).format(now);
-      return istTime;
-    }
-
-    function updateElements() {
-      const routesElement = document.getElementById("routes");
-      const durationElement = document.getElementById("duration");
-      const currentTimeElement = document.getElementById("current-time");
-
-      if (currentTimeElement) {
-        currentTimeElement.textContent = getISTTime();
+    const setTransitionText = (duration) => {
+      if (!transitionTextElement) {
+        return;
       }
-    }
 
-    // Update time every second
-    setInterval(updateElements, 1000);
-    updateElements();
+      transitionTextElement.textContent = `${duration}ms`;
+    };
+
+    setTransitionText(0);
 
     document.addEventListener("astro:before-preparation", () => {
       startTime = performance.now();
@@ -60,18 +41,7 @@
         const endTime = performance.now();
         const duration = Math.round(endTime - startTime);
         const currentRoute = window.location.pathname;
-
-        const routesElement = document.getElementById("routes");
-        const durationElement = document.getElementById("duration");
-
-        if (routesElement) {
-          routesElement.textContent = `${previousRoute} → ${currentRoute}`;
-        }
-        if (durationElement) {
-          durationElement.textContent = `${duration}ms`;
-        }
-
-        updateElements();
+        setTransitionText(duration);
         previousRoute = currentRoute;
         startTime = 0;
       }

@@ -33,7 +33,7 @@ export function ModeToggle() {
 
   return (
     <button
-      className="fixed bottom-4 right-4 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+      className="fixed bottom-4 right-4 z-50 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
       onClick={toggleTheme}
       type="button"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
