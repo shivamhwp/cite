@@ -7,7 +7,7 @@ published: 2026-02-13
 
 a person can never be fully bad or fully good. everyone is intermingled.
 
-a person can surely be a psycopath,narcissist,manipulative and a fkign piece of shit. does that make them bad as a person. not their actions that can be totally bad or totally good in some cases. but the essense of them, their character. i don't know.
+a person can surely be a psycopath,narcissist,manipulative and a fkign piece of shit. does that make them bad as a person. note, their actions that can be totally bad or totally good in some cases. but the essense of them, their character. i don't know.
 
 ignore and avoid the rent-seekers, fk off the ill-intentioners.
     
