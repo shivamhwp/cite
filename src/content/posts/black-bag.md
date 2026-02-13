@@ -1,7 +1,7 @@
 ---
 title: "black-bag"
 url: "black-bag"
-tags: ["steven soderbergh", "black-bag"]
+tags: ["steven soderbergh", "black-bag", "film"]
 director: "steven soderbergh"
 published: 2025-05-04
 ---

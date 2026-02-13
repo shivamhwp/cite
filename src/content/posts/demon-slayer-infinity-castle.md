@@ -1,7 +1,7 @@
 ---
 title: "demon slayer infinity castle"
 url: "demon-slayer-infinity-castle"
-tags: ["anime"]
+tags: ["anime", "film"]
 published: 2025-10-09
 ---
 

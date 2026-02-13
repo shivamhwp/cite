@@ -1,7 +1,7 @@
 ---
 title: "what is cinema ?"
 url: "what-is-cinema"
-tags: ["cinema", "favourites", "love"]
+tags: ["cinema", "favourites", "love", "non-dev", "film"]
 published: 2024-11-24
 updated: 2024-11-27
 ---

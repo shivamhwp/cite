@@ -1,7 +1,7 @@
 ---
 title: "mobland season 1"
 url: "mobland-season-1"
-tags: ["show"]
+tags: ["show","film"]
 director: "guy ritche"
 published: 2025-09-09
 ---
