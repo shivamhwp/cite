@@ -1,7 +1,7 @@
 ---
 title: "stuff i use to make stuff"
 url: "tools"
-tags: ["tools", "first", "code","dev"]
+tags: ["tools", "first", "code", "dev"]
 published: 2024-11-14
 updated: 2025-12-01
 ---

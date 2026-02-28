@@ -32,12 +32,32 @@ import Layout from "../layouts/layout.astro";
     <section class="">
       <h1 class="text-foreground font-normal">shivam.</h1>
       <p class="text-muted-foreground leading-relaxed">
-        ideas <a
+        doing things <a
           href="https://x.com/theo"
           class="font-normal text-pink-400"
           target="_blank">@theo</a
         >.
       </p>
+    </section>
+    <section class="flex gap-2">
+      <h2 class="text-foreground font-normal">some stuff that i have made:</h2>
+      <div class="flex gap-1">
+        {
+          [
+            { name: "0bs.chat", url: "https://github.com/0bs-chat/zerobs" },
+            { name: "uhn", url: "https://github.com/shivamhwp/uhn" },
+            { name: "git-acm", url: "https://github.com/shivamhwp/git-acm" },
+            { name: "ideathing", url: "https://ideath.ing" },
+          ].map((project, index) => (
+            <div>
+              <a href={project.url} target="_blank">
+                {project.name}
+                {index < 3 && ","}
+              </a>
+            </div>
+          ))
+        }
+      </div>
     </section>
 
     <section class="space-y-3">

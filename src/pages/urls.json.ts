@@ -42,7 +42,7 @@ export async function collectUrls(): Promise<UrlItem[]> {
       title: "Updates",
       url: "/updates",
       category: "Pages",
-    }
+    },
   );
 
   // Add blog posts

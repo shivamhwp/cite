@@ -1,11 +1,11 @@
 # Code Standards
 
-This project uses **Prettier** for code formatting.
+This project uses **oxfmt** for code formatting.
 
 ## Quick Reference
 
-- **Format code**: `npx prettier --write .`
-- **Check formatting**: `npx prettier --check .`
+- **Format code**: `bun run format`
+- **Check formatting**: `bun run check`
 
 ---
 
@@ -107,11 +107,11 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 - Don't use `.only` or `.skip` in committed code
 - Keep test suites reasonably flat - avoid excessive `describe` nesting
 
-## When Prettier Can't Help
+## When Formatting Can't Help
 
-Prettier handles code formatting automatically. Focus your attention on:
+oxfmt handles code formatting automatically. Focus your attention on:
 
-1. **Business logic correctness** - Prettier can't validate your algorithms
+1. **Business logic correctness** - Formatters can't validate your algorithms
 2. **Meaningful naming** - Use descriptive names for functions, variables, and types
 3. **Architecture decisions** - Component structure, data flow, and API design
 4. **Edge cases** - Handle boundary conditions and error states
@@ -120,4 +120,4 @@ Prettier handles code formatting automatically. Focus your attention on:
 
 ---
 
-Run `npx prettier --write .` before committing to ensure consistent formatting.
+Run `bun run format` before committing to ensure consistent formatting.

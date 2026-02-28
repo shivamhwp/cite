@@ -156,8 +156,7 @@ export const movies: movie[] = [
   },
   {
     title: "Se7en",
-    description:
-      "simple and sanguinary. ofc by david fincher. what's in the box?",
+    description: "simple and sanguinary. ofc by david fincher. what's in the box?",
   },
   {
     title: "Hunter x Hunter(2011)",

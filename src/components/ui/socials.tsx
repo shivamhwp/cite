@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  GithubLogoIcon,
-  TwitterLogoIcon,
-  YoutubeLogoIcon,
-} from "@phosphor-icons/react";
+import { GithubLogoIcon, TwitterLogoIcon, YoutubeLogoIcon } from "@phosphor-icons/react";
 
 import { socials } from "@/data";
 

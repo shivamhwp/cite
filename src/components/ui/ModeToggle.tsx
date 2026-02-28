@@ -10,9 +10,7 @@ export function ModeToggle() {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = stored === "dark" || (!stored && prefersDark);
     setIsDark(shouldBeDark);
     if (shouldBeDark) {

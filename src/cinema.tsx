@@ -29,9 +29,7 @@ export default function CinemaPage() {
                 key={movie.title}
                 className="group flex flex-col py-2 border-b border-muted-foreground/8 last:border-0"
               >
-                <span className="text-primary/70 text-xs font-normal">
-                  {movie.title}
-                </span>
+                <span className="text-primary/70 text-xs font-normal">{movie.title}</span>
                 {movie.description && (
                   <span className="text-muted-foreground text-xs font-normal max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-out group-hover:max-h-8 group-hover:opacity-100 group-hover:mt-0.5">
                     {movie.description}

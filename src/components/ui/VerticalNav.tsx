@@ -1,12 +1,9 @@
 "use client";
 
 import {
-	FilmSlateIcon,
 	GithubLogoIcon,
 	HouseIcon,
-	NoteIcon,
 	PenNibIcon,
-	TwitterLogoIcon,
 	YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import { FilmStripIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
@@ -130,7 +127,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
 							aria-label={social.title}
 							title={social.title}
 						>
-							<Icon weight="fill" className="size-6" aria-hidden />
+							<Icon weight="thin" className="size-6" aria-hidden />
 							<span className="sr-only">{social.title}</span>
 						</a>
 					);
