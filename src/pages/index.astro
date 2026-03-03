@@ -27,7 +27,7 @@ import Layout from "../layouts/layout.astro";
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-6">
+  <div class="space-y-4">
     <!-- Hero Section -->
     <section class="">
       <h1 class="text-foreground font-normal">shivam.</h1>
@@ -39,9 +39,9 @@ import Layout from "../layouts/layout.astro";
         >.
       </p>
     </section>
-    <section class="flex gap-2">
+    <section class="flex flex-col gap-1">
       <h2 class="text-foreground font-normal">some stuff that i have made:</h2>
-      <div class="flex gap-1">
+      <div class="flex flex-wrap gap-1">
         {
           [
             { name: "0bs.chat", url: "https://github.com/0bs-chat/zerobs" },
