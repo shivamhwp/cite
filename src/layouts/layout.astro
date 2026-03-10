@@ -1,10 +1,17 @@
 ---
+import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { ModeToggle } from "../components/ui/ModeToggle";
 import { VerticalNav } from "../components/ui/VerticalNav";
 import NavigationTimer from "../components/NavigationTimer.astro";
 import "../styles/global.css";
 
+interface Props {
+  flushTop?: boolean;
+  title?: string;
+}
+
+const { flushTop = false } = Astro.props;
 const pathname = Astro.url.pathname;
 ---
 
@@ -17,13 +24,8 @@ const pathname = Astro.url.pathname;
       data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="preload"
-      href="/fonts/switzer-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <Font cssVariable="--font-geist" preload />
+    <Font cssVariable="--font-geist-mono" preload />
     <script is:inline>
       (function () {
         const stored = localStorage.getItem("theme");
@@ -58,7 +60,7 @@ const pathname = Astro.url.pathname;
   </head>
 
   <body
-    class="bg-background text-foreground/75 text-sm h-screen w-full antialiased overflow-hidden"
+    class="bg-background text-foreground/75 text-base h-screen w-full antialiased overflow-hidden"
   >
     <div class="relative z-10 h-screen w-full overflow-hidden flex flex-col">
       <header class="w-full md:mt-[14vh]">
@@ -68,7 +70,7 @@ const pathname = Astro.url.pathname;
       </header>
       <main class="w-full flex-1 min-h-0 overflow-hidden">
         <div
-          class="max-w-2xl mx-auto h-full overflow-y-auto px-3 sm:px-4 md:px-6 py-6"
+          class={`max-w-2xl mx-auto h-full overflow-y-auto px-3 sm:px-4 md:px-6 ${flushTop ? "pt-0 pb-3" : "py-3"}`}
         >
           <slot />
         </div>
