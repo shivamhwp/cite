@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "bun run --bun astro dev",
     "start": "bun run --bun astro dev",
+    "check": "astro check",
     "format": "oxfmt --ignore-path .oxfmtignore --write .",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
