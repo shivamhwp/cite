@@ -50,7 +50,7 @@ export async function collectUrls(): Promise<UrlItem[]> {
   for (const post of allPosts) {
     items.push({
       title: post.data.title,
-      url: `/writings/posts/${post.slug}`,
+      url: `/writings/posts/${post.id}`,
       category: "Blog",
     });
   }

@@ -43,7 +43,7 @@ const sortedPosts = [...allPosts].sort(
       sortedPosts.map((post) => (
         <PostItem
           client:load
-          href={`/writings/posts/${post.slug}`}
+          href={`/writings/posts/${post.id}`}
           title={post.data.title}
           date={dayjs(getSortDate(post)).format("MMM D, YYYY")}
         />

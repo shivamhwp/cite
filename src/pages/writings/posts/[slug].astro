@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import dayjs from "dayjs";
 import Layout from "../../../layouts/layout.astro";
 
@@ -10,13 +10,13 @@ interface Props {
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
   return allPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <head>
