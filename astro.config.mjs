@@ -4,26 +4,24 @@ import { defineConfig, fontProviders } from "astro/config";
 import { remarkMarkdownClasses } from "./src/lib/markdown-remark-plugin.mjs";
 
 export default defineConfig({
-  experimental: {
-    fonts: [
-      {
-        name: "Geist",
-        cssVariable: "--font-geist",
-        provider: fontProviders.google(),
-        weights: [400],
-        styles: ["normal"],
-        fallbacks: ["sans-serif"],
-      },
-      {
-        name: "Geist Mono",
-        cssVariable: "--font-geist-mono",
-        provider: fontProviders.google(),
-        weights: [400],
-        styles: ["normal"],
-        fallbacks: ["ui-monospace", "monospace"],
-      },
-    ],
-  },
+  fonts: [
+    {
+      name: "Geist",
+      cssVariable: "--font-geist",
+      provider: fontProviders.google(),
+      weights: [400],
+      styles: ["normal"],
+      fallbacks: ["sans-serif"],
+    },
+    {
+      name: "Geist Mono",
+      cssVariable: "--font-geist-mono",
+      provider: fontProviders.google(),
+      weights: [400],
+      styles: ["normal"],
+      fallbacks: ["ui-monospace", "monospace"],
+    },
+  ],
   image: {
     domains: ["utfs.io"],
     remotePatterns: [
