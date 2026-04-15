@@ -189,6 +189,13 @@ export const movies: movie[] = [
   },
 ];
 
+export const now: movie[] = [
+  {
+    title: "bleach",
+    description: "ooooh nice. might be peak idk right now.",
+  },
+];
+
 export const socials: social[] = [
   {
     id: 1,
