@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  GithubLogoIcon,
-  HouseIcon,
-  PenNibIcon,
-  YoutubeLogoIcon,
-} from "@phosphor-icons/react";
+import { GithubLogoIcon, HouseIcon, PenNibIcon, YoutubeLogoIcon } from "@phosphor-icons/react";
 import { FilmStripIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import { useEffect } from "react";
 import { socials } from "@/data";
@@ -85,17 +80,12 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
               key={item.path}
               href={item.path}
               className={`transition-colors ${
-                active
-                  ? "text-foreground/80"
-                  : "text-muted-foreground hover:text-foreground"
+                active ? "text-foreground/80" : "text-muted-foreground hover:text-foreground"
               }`}
               aria-label={item.label}
               title={item.label}
             >
-              <item.Icon
-                weight={active ? "fill" : "regular"}
-                className="size-6"
-              />
+              <item.Icon weight={active ? "fill" : "regular"} className="size-6" />
               <span className="sr-only">{item.label}</span>
             </a>
           );
