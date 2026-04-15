@@ -40,7 +40,9 @@ import Layout from "../layouts/layout.astro";
       </p>
     </section>
     <section class="flex flex-col gap-1">
-      <h2 class="text-foreground font-normal">some stuff that i have made:</h2>
+      <h2 class="text-foreground/70 font-normal">
+        some stuff that i have made:
+      </h2>
       <div class="flex flex-wrap gap-1">
         {
           [
@@ -50,7 +52,11 @@ import Layout from "../layouts/layout.astro";
             { name: "ideathing", url: "https://ideath.ing" },
           ].map((project, index) => (
             <div>
-              <a href={project.url} target="_blank">
+              <a
+                href={project.url}
+                target="_blank"
+                class="text-foreground/40 hover:text-foreground/85"
+              >
                 {project.name}
                 {index < 3 && ","}
               </a>
@@ -61,9 +67,9 @@ import Layout from "../layouts/layout.astro";
     </section>
 
     <section class="space-y-3">
-      <h2 class="text-foreground font-normal">timeline</h2>
+      <h2 class="text-foreground/70 font-normal">timeline</h2>
       <div
-        class="text-foreground/60 leading-relaxed [&_a]:text-primary/90 [&_a]:font-normal [&_a]:no-underline [&_a]:opacity-100"
+        class="text-foreground/50 leading-relaxed [&_a]:text-foreground/40 [&_a]:hover:text-foreground/85 [&_a]:font-normal [&_a]:no-underline"
       >
         <UpdatesMarkdown />
       </div>
