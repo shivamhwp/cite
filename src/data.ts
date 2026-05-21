@@ -187,6 +187,10 @@ export const movies: movie[] = [
     title: "kengen ashura",
     description: "i loved it. this was very very good.",
   },
+  {
+    title: "the killer",
+    description: "rewatchable, very good.",
+  },
 ];
 
 export const now: movie[] = [
