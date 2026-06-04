@@ -1,7 +1,8 @@
 ---
 import UpdatesMarkdown from "../content/updates.md";
 import { ModeToggle } from "../components/ui/ModeToggle";
-import { made_projects, socials } from "../data";
+import { MadeProjects } from "../components/ui/MadeProjects";
+import { socials } from "../data";
 import Layout from "../layouts/layout.astro";
 
 const routes = [
@@ -43,8 +44,8 @@ const routes = [
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-4">
-    <div class="">
+  <div class="space-y-3">
+    <div class="space-y-1">
       <section>
         <div class="flex items-start justify-between gap-4">
           <h1 class="text-foreground font-normal">shivam.</h1>
@@ -93,46 +94,9 @@ const routes = [
       </section>
     </div>
 
-    <section class="flex flex-col gap-1">
-      <h2 class="text-foreground/70 font-normal">
-        some stuff that i have made:
-      </h2>
-      <ul class="list-none space-y-1 pl-0">
-        {
-          made_projects.map((project) => (
-            <li class="text-foreground/50 leading-relaxed">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener"
-                class="text-foreground/40 hover:text-foreground/85"
-              >
-                {project.name}
-              </a>
-              <span aria-hidden="true">: </span>
-              <span>
-                {project.description.map((part) =>
-                  typeof part === "string" ? (
-                    part
-                  ) : (
-                    <a
-                      href={part.link}
-                      target="_blank"
-                      rel="noopener"
-                      class="text-foreground/40 hover:text-foreground/85"
-                    >
-                      {part.text}
-                    </a>
-                  ),
-                )}
-              </span>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+    <MadeProjects client:load />
 
-    <section class="space-y-3">
+    <section class="space-y-2">
       <h2 class="text-foreground/70 font-normal">timeline</h2>
       <div
         class="text-foreground/50 leading-relaxed [&_a]:text-foreground/40 [&_a]:hover:text-foreground/85 [&_a]:font-normal [&_a]:no-underline"
