@@ -1,9 +1,6 @@
 ---
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
-import { ModeToggle } from "../components/ui/ModeToggle";
-import { VerticalNav } from "../components/ui/VerticalNav";
-import NavigationTimer from "../components/NavigationTimer.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -12,7 +9,6 @@ interface Props {
 }
 
 const { flushTop = false } = Astro.props;
-const pathname = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -28,17 +24,24 @@ const pathname = Astro.url.pathname;
     <Font cssVariable="--font-geist-mono" preload />
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem("theme");
-        const isDark =
-          stored === "dark" ||
-          (!stored &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches);
-        if (isDark) {
-          document.documentElement.classList.add("dark");
+        window.applySavedTheme = function () {
+          const stored = localStorage.getItem("theme");
+          const isDark =
+            stored === "dark" ||
+            (!stored &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+          document.documentElement.classList.toggle("dark", isDark);
+        };
+
+        window.applySavedTheme();
+
+        if (!window.hasThemeRouterSync) {
+          document.addEventListener("astro:after-swap", window.applySavedTheme);
+          window.hasThemeRouterSync = true;
         }
       })();
     </script>
-    <link rel="icon" href="/favicon.svg" />
     <meta name="description" content="an ipv4 address" />
     <meta property="twitter:title" content=" shivam " />
     <meta
@@ -55,20 +58,14 @@ const pathname = Astro.url.pathname;
       property="og:image"
       content="https://shivam.ing/images/opengraph-image.png"
     />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <title>shivam</title>
   </head>
 
   <body
-    class="bg-background text-foreground/75 text-base h-screen w-full antialiased overflow-hidden"
+    class="bg-background text-foreground/75 h-screen w-full antialiased overflow-hidden"
   >
     <div class="relative z-10 h-screen w-full overflow-hidden flex flex-col">
-      <header class="w-full md:mt-[14vh]">
-        <div class="max-w-2xl mx-auto px-3 py-2 sm:px-4 md:px-6">
-          <VerticalNav pathname={pathname} client:load />
-        </div>
-      </header>
-      <main class="w-full flex-1 min-h-0 overflow-hidden">
+      <main class="w-full flex-1 min-h-0 overflow-hidden md:mt-[14vh]">
         <div
           class={`max-w-2xl mx-auto h-full overflow-y-auto px-3 sm:px-4 md:px-6 ${flushTop ? "pt-0 pb-3" : "py-3"}`}
         >
@@ -77,6 +74,5 @@ const pathname = Astro.url.pathname;
       </main>
     </div>
     <!-- <NavigationTimer /> -->
-    <ModeToggle client:load />
   </body>
 </html>

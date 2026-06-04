@@ -5,11 +5,15 @@ export const config: VercelConfig = {
   redirects: [
     {
       source: "/youtube",
-      destination: "https://youtube.com/@shivamhwp_",
+      destination: "https://youtube.com/@shivamhwp",
     },
     {
       source: "/github",
       destination: "https://github.com/shivamhwp",
+    },
+    {
+      source: "/linkedin",
+      destination: "https://linkedin.com/in/shivamhwp",
     },
     {
       source: "/twitter",

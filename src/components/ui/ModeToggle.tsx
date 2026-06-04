@@ -1,6 +1,5 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 
 export function ModeToggle() {
@@ -31,17 +30,13 @@ export function ModeToggle() {
 
   return (
     <button
-      className="fixed bottom-4 right-4 z-50 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+      className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
       onClick={toggleTheme}
       type="button"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "light mode" : "dark mode"}
     >
-      {isDark ? (
-        <SunIcon weight="fill" className="size-5" aria-hidden />
-      ) : (
-        <MoonIcon weight="fill" className="size-5" aria-hidden />
-      )}
+      {isDark ? "light" : "dark"}
     </button>
   );
 }

@@ -1,12 +1,28 @@
 ---
 import UpdatesMarkdown from "../content/updates.md";
+import { ModeToggle } from "../components/ui/ModeToggle";
+import { made_projects, socials } from "../data";
 import Layout from "../layouts/layout.astro";
+
+const routes = [
+  {
+    href: "/cinema",
+    label: "cinema",
+  },
+  {
+    href: "/writings",
+    label: "writing",
+  },
+  {
+    href: "/work",
+    label: "work",
+  },
+] as const;
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
   <meta name="description" content={"an ipv4 address"} />
   <meta property="twitter:title" content=" shivam " />
   <meta
@@ -28,43 +44,92 @@ import Layout from "../layouts/layout.astro";
 
 <Layout title="shivam">
   <div class="space-y-4">
-    <!-- Hero Section -->
-    <section class="">
-      <h1 class="text-foreground font-normal">shivam.</h1>
-      <p class="text-muted-foreground leading-relaxed">
-        doing things <a
-          href="https://x.com/theo"
-          class="font-normal text-foreground"
-          target="_blank"
-          rel="noopener">@theo</a
-        >.
-      </p>
-    </section>
+    <div class="">
+      <section>
+        <div class="flex items-start justify-between gap-4">
+          <h1 class="text-foreground font-normal">shivam.</h1>
+          <ModeToggle client:load />
+        </div>
+        <p class="text-muted-foreground leading-relaxed">
+          doing things <a
+            href="https://x.com/theo"
+            class="font-normal text-foreground"
+            target="_blank"
+            rel="noopener">@theo</a
+          >.
+        </p>
+      </section>
+
+      <section class="flex flex-col gap-1">
+        <div class="flex flex-wrap gap-x-2 gap-y-1">
+          {
+            socials.map((social) => (
+              <a
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-foreground/40 hover:text-foreground/85"
+              >
+                {social.title}
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <div class="flex flex-wrap gap-x-2 gap-y-1">
+          {
+            routes.map((route) => (
+              <a
+                href={route.href}
+                class="text-foreground/40 hover:text-foreground/85"
+              >
+                {route.label}
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
     <section class="flex flex-col gap-1">
       <h2 class="text-foreground/70 font-normal">
         some stuff that i have made:
       </h2>
-      <div class="flex flex-wrap gap-1">
+      <ul class="list-none space-y-1 pl-0">
         {
-          [
-            { name: "0bs.chat", url: "https://github.com/0bs-chat/zerobs" },
-            { name: "uhn", url: "https://github.com/shivamhwp/uhn" },
-            { name: "oopaw", url: "https://oopaw.ing" },
-            { name: "ideathing", url: "https://ideath.ing" },
-          ].map((project, index) => (
-            <div>
+          made_projects.map((project) => (
+            <li class="text-foreground/50 leading-relaxed">
               <a
-                href={project.url}
+                href={project.link}
                 target="_blank"
+                rel="noopener"
                 class="text-foreground/40 hover:text-foreground/85"
               >
                 {project.name}
-                {index < 3 && ","}
               </a>
-            </div>
+              <span aria-hidden="true">: </span>
+              <span>
+                {project.description.map((part) =>
+                  typeof part === "string" ? (
+                    part
+                  ) : (
+                    <a
+                      href={part.link}
+                      target="_blank"
+                      rel="noopener"
+                      class="text-foreground/40 hover:text-foreground/85"
+                    >
+                      {part.text}
+                    </a>
+                  ),
+                )}
+              </span>
+            </li>
           ))
         }
-      </div>
+      </ul>
     </section>
 
     <section class="space-y-3">

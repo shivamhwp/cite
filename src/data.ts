@@ -13,27 +13,57 @@ export type song = {
   link: string;
 };
 
-export type code_projects = {
-  project_name: string;
-  github: string;
-  image?: string;
-  live_link?: string;
-  docs?: string;
-  description?: string;
+type made_project_description_part =
+  | string
+  | {
+      text: string;
+      link: string;
+    };
+
+export type made_project = {
+  name: string;
+  link: string;
+  description: made_project_description_part[];
 };
 
-export const code_projects: code_projects[] = [
+export const made_projects: made_project[] = [
   {
-    project_name: "agentsonweb()",
-    description: "run any agent cli on web",
-    github: "https://github.com/shivamhwp/agentsonweb",
-    live_link: "https://agentsonweb.com",
+    name: "t5",
+    link: "https://github.com/shivamhwp/t5",
+    description: [
+      "use ",
+      {
+        text: "t3code",
+        link: "https://github.com/pingdotgg/t3code",
+      },
+      "anywhere",
+    ],
   },
   {
-    project_name: "0bs.chat",
-    description: "ai chat app for power users",
-    github: "https://github.com/0bs-chat/zerobs",
-    live_link: "https://0bs.chat",
+    name: "wrec",
+    link: "https://github.com/shivamhwp/wrec",
+    description: ["the most efficient screen recorder."],
+  },
+  {
+    name: "oopaw",
+    link: "https://oopaw.ing",
+    description: ["readers doesn't get better than this."],
+  },
+  {
+    name: "ideathing",
+    link: "https://ideath.ing",
+    description: ["if you make videos, use this."],
+  },
+  {
+    name: "0bs.chat",
+    link: "https://github.com/0bs-chat/zerobs",
+    description: [
+      "tried to compete with chatgpt. with ",
+      {
+        text: "mantra",
+        link: "https://x.com/barre_of_lube",
+      },
+    ],
   },
 ];
 
@@ -203,12 +233,12 @@ export const now: movie[] = [
 export const socials: social[] = [
   {
     id: 1,
-    title: "x/twitter",
+    title: "x",
     link: "https://x.com/shivamhwp",
   },
   {
     id: 2,
-    title: "github",
+    title: "gh",
     link: "https://github.com/shivamhwp",
   },
 
@@ -216,12 +246,11 @@ export const socials: social[] = [
   //   id: 3,
   //   title: "linkedin",
   //   link: "https://www.linkedin.com/in/shivamhwp/",
-  //   icon: "Linkedin",
   // },
 
   {
     id: 3,
-    title: "youtube",
+    title: "yt",
     link: "https://www.youtube.com/@shivamhwp",
   },
 ];

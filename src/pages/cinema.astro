@@ -9,7 +9,6 @@ const description = "suggest some great cinema";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
   <meta name="description" content={description} />
   <meta property="twitter:title" content=" shivam " />
   <meta
@@ -30,5 +29,5 @@ const description = "suggest some great cinema";
 </head>
 
 <Layout>
-  <CinemaComponent client:load />
+  <CinemaComponent client:only="react" />
 </Layout>

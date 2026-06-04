@@ -5,7 +5,6 @@ import Layout from "../layouts/layout.astro";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
   <meta name="description" content="work" />
   <meta property="twitter:title" content="work" />
   <meta
@@ -26,36 +25,23 @@ import Layout from "../layouts/layout.astro";
 </head>
 
 <Layout>
-  <section class="space-y-5 sm:space-y-6">
-    <div class="space-y-6 text-base">
-      <article class="space-y-2">
-        <h2 class="font-normal text-primary">content research</h2>
-        <p class="font-normal text-foreground/50">
-          the first meet is free. i&apos;ll do like a day of research on your
-          channel and will give you content ideas on what you should make. after
-          that i&apos;ll be charging you some fixed fee per idea or vid.
-        </p>
-      </article>
+  <section class="space-y-3 sm:space-y-4">
+    <a
+      href="/"
+      class="inline-flex text-muted-foreground hover:text-foreground transition-colors no-underline"
+    >
+      back
+    </a>
 
-      <article class="space-y-2">
-        <h2 class="font-normal text-primary">eng guidance</h2>
-        <p class="text-foreground/50 font-normal">
-          i heavily use ai and know about the latest tech, tools etc. the first
-          meet here is also free. we&apos;ll go through your or your
-          company&apos;s workflow of how they are using different tools etc.
-          i&apos;ll tell you about the new tools, should you adopt them or how
-          you can use ai currently within your company etc. same here after the
-          first meet i&apos;ll be charging fixed fee per meet or for like a
-          month.
-        </p>
-      </article>
-      <article class="space-y-2">
-        <h2 class="font-normal text-primary">hire as an eng.</h2>
-      </article>
-    </div>
-    <div class="flex gap-2 font-normal">
-      <div class="text-foreground/50">interested in working, email me at</div>
-      <span class="text-primary font-normal">work@shivam.ing</span>
+    <div class="space-y-3">
+      <p class="text-foreground/50">i do.</p>
+      <ul class="list-disc space-y-1 pl-5 text-foreground/50">
+        <li>content research.</li>
+        <li>eng.</li>
+      </ul>
+      <p>
+        email <span class="text-primary font-normal">work@shivam.ing</span>
+      </p>
     </div>
   </section>
 </Layout>

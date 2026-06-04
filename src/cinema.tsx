@@ -22,7 +22,7 @@ export default function CinemaPage() {
           ) : (
             <div
               key={movie.title}
-              className="border-b border-muted-foreground/8 py-2 last:border-0 text-base font-normal text-primary/70"
+              className="border-b border-muted-foreground/8 py-2 last:border-0 font-normal text-primary/70"
             >
               {movie.title}
             </div>
@@ -34,7 +34,13 @@ export default function CinemaPage() {
 
   return (
     <div className="flex w-full flex-col h-full min-h-0 font-normal">
-      <Tabs defaultValue="films" className="flex h-full min-h-0 flex-col">
+      <a
+        href="/"
+        className="mb-3 inline-flex self-start text-muted-foreground hover:text-foreground transition-colors no-underline"
+      >
+        back
+      </a>
+      <Tabs defaultValue="films" className="flex min-h-0 flex-1 flex-col">
         <TabsList variant="line" className="z-10 shrink-0 bg-background">
           <TabsTrigger value="films">mkv</TabsTrigger>
           <TabsTrigger value="music">wav</TabsTrigger>
@@ -45,10 +51,6 @@ export default function CinemaPage() {
           {renderMovieList(movies)}
         </TabsContent>
 
-        <TabsContent value="now" className="mt-0 min-h-0 flex-1">
-          {renderMovieList(now)}
-        </TabsContent>
-
         <TabsContent value="music" className="mt-0 min-h-0 flex-1">
           <div className="flex h-full min-h-0 flex-col overflow-y-auto pb-10">
             {songs.map((song) => (
@@ -57,12 +59,16 @@ export default function CinemaPage() {
                 href={song.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 border-b border-muted-foreground/8 last:border-0 text-base font-normal text-muted-foreground hover:text-primary/70 transition-colors"
+                className="py-2 border-b border-muted-foreground/8 last:border-0 font-normal text-muted-foreground hover:text-primary/70 transition-colors"
               >
                 {song.title}
               </a>
             ))}
           </div>
+        </TabsContent>
+
+        <TabsContent value="now" className="mt-0 min-h-0 flex-1">
+          {renderMovieList(now)}
         </TabsContent>
       </Tabs>
     </div>

@@ -17,7 +17,6 @@ const sortedPosts = [...allPosts].sort(
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
   <meta name="description" content="writings" />
   <meta property="twitter:title" content=" shivam " />
   <meta
@@ -39,6 +38,12 @@ const sortedPosts = [...allPosts].sort(
 
 <Layout>
   <div class="w-full">
+    <a
+      href="/"
+      class="mb-3 inline-flex text-muted-foreground hover:text-foreground transition-colors no-underline"
+    >
+      back
+    </a>
     {
       sortedPosts.map((post) => (
         <PostItem

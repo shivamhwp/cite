@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
-import { code_projects, socials, songs } from "../data";
+import { made_projects, socials, songs } from "../data";
 
 type UrlItem = {
   title: string;
@@ -73,27 +73,13 @@ export async function collectUrls(): Promise<UrlItem[]> {
     });
   }
 
-  // Add code project links
-  for (const project of code_projects) {
+  // Add project links
+  for (const project of made_projects) {
     items.push({
-      title: `${project.project_name} - GitHub`,
-      url: project.github,
+      title: project.name,
+      url: project.link,
       category: "Projects",
     });
-    if (project.docs) {
-      items.push({
-        title: `${project.project_name} - Docs`,
-        url: project.docs,
-        category: "Projects",
-      });
-    }
-    if (project.live_link) {
-      items.push({
-        title: `${project.project_name} - Live`,
-        url: project.live_link,
-        category: "Projects",
-      });
-    }
   }
 
   return items;

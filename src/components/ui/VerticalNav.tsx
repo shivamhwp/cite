@@ -1,7 +1,5 @@
 "use client";
 
-import { GithubLogoIcon, HouseIcon, PenNibIcon, YoutubeLogoIcon } from "@phosphor-icons/react";
-import { FilmStripIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import { useEffect } from "react";
 import { socials } from "@/data";
 
@@ -18,16 +16,10 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
   };
 
   const primaryItems = [
-    { path: "/", label: "home", Icon: HouseIcon },
-    { path: "/cinema", label: "cinema", Icon: FilmStripIcon },
-    { path: "/writings", label: "writing", Icon: PenNibIcon },
+    { path: "/", label: "home" },
+    { path: "/cinema", label: "cinema" },
+    { path: "/writings", label: "writing" },
   ];
-
-  const socialIcons = {
-    "x/twitter": XLogoIcon,
-    github: GithubLogoIcon,
-    youtube: YoutubeLogoIcon,
-  } as const;
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -71,8 +63,8 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
   }, []);
 
   return (
-    <nav className="flex w-full items-center justify-between gap-4 pt-4">
-      <div className="flex items-center gap-3 sm:gap-5">
+    <nav className="flex w-full flex-wrap items-center justify-between gap-x-4 gap-y-2 pt-4">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 sm:gap-x-3">
         {primaryItems.map((item) => {
           const active = isActive(item.path);
           return (
@@ -85,14 +77,13 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
               aria-label={item.label}
               title={item.label}
             >
-              <item.Icon weight={active ? "fill" : "regular"} className="size-6" />
-              <span className="sr-only">{item.label}</span>
+              {item.label}
             </a>
           );
         })}
         <a
           href="/work"
-          className={`text-base transition-colors px-1 ${
+          className={`transition-colors px-1 ${
             isActive("/work")
               ? "text-background bg-foreground "
               : "text-muted-foreground hover:text-foreground font-normal"
@@ -101,12 +92,8 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
           work?
         </a>
       </div>
-      <div className="flex items-center gap-2 sm:gap-3">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 sm:gap-x-3">
         {socials.map((social) => {
-          const Icon = socialIcons[social.title as keyof typeof socialIcons];
-          if (!Icon) {
-            return null;
-          }
           return (
             <a
               key={social.id}
@@ -117,8 +104,7 @@ export function VerticalNav({ pathname }: VerticalNavProps) {
               aria-label={social.title}
               title={social.title}
             >
-              <Icon weight="fill" className="size-6" aria-hidden />
-              <span className="sr-only">{social.title}</span>
+              {social.title}
             </a>
           );
         })}
