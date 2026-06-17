@@ -1,5 +1,4 @@
 ---
-import UpdatesMarkdown from "../content/updates.md";
 import { ModeToggle } from "../components/ui/ModeToggle";
 import { MadeProjects } from "../components/ui/MadeProjects";
 import { socials } from "../data";
@@ -44,41 +43,10 @@ const routes = [
 </head>
 
 <Layout title="shivam">
-  <div class="space-y-3">
-    <div class="space-y-1">
-      <section>
-        <div class="flex items-start justify-between gap-4">
-          <h1 class="text-foreground font-normal">shivam.</h1>
-          <ModeToggle client:load />
-        </div>
-        <p class="text-muted-foreground leading-relaxed">
-          doing things <a
-            href="https://x.com/theo"
-            class="font-normal text-foreground"
-            target="_blank"
-            rel="noopener">@theo</a
-          >.
-        </p>
-      </section>
-
-      <section class="flex flex-col gap-1">
-        <div class="flex flex-wrap gap-x-2 gap-y-1">
-          {
-            socials.map((social) => (
-              <a
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-foreground/40 hover:text-foreground/85"
-              >
-                {social.title}
-              </a>
-            ))
-          }
-        </div>
-      </section>
-
-      <section>
+  <div class="flex flex-col gap-3">
+    <section class="flex min-h-8 flex-wrap items-center justify-between gap-x-3 gap-y-1">
+      <div class="flex min-w-0 shrink-0 flex-wrap items-baseline gap-x-8 gap-y-1">
+        <h1 class="text-foreground font-normal">shivam.</h1>
         <div class="flex flex-wrap gap-x-2 gap-y-1">
           {
             routes.map((route) => (
@@ -91,17 +59,28 @@ const routes = [
             ))
           }
         </div>
-      </section>
-    </div>
+      </div>
+      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
+      <ModeToggle client:load />
+    </section>
 
     <MadeProjects client:load />
 
-    <section class="space-y-2">
-      <h2 class="text-foreground/70 font-normal">timeline</h2>
-      <div
-        class="text-foreground/50 leading-relaxed [&_a]:text-foreground/40 [&_a]:hover:text-foreground/85 [&_a]:font-normal [&_a]:no-underline"
-      >
-        <UpdatesMarkdown />
+    <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
+      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
+      <div class="flex min-w-0 flex-wrap justify-end gap-x-2 gap-y-1">
+        {
+          socials.map((social) => (
+            <a
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground/40 hover:text-foreground/85"
+            >
+              {social.title}
+            </a>
+          ))
+        }
       </div>
     </section>
   </div>

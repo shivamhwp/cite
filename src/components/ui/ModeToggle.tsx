@@ -3,18 +3,15 @@
 import { useEffect, useState } from "react";
 
 export function ModeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const shouldBeDark = stored === "dark" || (!stored && prefersDark);
+    const shouldBeDark = stored !== "light";
     setIsDark(shouldBeDark);
-    if (shouldBeDark) {
-      document.documentElement.classList.add("dark");
-    }
+    document.documentElement.classList.toggle("dark", shouldBeDark);
   }, []);
 
   const toggleTheme = () => {

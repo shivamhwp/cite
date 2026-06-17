@@ -30,10 +30,11 @@ function ProjectDescription({ description }: { description: DescriptionPart[] })
 
 export function MadeProjects() {
   return (
-    <section className="flex flex-col gap-0.5">
-      <h2 className="text-foreground/70 font-normal">some stuff that i have made:</h2>
+    <section className="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
+      <h2 className="text-foreground/70 font-normal shrink-0">some stuff that i have made</h2>
+      <hr className="min-w-8 flex-1 border-muted-foreground/20" />
       <TooltipProvider>
-        <div className="flex flex-wrap gap-x-2 gap-y-1">
+        <div className="flex min-w-0 flex-wrap justify-end gap-x-2 gap-y-1">
           {made_projects.map((project) => (
             <Tooltip key={project.name}>
               <TooltipTrigger asChild>
