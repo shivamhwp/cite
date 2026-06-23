@@ -19,7 +19,6 @@
 <script is:inline data-astro-rerun>
   (function () {
     let startTime = 0;
-    let previousRoute = window.location.pathname;
     const transitionTextElement = document.getElementById("transition-text");
 
     const setTransitionText = (duration) => {
@@ -40,9 +39,7 @@
       if (startTime) {
         const endTime = performance.now();
         const duration = Math.round(endTime - startTime);
-        const currentRoute = window.location.pathname;
         setTransitionText(duration);
-        previousRoute = currentRoute;
         startTime = 0;
       }
     });

@@ -1,6 +1,7 @@
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import { remarkMarkdownClasses } from "./src/lib/markdown-remark-plugin.mjs";
 
 export default defineConfig({
@@ -34,9 +35,11 @@ export default defineConfig({
   integrations: [react()],
 
   markdown: {
+    processor: unified({
+      gfm: true,
+      remarkPlugins: [remarkMarkdownClasses],
+    }),
     syntaxHighlight: "shiki",
-    gfm: true,
-    remarkPlugins: [remarkMarkdownClasses],
   },
 
   output: "static",
