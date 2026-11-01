@@ -66,7 +66,11 @@ export default function CinemaPage() {
     }
     setTab(value);
     const hash = value === DEFAULT_TAB ? "" : `#${value}`;
-    window.history.replaceState(window.history.state, "", `${window.location.pathname}${hash}`);
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${window.location.search}${hash}`,
+    );
   };
 
   return (

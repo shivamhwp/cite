@@ -23,12 +23,18 @@ export const tagHref = (tag: string): string => `/writings/tags/${tag}`;
 
 export const sortDate = (post: Post): Date => post.data.updated ?? post.data.published;
 
-const TAG_SEPARATOR = /\s+/g;
+const TAG_UNSAFE = /[^a-z0-9]+/g;
+const TAG_EDGE_DASHES = /^-+|-+$/g;
 
+/**
+ * Tags double as URL segments and static folder names, so they are reduced to
+ * a-z, 0-9 and dashes. Encoding instead would 404: the build writes the
+ * encoded name as the folder.
+ */
 export const postTags = (post: Post): string[] => [
   ...new Set(
     post.data.tags
-      .map((tag) => tag.trim().toLowerCase().replace(TAG_SEPARATOR, "-"))
+      .map((tag) => tag.toLowerCase().replace(TAG_UNSAFE, "-").replace(TAG_EDGE_DASHES, ""))
       .filter((tag) => tag.length > 0),
   ),
 ];

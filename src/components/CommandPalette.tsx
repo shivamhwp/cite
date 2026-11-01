@@ -66,6 +66,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
   // (including browser back) can't remove it from under an open dialog.
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
+  const copiedTimer = useRef<number | undefined>(undefined);
 
   const changeOpen = useCallback((next: boolean) => {
     if (next) {
@@ -174,7 +175,8 @@ export function CommandPalette({ items }: CommandPaletteProps) {
     try {
       await navigator.clipboard.writeText(SITE.email);
       setCopied(true);
-      window.setTimeout(() => setCopied(false), COPY_FEEDBACK_MS);
+      window.clearTimeout(copiedTimer.current);
+      copiedTimer.current = window.setTimeout(() => setCopied(false), COPY_FEEDBACK_MS);
     } catch {
       window.location.href = `mailto:${SITE.email}`;
     }
