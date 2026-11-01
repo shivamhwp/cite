@@ -1,5 +1,3 @@
-"use client";
-
 import { made_projects } from "@/data";
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";

@@ -1,0 +1,16 @@
+---
+import BackLink from "./BackLink.astro";
+
+interface Props {
+  title: string;
+  backHref?: string;
+  backLabel?: string;
+}
+
+const { title, backHref = "/", backLabel = "home" } = Astro.props;
+---
+
+<header class="mb-6 flex items-baseline justify-between gap-4">
+  <h1 class="font-normal text-foreground">{title}</h1>
+  <BackLink href={backHref} label={backLabel} />
+</header>

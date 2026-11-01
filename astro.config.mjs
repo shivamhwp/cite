@@ -1,10 +1,17 @@
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
 import { remarkMarkdownClasses } from "./src/lib/markdown-remark-plugin.mjs";
 
 export default defineConfig({
+  site: "https://www.shivam.ing",
+  trailingSlash: "never",
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   fonts: [
     {
       name: "Geist",
@@ -32,7 +39,12 @@ export default defineConfig({
     ],
   },
 
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.endsWith("/404"),
+    }),
+  ],
 
   markdown: {
     processor: unified({

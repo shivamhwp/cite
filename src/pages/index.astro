@@ -1,70 +1,57 @@
 ---
-import { ModeToggle } from "../components/ui/ModeToggle";
-import { MadeProjects } from "../components/ui/MadeProjects";
-import { socials } from "../data";
-import Layout from "../layouts/layout.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import { MadeProjects } from "@/components/ui/MadeProjects";
+import { socials } from "@/data";
+import Layout from "@/layouts/layout.astro";
+import { formatDate, getPosts, postHref } from "@/lib/posts";
+import { ROUTES } from "@/site";
 
-const routes = [
-  {
-    href: "/cinema",
-    label: "cinema",
-  },
-  {
-    href: "/writings",
-    label: "writing",
-  },
-  {
-    href: "/work",
-    label: "work",
-  },
-] as const;
+const LATEST_POST_COUNT = 3;
+const latestPosts = (await getPosts()).slice(0, LATEST_POST_COUNT);
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={"an ipv4 address"} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta
-    name="twitter:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={"shivam"} />
-  <meta property="og:description" content={"an ipv4 address"} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <title>{"shivam"}</title>
-</head>
-
-<Layout title="shivam">
+<Layout>
   <div class="flex flex-col gap-3">
     <section class="flex min-h-8 flex-wrap items-center justify-between gap-x-3 gap-y-1">
       <div class="flex min-w-0 shrink-0 flex-wrap items-baseline gap-x-8 gap-y-1">
-        <h1 class="text-foreground font-normal">shivam.</h1>
-        <div class="flex flex-wrap gap-x-2 gap-y-1">
+        <h1 class="font-normal text-foreground">shivam.</h1>
+        <nav aria-label="primary" class="flex flex-wrap gap-x-2 gap-y-1">
           {
-            routes.map((route) => (
+            ROUTES.map((route) => (
               <a
                 href={route.href}
+                aria-keyshortcuts={route.shortcut}
                 class="text-foreground/40 hover:text-foreground/85"
               >
                 {route.label}
               </a>
             ))
           }
-        </div>
+        </nav>
       </div>
       <hr class="min-w-8 flex-1 border-muted-foreground/20" />
-      <ModeToggle client:load />
+      <ThemeToggle />
     </section>
 
-    <MadeProjects client:load />
+    <MadeProjects client:visible />
+
+    <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
+      <h2 class="shrink-0 font-normal text-foreground/70">lately written</h2>
+      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
+      <div class="flex min-w-0 flex-wrap justify-end gap-x-2 gap-y-1">
+        {
+          latestPosts.map((post) => (
+            <a
+              href={postHref(post)}
+              title={formatDate(post.data.published)}
+              class="text-foreground/40 hover:text-foreground/85"
+            >
+              {post.data.title.toLowerCase()}
+            </a>
+          ))
+        }
+      </div>
+    </section>
 
     <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
       <hr class="min-w-8 flex-1 border-muted-foreground/20" />

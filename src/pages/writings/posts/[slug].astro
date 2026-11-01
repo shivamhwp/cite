@@ -1,77 +1,124 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
-import dayjs from "dayjs";
-import Layout from "../../../layouts/layout.astro";
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import BackLink from "@/components/BackLink.astro";
+import Layout from "@/layouts/layout.astro";
+import {
+  excerpt,
+  formatDate,
+  getPosts,
+  type Post,
+  postHref,
+  postTags,
+  readingMinutes,
+  tagHref,
+} from "@/lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts();
+  return posts.map((post, index) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[index - 1], older: posts[index + 1] },
+  }));
+}) satisfies GetStaticPaths;
 
 interface Props {
-  post: CollectionEntry<"posts">;
+  post: Post;
+  newer?: Post;
+  older?: Post;
 }
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
-  return allPosts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
-}
-
-const { post } = Astro.props;
+const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
+const { title, published, updated, director, imageUrl } = post.data;
+const tags = postTags(post);
+const wasUpdated = updated && updated.getTime() !== published.getTime();
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={post.data.title} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta
-    name="twitter:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={post.data.title || ""} />
-  <meta property="og:description" content={post.data.title} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <title>{post.data.title || ""}</title>
-</head>
-
-<Layout flushTop>
-  <article class="pt-4">
-    <header class="mb-8 pb-5 border-b border-muted-foreground/10">
-      <div class="flex items-start justify-between gap-4 mb-3">
-        <h1 class="text-foreground font-normal leading-snug">
-          {post.data.title}
-        </h1>
-        <a
-          href="/writings"
-          class="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors no-underline shrink-0 mt-1"
-        >
-          <span>←</span>
-          <span>writings</span>
-        </a>
+<Layout
+  title={title}
+  description={excerpt(post)}
+  image={imageUrl}
+  type="article"
+  published={published}
+  updated={updated}
+>
+  <article>
+    <header class="mb-8 border-b border-muted-foreground/10 pb-5">
+      <div class="mb-3 flex items-start justify-between gap-4">
+        <h1 class="font-normal leading-snug text-foreground">{title}</h1>
+        <div class="mt-1 shrink-0">
+          <BackLink href="/writings" label="writing" />
+        </div>
       </div>
-      <div class="flex items-center gap-3 text-muted-foreground">
-        <time datetime={post.data.published.toISOString()}>
-          {dayjs(post.data.published).format("MMM D, YYYY")}
-        </time>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
+        <time datetime={published.toISOString()}>{formatDate(published)}</time>
         {
-          post.data.director && (
-            <Fragment>
+          wasUpdated && (
+            <>
               <span class="opacity-30">·</span>
-              <span>{post.data.director}</span>
-            </Fragment>
+              <span>
+                updated <time datetime={updated.toISOString()}>{formatDate(updated)}</time>
+              </span>
+            </>
           )
         }
+        {
+          director && (
+            <>
+              <span class="opacity-30">·</span>
+              <span>{director}</span>
+            </>
+          )
+        }
+        <span class="opacity-30">·</span>
+        <span>{readingMinutes(post)} min</span>
       </div>
     </header>
+
     <div class="prose">
       <Content />
     </div>
+
+    {
+      tags.length > 0 && (
+        <ul class="mt-10 flex flex-wrap gap-x-3 gap-y-1 text-foreground/35">
+          {tags.map((tag) => (
+            <li>
+              <a href={tagHref(tag)} class="hover:text-foreground/85">
+                #{tag}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </article>
+
+  <nav
+    aria-label="more writing"
+    class="mt-10 flex justify-between gap-6 border-t border-muted-foreground/10 pt-5"
+  >
+    {
+      older ? (
+        <a href={postHref(older)} class="min-w-0 text-muted-foreground hover:text-foreground">
+          <span class="block text-foreground/30">older</span>
+          <span class="block truncate">{older.data.title}</span>
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      newer && (
+        <a
+          href={postHref(newer)}
+          class="min-w-0 text-right text-muted-foreground hover:text-foreground"
+        >
+          <span class="block text-foreground/30">newer</span>
+          <span class="block truncate">{newer.data.title}</span>
+        </a>
+      )
+    }
+  </nav>
 </Layout>

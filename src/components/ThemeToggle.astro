@@ -1,0 +1,23 @@
+---
+// Label is driven by the `dark` class, so it renders correctly before any JS runs.
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  class="cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
+  aria-label="toggle theme"
+  aria-keyshortcuts="t"
+>
+  <span class="dark:hidden">dark</span>
+  <span class="hidden dark:inline">light</span>
+</button>
+
+<script>
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof Element && target.closest("[data-theme-toggle]")) {
+      window.toggleTheme();
+    }
+  });
+</script>
