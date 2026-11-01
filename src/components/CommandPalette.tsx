@@ -1,7 +1,8 @@
 import { navigate } from "astro:transitions/client";
 import { Description, Title } from "@radix-ui/react-dialog";
 import { Command } from "cmdk";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { isExternal, type UrlCategory, type UrlItem } from "@/lib/links";
 import { SITE } from "@/site";
 
@@ -31,6 +32,15 @@ const isTypingTarget = (target: EventTarget | null): boolean =>
   target instanceof HTMLSelectElement ||
   (target instanceof HTMLElement && target.isContentEditable);
 
+/** True when following the url replaces the current page, so focus has nowhere to return. */
+const leavesPage = (url: string): boolean =>
+  !isExternal(url) && !url.startsWith("mailto:") && window.location.pathname !== url;
+
+const focusedElement = (): HTMLElement | null => {
+  const active = document.activeElement;
+  return active instanceof HTMLElement && active !== document.body ? active : null;
+};
+
 const go = (url: string) => {
   if (isExternal(url)) {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -52,6 +62,17 @@ interface CommandPaletteProps {
 export function CommandPalette({ items }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  // The dialog portals into this node, inside the persisted island, so a router swap
+  // (including browser back) can't remove it from under an open dialog.
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const returnFocus = useRef<HTMLElement | null>(null);
+
+  const changeOpen = useCallback((next: boolean) => {
+    if (next) {
+      returnFocus.current = focusedElement();
+    }
+    setOpen(next);
+  }, []);
 
   const groups = useMemo(
     () =>
@@ -70,11 +91,14 @@ export function CommandPalette({ items }: CommandPaletteProps) {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (event.isComposing || event.repeat) {
+        return;
+      }
       const key = event.key.toLowerCase();
 
-      if (key === "k" && (event.metaKey || event.ctrlKey)) {
+      if (key === "k" && (event.metaKey || event.ctrlKey) && !event.altKey) {
         event.preventDefault();
-        setOpen((value) => !value);
+        changeOpen(!open);
         return;
       }
 
@@ -83,9 +107,14 @@ export function CommandPalette({ items }: CommandPaletteProps) {
         return;
       }
 
+      // Some layouts need Shift to type "/", so it skips the Shift check below.
       if (key === "/") {
         event.preventDefault();
-        setOpen(true);
+        changeOpen(true);
+        return;
+      }
+
+      if (event.shiftKey) {
         return;
       }
 
@@ -103,9 +132,40 @@ export function CommandPalette({ items }: CommandPaletteProps) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, shortcuts]);
+  }, [open, shortcuts, changeOpen]);
 
-  const run = useCallback((action: () => void) => {
+  // Close before the router swaps the page so the dialog's body locks are released on the old body.
+  useEffect(() => {
+    const close = () => {
+      returnFocus.current = null;
+      flushSync(() => setOpen(false));
+    };
+    document.addEventListener("astro:before-swap", close);
+    return () => document.removeEventListener("astro:before-swap", close);
+  }, []);
+
+  // Radix has no trigger to return focus to, so put it back where it was before opening.
+  useEffect(() => {
+    if (open) {
+      return;
+    }
+    const target = returnFocus.current;
+    returnFocus.current = null;
+    if (!target) {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      if (target.isConnected) {
+        target.focus();
+      }
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [open]);
+
+  const run = useCallback((action: () => void, keepFocus = true) => {
+    if (!keepFocus) {
+      returnFocus.current = null;
+    }
     setOpen(false);
     action();
   }, []);
@@ -124,7 +184,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => changeOpen(true)}
         className="fixed right-3 bottom-3 z-40 cursor-pointer font-mono text-xs text-foreground/25 transition-colors hover:text-foreground/70 sm:right-4 sm:bottom-4"
         aria-label="open command menu"
         aria-keyshortcuts="Meta+K Control+K /"
@@ -135,7 +195,8 @@ export function CommandPalette({ items }: CommandPaletteProps) {
 
       <Command.Dialog
         open={open}
-        onOpenChange={setOpen}
+        onOpenChange={changeOpen}
+        container={container ?? undefined}
         label="command menu"
         loop
         filter={filterItems}
@@ -162,7 +223,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
                   key={`${item.category}:${item.url}`}
                   value={`${item.title} · ${item.category} · ${item.url}`}
                   keywords={[item.title, item.category, ...(item.keywords ?? [])]}
-                  onSelect={() => run(() => go(item.url))}
+                  onSelect={() => run(() => go(item.url), !leavesPage(item.url))}
                 >
                   <span className="truncate">{item.title}</span>
                   <span className="ml-auto flex shrink-0 items-center gap-2 text-foreground/30">
@@ -195,6 +256,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
           </Command.Group>
         </Command.List>
       </Command.Dialog>
+      <div ref={setContainer} />
     </>
   );
 }

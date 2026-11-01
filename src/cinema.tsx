@@ -14,9 +14,13 @@ const DEFAULT_TAB: Tab = "mkv";
 
 const isTab = (value: string): value is Tab => (TABS as readonly string[]).includes(value);
 
-const tabFromHash = (): Tab => {
+/** The tab the hash names, the default for no hash, or null for an unrelated anchor like #main. */
+const tabFromHash = (): Tab | null => {
   const hash = window.location.hash.slice(1);
-  return isTab(hash) ? hash : DEFAULT_TAB;
+  if (hash === "") {
+    return DEFAULT_TAB;
+  }
+  return isTab(hash) ? hash : null;
 };
 
 function MovieList({ items }: { items: movie[] }) {
@@ -45,7 +49,12 @@ export default function CinemaPage() {
   const [tab, setTab] = useState<Tab>(DEFAULT_TAB);
 
   useEffect(() => {
-    const sync = () => setTab(tabFromHash());
+    const sync = () => {
+      const next = tabFromHash();
+      if (next) {
+        setTab(next);
+      }
+    };
     sync();
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
