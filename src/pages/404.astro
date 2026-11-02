@@ -1,45 +1,37 @@
 ---
-import Layout from "../layouts/layout.astro";
+import { not_found_images } from "@/data";
+import Layout from "@/layouts/layout.astro";
 
-const siteTitle = "404";
-const description = "i think the url is wrong, btw hi.";
+const imageUrls = not_found_images.map((image) => image.url);
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={description} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta
-    name="twitter:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={siteTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <title>{siteTitle}</title>
-</head>
-
-<Layout>
-  <div class="h-full w-full flex items-center justify-center px-4">
-    <div class="flex flex-col items-center max-w-md text-center py-12">
-      <h1 class="mb-6">404</h1>
-      <p class="text-muted-foreground mb-10">
-        i think the url is wrong, btw hi.
-      </p>
-      <a
-        href="/"
-        class="mt-6 font-normal text-muted-foreground hover:text-foreground transition-colors duration-200"
-      >
-        go back to shiganshina
-      </a>
-    </div>
+<Layout title="404" description="i think the url is wrong, btw hi." noindex>
+  <div class="flex flex-col items-center py-12 text-center">
+    <h1 class="mb-6 text-foreground">404</h1>
+    <img
+      id="not-found-image"
+      src={imageUrls[0]}
+      alt=""
+      class="mb-8 h-auto w-full max-w-xs opacity-80"
+      data-images={JSON.stringify(imageUrls)}
+    />
+    <p class="mb-10 text-muted-foreground">i think the url is wrong, btw hi.</p>
+    <a href="/" class="text-muted-foreground transition-colors hover:text-foreground">
+      go back to shiganshina
+    </a>
   </div>
 </Layout>
+
+<script>
+  const pickImage = () => {
+    const image = document.getElementById("not-found-image");
+    if (!(image instanceof HTMLImageElement)) {
+      return;
+    }
+    const urls: unknown = JSON.parse(image.dataset.images ?? "[]");
+    if (Array.isArray(urls) && urls.length > 0) {
+      image.src = String(urls[Math.floor(Math.random() * urls.length)]);
+    }
+  };
+  document.addEventListener("astro:page-load", pickImage);
+</script>

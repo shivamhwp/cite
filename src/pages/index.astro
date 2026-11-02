@@ -1,87 +1,60 @@
 ---
-import { ModeToggle } from "../components/ui/ModeToggle";
-import { MadeProjects } from "../components/ui/MadeProjects";
-import { socials } from "../data";
-import Layout from "../layouts/layout.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import { socials, work } from "@/data";
+import Layout from "@/layouts/layout.astro";
+import { ROUTES, SITE } from "@/site";
 
-const routes = [
-  {
-    href: "/cinema",
-    label: "cinema",
-  },
-  {
-    href: "/writings",
-    label: "writing",
-  },
-  {
-    href: "/work",
-    label: "work",
-  },
-] as const;
+const muted = "text-foreground/40 hover:text-foreground/85";
+// Label on the left, links straight after it.
+const row = "flex flex-wrap items-baseline gap-x-2";
+const label = "shrink-0 font-normal";
+const links = "flex flex-wrap items-baseline gap-x-2";
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={"an ipv4 address"} />
-  <meta property="twitter:title" content=" shivam " />
-  <meta
-    name="twitter:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content={"shivam"} />
-  <meta property="og:description" content={"an ipv4 address"} />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <title>{"shivam"}</title>
-</head>
-
-<Layout title="shivam">
-  <div class="flex flex-col gap-3">
-    <section class="flex min-h-8 flex-wrap items-center justify-between gap-x-3 gap-y-1">
-      <div class="flex min-w-0 shrink-0 flex-wrap items-baseline gap-x-8 gap-y-1">
-        <h1 class="text-foreground font-normal">shivam.</h1>
-        <div class="flex flex-wrap gap-x-2 gap-y-1">
+<Layout>
+  <div class="flex flex-col gap-1">
+    <header class={row}>
+      <h1 class:list={[label, "text-foreground"]}>shivam.</h1>
+      <div class={links}>
+        <nav aria-label="primary" class="contents">
           {
-            routes.map((route) => (
-              <a
-                href={route.href}
-                class="text-foreground/40 hover:text-foreground/85"
-              >
+            ROUTES.map((route) => (
+              <a href={route.href} aria-keyshortcuts={route.shortcut} class={muted}>
                 {route.label}
               </a>
             ))
           }
-        </div>
+        </nav>
+        <ThemeToggle />
       </div>
-      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
-      <ModeToggle client:load />
+    </header>
+
+    <section id="work" aria-labelledby="work-title" class:list={[row, "scroll-mt-8"]}>
+      <h2 id="work-title" class:list={[label, "text-foreground/70"]}>worked with</h2>
+      <ul class={links}>
+        {
+          work.map((place) => (
+            <li>
+              <a href={place.link} target="_blank" rel="noopener noreferrer" class={muted}>
+                {place.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
-    <MadeProjects client:load />
-
-    <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
-      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
-      <div class="flex min-w-0 flex-wrap justify-end gap-x-2 gap-y-1">
+    <footer class={row}>
+      <a href={`mailto:${SITE.email}`} class:list={[label, muted]}>{SITE.email}</a>
+      <div class={links}>
         {
           socials.map((social) => (
-            <a
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-foreground/40 hover:text-foreground/85"
-            >
+            <a href={social.link} target="_blank" rel="noopener noreferrer" class={muted}>
               {social.title}
             </a>
           ))
         }
       </div>
-    </section>
+    </footer>
   </div>
 </Layout>

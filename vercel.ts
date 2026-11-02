@@ -20,6 +20,26 @@ export const config: VercelConfig = {
       destination: "https://x.com/shivamhwp",
     },
     {
+      source: "/work",
+      destination: "/#work",
+    },
+    {
+      source: "/updates",
+      destination: "/",
+    },
+    {
+      source: "/socials",
+      destination: "/",
+    },
+    {
+      source: "/rss",
+      destination: "/rss.xml",
+    },
+    {
+      source: "/feed",
+      destination: "/rss.xml",
+    },
+    {
       source: "/ai",
       destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },

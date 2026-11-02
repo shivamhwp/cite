@@ -1,58 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import dayjs from "dayjs";
-import { PostItem } from "../../components/ui/PostItem";
-import Layout from "../../layouts/layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import PostList from "@/components/PostList.astro";
+import Layout from "@/layouts/layout.astro";
+import { getPosts } from "@/lib/posts";
 
-const allPosts = await getCollection("posts");
-
-const getSortDate = (post: (typeof allPosts)[number]) =>
-  post.data.updated ?? post.data.published;
-
-const sortedPosts = [...allPosts].sort(
-  (a, b) => getSortDate(b).getTime() - getSortDate(a).getTime()
-);
+const posts = await getPosts();
 ---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content="writings" />
-  <meta property="twitter:title" content=" shivam " />
-  <meta
-    name="twitter:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@shivamhwp" />
-  <meta property="og:title" content="writings" />
-  <meta property="og:description" content="writings" />
-  <meta property="og:site_name" content="shivam.ing" />
-  <meta property="og:url" content="https://www.shivam.ing" />
-  <meta
-    property="og:image"
-    content="https://shivam.ing/images/opengraph-image.png"
-  />
-  <title>writings</title>
-</head>
+<Layout title="writing" description="things i've written about cinema, tools and being a person.">
+  <PageHeader title="writing" />
+  <PostList posts={posts} />
 
-<Layout>
-  <div class="w-full">
-    <a
-      href="/"
-      class="mb-3 inline-flex text-muted-foreground hover:text-foreground transition-colors no-underline"
-    >
-      back
-    </a>
-    {
-      sortedPosts.map((post) => (
-        <PostItem
-          client:load
-          href={`/writings/posts/${post.id}`}
-          title={post.data.title}
-          date={dayjs(getSortDate(post)).format("MMM D, YYYY")}
-        />
-      ))
-    }
-  </div>
+  <footer class="mt-10 text-foreground/35">
+    <a href="/rss.xml" class="hover:text-foreground/85">rss</a>
+  </footer>
 </Layout>
