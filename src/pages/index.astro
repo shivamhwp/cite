@@ -3,11 +3,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { MadeProjects } from "@/components/ui/MadeProjects";
 import { socials } from "@/data";
 import Layout from "@/layouts/layout.astro";
-import { formatDate, getPosts, postHref } from "@/lib/posts";
 import { ROUTES } from "@/site";
-
-const LATEST_POST_COUNT = 3;
-const latestPosts = (await getPosts()).slice(0, LATEST_POST_COUNT);
 ---
 
 <Layout>
@@ -35,23 +31,6 @@ const latestPosts = (await getPosts()).slice(0, LATEST_POST_COUNT);
 
     <MadeProjects client:visible />
 
-    <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
-      <h2 class="shrink-0 font-normal text-foreground/70">lately written</h2>
-      <hr class="min-w-8 flex-1 border-muted-foreground/20" />
-      <div class="flex min-w-0 flex-wrap justify-end gap-x-2 gap-y-1">
-        {
-          latestPosts.map((post) => (
-            <a
-              href={postHref(post)}
-              title={formatDate(post.data.published)}
-              class="text-foreground/40 hover:text-foreground/85"
-            >
-              {post.data.title.toLowerCase()}
-            </a>
-          ))
-        }
-      </div>
-    </section>
 
     <section class="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
       <hr class="min-w-8 flex-1 border-muted-foreground/20" />
