@@ -94,9 +94,43 @@ const jsonLd =
           localStorage.setItem("theme", theme);
           window.applySavedTheme();
         };
+        // A light-switch click, made with Web Audio so there's no file to load:
+        // two short filtered noise bursts, the press and the snap back.
+        let audio;
+        const click = function (at, frequency, volume) {
+          const length = Math.floor(audio.sampleRate * 0.025);
+          const buffer = audio.createBuffer(1, length, audio.sampleRate);
+          const samples = buffer.getChannelData(0);
+          for (let i = 0; i < length; i += 1) {
+            samples[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 6);
+          }
+          const source = audio.createBufferSource();
+          source.buffer = buffer;
+          const filter = audio.createBiquadFilter();
+          filter.type = "bandpass";
+          filter.frequency.value = frequency;
+          filter.Q.value = 2;
+          const gain = audio.createGain();
+          gain.gain.value = volume;
+          source.connect(filter).connect(gain).connect(audio.destination);
+          source.start(at);
+        };
+        const playSwitch = function () {
+          try {
+            audio = audio || new AudioContext();
+            if (audio.state === "suspended") {
+              audio.resume();
+            }
+            click(audio.currentTime, 2600, 0.9);
+            click(audio.currentTime + 0.04, 1500, 0.5);
+          } catch {
+            // No audio (old browser or blocked): the theme still switches.
+          }
+        };
         window.toggleTheme = function () {
           const isDark = document.documentElement.classList.contains("dark");
           window.setTheme(isDark ? "light" : "dark");
+          playSwitch();
         };
         window.applySavedTheme = function () {
           const isDark = localStorage.getItem("theme") !== "light";

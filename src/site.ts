@@ -17,8 +17,9 @@ export type Route = {
 export const ROUTES: readonly Route[] = [
   { href: "/cinema", label: "cinema", shortcut: "c" },
   { href: "/writings", label: "writing", shortcut: "w" },
-  { href: "/updates", label: "updates", shortcut: "u" },
-  { href: "/work", label: "work", shortcut: "s" },
 ];
+
+/** Sections of the home page, for the command palette. */
+export const SECTIONS: readonly { id: string; label: string }[] = [{ id: "work", label: "work" }];
 
 export const HOME_SHORTCUT = "h";

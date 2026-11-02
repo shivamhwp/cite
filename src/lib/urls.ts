@@ -1,5 +1,5 @@
 import { made_projects, socials, songs } from "@/data";
-import { HOME_SHORTCUT, ROUTES, SITE } from "@/site";
+import { HOME_SHORTCUT, ROUTES, SECTIONS, SITE } from "@/site";
 import { type UrlItem } from "./links";
 import { formatDate, getPosts, postHref, postTags } from "./posts";
 
@@ -15,7 +15,12 @@ export async function collectUrls(): Promise<UrlItem[]> {
       category: "pages" as const,
       shortcut: route.shortcut,
     })),
-    { title: "socials", url: "/socials", category: "pages" },
+    ...SECTIONS.map((section) => ({
+      title: section.label,
+      url: `/#${section.id}`,
+      category: "pages" as const,
+      hint: "home",
+    })),
     { title: "rss feed", url: "/rss.xml", category: "pages" },
   ];
 

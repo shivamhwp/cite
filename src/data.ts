@@ -26,6 +26,17 @@ export type made_project = {
   description: made_project_description_part[];
 };
 
+export type work_place = {
+  name: string;
+  link: string;
+};
+
+export const work: work_place[] = [
+  { name: "theo", link: "https://x.com/theo" },
+  { name: "varun mayya", link: "https://x.com/waiting4_asi" },
+  { name: "supermemory", link: "https://supermemory.ai" },
+];
+
 export const made_projects: made_project[] = [
   {
     name: "t5",

@@ -50,6 +50,11 @@ const go = (url: string) => {
     window.location.href = url;
     return;
   }
+  const target = new URL(url, window.location.href);
+  if (target.hash && target.pathname === window.location.pathname) {
+    window.location.hash = target.hash;
+    return;
+  }
   if (window.location.pathname !== url) {
     void navigate(url);
   }

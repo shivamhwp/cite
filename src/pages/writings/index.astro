@@ -2,26 +2,16 @@
 import PageHeader from "@/components/PageHeader.astro";
 import PostList from "@/components/PostList.astro";
 import Layout from "@/layouts/layout.astro";
-import { getPosts, getTags, tagHref } from "@/lib/posts";
+import { getPosts } from "@/lib/posts";
 
 const posts = await getPosts();
-const tags = [...(await getTags()).entries()];
 ---
 
 <Layout title="writing" description="things i've written about cinema, tools and being a person.">
   <PageHeader title="writing" />
   <PostList posts={posts} />
 
-  <footer class="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-foreground/35">
-    {
-      tags.map(([tag, tagged]) => (
-        <a href={tagHref(tag)} class="hover:text-foreground/85">
-          {tag}
-          <sup class="tabular-nums">{tagged.length}</sup>
-        </a>
-      ))
-    }
-    <span class="flex-1"></span>
+  <footer class="mt-10 text-foreground/35">
     <a href="/rss.xml" class="hover:text-foreground/85">rss</a>
   </footer>
 </Layout>
