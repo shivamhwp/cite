@@ -2,8 +2,8 @@
  * Keeps the HTML of every page linked from the current one in memory, so the
  * router swaps to it without waiting on the network. The pages are a few
  * kilobytes each. A copy older than MAX_AGE_MS is fetched again in the
- * background the next time a page links to it, so a tab left open picks up a
- * new deploy.
+ * background, so a tab left open picks up a new deploy without a click ever
+ * waiting on the network.
  */
 const HTML_TYPE = "text/html";
 const MAX_AGE_MS = 5 * 60 * 1000;
@@ -59,6 +59,9 @@ const warm = async (url: URL): Promise<void> => {
 };
 
 const warmLinks = (): void => {
+  if (document.visibilityState !== "visible") {
+    return;
+  }
   const here = pageKey(new URL(window.location.href));
   for (const anchor of document.querySelectorAll<HTMLAnchorElement>("a[href]")) {
     const url = new URL(anchor.href);
@@ -98,3 +101,6 @@ document.addEventListener("astro:before-preparation", (event) => {
 });
 
 document.addEventListener("astro:page-load", warmLinks);
+// Someone can sit on one page past MAX_AGE_MS, or come back to a tab hours later.
+document.addEventListener("visibilitychange", warmLinks);
+window.setInterval(warmLinks, MAX_AGE_MS);
