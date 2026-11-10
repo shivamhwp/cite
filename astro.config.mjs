@@ -8,10 +8,8 @@ import { remarkMarkdownClasses } from "./src/lib/markdown-remark-plugin.mjs";
 export default defineConfig({
   site: "https://www.shivam.ing",
   trailingSlash: "never",
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: "hover",
-  },
+  // src/lib/instant-nav.ts keeps every linked page in memory instead.
+  prefetch: false,
   fonts: [
     {
       name: "Geist",

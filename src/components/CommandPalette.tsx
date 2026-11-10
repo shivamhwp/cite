@@ -60,6 +60,27 @@ const go = (url: string) => {
   }
 };
 
+/**
+ * The ⌘ key, drawn so it matches the "k" next to it: the font's own ⌘ glyph is
+ * smaller than its letters and sits above the baseline.
+ */
+function CommandKey() {
+  return (
+    <svg
+      viewBox="2 2 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-[0.73em]"
+      aria-hidden="true"
+    >
+      <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+    </svg>
+  );
+}
+
 interface CommandPaletteProps {
   items: UrlItem[];
 }
@@ -196,7 +217,9 @@ export function CommandPalette({ items }: CommandPaletteProps) {
         aria-label="open command menu"
         aria-keyshortcuts="Meta+K Control+K /"
       >
-        <span className="hidden sm:inline">⌘k</span>
+        <span className="hidden items-baseline sm:inline-flex">
+          <CommandKey />k
+        </span>
         <span className="sm:hidden">menu</span>
       </button>
 
