@@ -94,8 +94,22 @@ const jsonLd =
         // Exposed so the toggle and palette share it.
         const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
         const THEME_COLORS = { dark: "#252525", light: "#ffffff" };
+        // Kept in memory too, so the pick still applies where storage is blocked.
+        let picked;
+        const storedTheme = function () {
+          try {
+            return localStorage.getItem("theme");
+          } catch {
+            return null;
+          }
+        };
         window.setTheme = function (theme) {
-          localStorage.setItem("theme", theme);
+          picked = theme;
+          try {
+            localStorage.setItem("theme", theme);
+          } catch {
+            // Storage blocked or full: the pick lasts until the page reloads.
+          }
           window.applySavedTheme();
         };
         // A light-switch click, made with Web Audio so there's no file to load:
@@ -137,7 +151,7 @@ const jsonLd =
           playSwitch();
         };
         window.applySavedTheme = function () {
-          const saved = localStorage.getItem("theme");
+          const saved = picked || storedTheme();
           const system = systemDark.matches ? "dark" : "light";
           const theme = saved === "dark" || saved === "light" ? saved : system;
           document.documentElement.classList.toggle("dark", theme === "dark");
