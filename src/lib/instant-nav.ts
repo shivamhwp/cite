@@ -1,14 +1,17 @@
 /**
  * Keeps the HTML of every page linked from the current one in memory, so the
  * router swaps to it without waiting on the network. The pages are a few
- * kilobytes each; a reload fetches them fresh.
+ * kilobytes each. A copy older than MAX_AGE_MS is fetched again in the
+ * background the next time a page links to it, so a tab left open picks up a
+ * new deploy.
  */
 const HTML_TYPE = "text/html";
+const MAX_AGE_MS = 5 * 60 * 1000;
 const FILE_EXTENSION = /\.[a-z0-9]+$/i;
 /** The scripts an island needs before it can hydrate. */
 const ISLAND_SCRIPT = /(?:component|renderer)-url="([^"]+)"/g;
 
-const pages = new Map<string, string>();
+const pages = new Map<string, { html: string; fetchedAt: number }>();
 const loading = new Set<string>();
 const preloaded = new Set<string>();
 const parser = new DOMParser();
@@ -34,7 +37,9 @@ const preloadIslands = (html: string): void => {
 
 const warm = async (url: URL): Promise<void> => {
   const key = pageKey(url);
-  if (pages.has(key) || loading.has(key)) {
+  const cached = pages.get(key);
+  const isFresh = cached !== undefined && Date.now() - cached.fetchedAt < MAX_AGE_MS;
+  if (isFresh || loading.has(key)) {
     return;
   }
   loading.add(key);
@@ -43,7 +48,7 @@ const warm = async (url: URL): Promise<void> => {
     const isHtml = response.headers.get("content-type")?.startsWith(HTML_TYPE) ?? false;
     if (response.ok && !response.redirected && isHtml) {
       const html = await response.text();
-      pages.set(key, html);
+      pages.set(key, { html, fetchedAt: Date.now() });
       preloadIslands(html);
     }
   } catch {
@@ -76,11 +81,11 @@ const needsNewStyles = (next: Document): boolean => {
 };
 
 document.addEventListener("astro:before-preparation", (event) => {
-  const html = pages.get(pageKey(event.to));
-  if (html === undefined || event.formData) {
+  const cached = pages.get(pageKey(event.to));
+  if (cached === undefined || event.formData) {
     return;
   }
-  const next = parser.parseFromString(html, HTML_TYPE);
+  const next = parser.parseFromString(cached.html, HTML_TYPE);
   if (needsNewStyles(next)) {
     return;
   }
