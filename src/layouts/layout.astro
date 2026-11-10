@@ -54,7 +54,7 @@ const jsonLd =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,7 +63,8 @@ const jsonLd =
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- No favicon. The empty data URL stops the browser asking for /favicon.ico. -->
+    <link rel="icon" href="data:," />
     <link rel="alternate" type="application/rss+xml" title={SITE.domain} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#252525" media="(prefers-color-scheme: dark)" />
@@ -89,9 +90,26 @@ const jsonLd =
 
     <script is:inline>
       (function () {
-        // Dark unless the visitor picked light. Exposed so the toggle and palette share it.
+        // The visitor's pick wins; without one the site follows the system theme.
+        // Exposed so the toggle and palette share it.
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+        const THEME_COLORS = { dark: "#252525", light: "#ffffff" };
+        // Kept in memory too, so the pick still applies where storage is blocked.
+        let picked;
+        const storedTheme = function () {
+          try {
+            return localStorage.getItem("theme");
+          } catch {
+            return null;
+          }
+        };
         window.setTheme = function (theme) {
-          localStorage.setItem("theme", theme);
+          picked = theme;
+          try {
+            localStorage.setItem("theme", theme);
+          } catch {
+            // Storage blocked or full: the pick lasts until the page reloads.
+          }
           window.applySavedTheme();
         };
         // A light-switch click, made with Web Audio so there's no file to load:
@@ -133,15 +151,22 @@ const jsonLd =
           playSwitch();
         };
         window.applySavedTheme = function () {
-          const isDark = localStorage.getItem("theme") !== "light";
-          document.documentElement.classList.toggle("dark", isDark);
-          document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+          const saved = picked || storedTheme();
+          const system = systemDark.matches ? "dark" : "light";
+          const theme = saved === "dark" || saved === "light" ? saved : system;
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          document.documentElement.style.colorScheme = theme;
+          // The browser chrome follows the theme on screen, not the system one.
+          for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+            meta.content = THEME_COLORS[theme];
+          }
         };
 
         window.applySavedTheme();
 
         if (!window.hasThemeRouterSync) {
           document.addEventListener("astro:after-swap", window.applySavedTheme);
+          systemDark.addEventListener("change", window.applySavedTheme);
           window.hasThemeRouterSync = true;
         }
       })();
@@ -152,7 +177,10 @@ const jsonLd =
       src="https://cloud.umami.is/script.js"
       data-website-id="50047cd7-0f24-4458-900a-a1c99a60782e"
       data-domains="shivam.ing,www.shivam.ing"></script>
-    <ClientRouter />
+    <ClientRouter fallback="swap" />
+    <script>
+      import "@/lib/instant-nav";
+    </script>
   </head>
 
   <body class="bg-background text-foreground/75 min-h-dvh w-full antialiased">

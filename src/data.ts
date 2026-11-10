@@ -31,10 +31,16 @@ export type work_place = {
   link: string;
 };
 
-export const work: work_place[] = [
-  { name: "theo", link: "https://x.com/theo" },
+export const working_with: work_place[] = [{ name: "theo", link: "https://x.com/theo" }];
+
+export const worked_with: work_place[] = [
   { name: "varun mayya", link: "https://x.com/waiting4_asi" },
   { name: "supermemory", link: "https://supermemory.ai" },
+];
+
+export const apps: work_place[] = [
+  { name: "@t3codes", link: "https://github.com/pingdotgg/t3code" },
+  { name: "@ardia", link: "https://github.com/mantrakp04/ardia" },
 ];
 
 export const made_projects: made_project[] = [
