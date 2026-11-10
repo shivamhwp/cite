@@ -12,7 +12,7 @@ const FILE_EXTENSION = /\.[a-z0-9]+$/i;
 const ISLAND_SCRIPT = /(?:component|renderer)-url="([^"]+)"/g;
 
 const pages = new Map<string, { html: string; fetchedAt: number }>();
-const loading = new Set<string>();
+const loading = new Map<string, Promise<void>>();
 const preloaded = new Set<string>();
 const parser = new DOMParser();
 
@@ -35,16 +35,9 @@ const preloadIslands = (html: string): void => {
   }
 };
 
-const warm = async (url: URL): Promise<void> => {
-  const key = pageKey(url);
-  const cached = pages.get(key);
-  const isFresh = cached !== undefined && Date.now() - cached.fetchedAt < MAX_AGE_MS;
-  if (isFresh || loading.has(key)) {
-    return;
-  }
-  loading.add(key);
+const fetchPage = async (key: string): Promise<void> => {
   try {
-    const response = await fetch(key, { priority: "low" });
+    const response = await fetch(key);
     const isHtml = response.headers.get("content-type")?.startsWith(HTML_TYPE) ?? false;
     if (response.ok && !response.redirected && isHtml) {
       const html = await response.text();
@@ -58,6 +51,16 @@ const warm = async (url: URL): Promise<void> => {
   }
 };
 
+const warm = (url: URL): void => {
+  const key = pageKey(url);
+  const cached = pages.get(key);
+  const isFresh = cached !== undefined && Date.now() - cached.fetchedAt < MAX_AGE_MS;
+  if (isFresh || loading.has(key)) {
+    return;
+  }
+  loading.set(key, fetchPage(key));
+};
+
 const warmLinks = (): void => {
   if (document.visibilityState !== "visible") {
     return;
@@ -66,7 +69,7 @@ const warmLinks = (): void => {
   for (const anchor of document.querySelectorAll<HTMLAnchorElement>("a[href]")) {
     const url = new URL(anchor.href);
     if (isPage(url) && pageKey(url) !== here) {
-      void warm(url);
+      warm(url);
     }
   }
 };
@@ -83,23 +86,45 @@ const needsNewStyles = (next: Document): boolean => {
   );
 };
 
-document.addEventListener("astro:before-preparation", (event) => {
-  const cached = pages.get(pageKey(event.to));
-  if (cached === undefined || event.formData) {
-    return;
+/** The page in memory as a document the router can swap in, or null when the router has to load it. */
+const documentFor = (key: string): Document | null => {
+  const cached = pages.get(key);
+  if (cached === undefined) {
+    return null;
   }
   const next = parser.parseFromString(cached.html, HTML_TYPE);
   if (needsNewStyles(next)) {
-    return;
+    return null;
   }
   for (const noscript of next.querySelectorAll("noscript")) {
     noscript.remove();
   }
+  return next;
+};
+
+document.addEventListener("astro:before-preparation", (event) => {
+  const key = pageKey(event.to);
+  const inFlight = loading.get(key);
+  if (event.formData || (!pages.has(key) && inFlight === undefined)) {
+    return;
+  }
+  const loadFromNetwork = event.loader;
   event.loader = async () => {
+    // A click that beats the first fetch waits for that fetch, not for a second one.
+    if (!pages.has(key)) {
+      await inFlight;
+    }
+    const next = documentFor(key);
+    if (next === null) {
+      await loadFromNetwork();
+      return;
+    }
     event.newDocument = next;
   };
 });
 
+// The first pass doesn't wait for the load event: this module runs once the page is parsed.
+warmLinks();
 document.addEventListener("astro:page-load", warmLinks);
 // Someone can sit on one page past MAX_AGE_MS, or come back to a tab hours later.
 document.addEventListener("visibilitychange", warmLinks);
