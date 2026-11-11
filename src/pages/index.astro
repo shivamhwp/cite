@@ -5,10 +5,10 @@ import Layout from "@/layouts/layout.astro";
 import { ROUTES, SITE } from "@/site";
 
 const muted = "text-foreground/40 hover:text-foreground/85";
-// Label on the left, links straight after it.
-const row = "flex flex-wrap items-baseline gap-x-2";
+// One gap between every item, labels and links alike.
+const row = "flex flex-wrap items-baseline gap-x-2 gap-y-1";
 const label = "shrink-0 font-normal";
-const links = "flex flex-wrap items-baseline gap-x-2";
+const links = "flex flex-wrap items-baseline gap-x-2 gap-y-1";
 
 const workRows = [
   { title: "working with", places: working_with },
@@ -36,31 +36,26 @@ const workRows = [
 
     <section id="work" aria-labelledby="work-title" class="flex scroll-mt-8 flex-col gap-1">
       <h2 id="work-title" class="sr-only">work</h2>
-      {
-        workRows.map((workRow) => (
-          <div class={row}>
-            <span class:list={[label, "text-foreground/70"]}>{workRow.title}</span>
-            <ul class={links}>
-              {workRow.places.map((place) => (
-                <li>
-                  <a href={place.link} target="_blank" rel="noopener noreferrer" class={muted}>
-                    {place.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
       <p class={row}>
         {
-          apps.map((app, index) => (
+          workRows.map((workRow) => (
             <>
-              {index > 0 && <span class="text-foreground/70">and</span>}
-              <a href={app.link} target="_blank" rel="noopener noreferrer" class={muted}>
-                {app.name}
-              </a>
+              <span class:list={[label, "text-foreground/70"]}>{workRow.title}</span>
+              {workRow.places.map((place) => (
+                <a href={place.link} target="_blank" rel="noopener noreferrer" class={muted}>
+                  {place.name}
+                </a>
+              ))}
             </>
+          ))
+        }
+      </p>
+      <p class={row}>
+        {
+          apps.map((app) => (
+            <a href={app.link} target="_blank" rel="noopener noreferrer" class={muted}>
+              {app.name}
+            </a>
           ))
         }
       </p>
