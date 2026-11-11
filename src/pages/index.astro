@@ -40,11 +40,13 @@ const workRows = [
         {
           workRows.map((workRow) => (
             <>
-              <span class:list={[label, "text-foreground/70"]}>{workRow.title}</span>
+              <span class:list={[label, "text-foreground/70"]}>{workRow.title}</span>{" "}
               {workRow.places.map((place) => (
-                <a href={place.link} target="_blank" rel="noopener noreferrer" class={muted}>
-                  {place.name}
-                </a>
+                <>
+                  <a href={place.link} target="_blank" rel="noopener noreferrer" class={muted}>
+                    {place.name}
+                  </a>{" "}
+                </>
               ))}
             </>
           ))
@@ -53,9 +55,11 @@ const workRows = [
       <p class={row}>
         {
           apps.map((app) => (
-            <a href={app.link} target="_blank" rel="noopener noreferrer" class={muted}>
-              {app.name}
-            </a>
+            <>
+              <a href={app.link} target="_blank" rel="noopener noreferrer" class={muted}>
+                {app.name}
+              </a>{" "}
+            </>
           ))
         }
       </p>
